@@ -499,3 +499,10 @@ Then execute the required changes directly in the codebase.
 Do not summarize the document.
 Do not restate the requirements.
 Apply them.
+
+## Additional Constraints
+
+- If specific content is missing, preserve the structure and use clearly marked placeholders rather than inventing claims, testimonials, or credentials.
+- Prefer refactoring existing components and architecture where possible instead of rebuilding everything from scratch.
+- Preserve SEO-critical structure, semantic markup, and content hierarchy during refactoring.
+- Validate all changes against responsive behavior across mobile, tablet, and desktop, with mobile-first priority.
