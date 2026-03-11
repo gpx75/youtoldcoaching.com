@@ -2,6 +2,9 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  nitro: {
+    preset: 'vercel',
+  },
   modules: [
     '@nuxt/content', '@nuxt/ui',
   ],
