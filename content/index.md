@@ -1,16 +1,20 @@
 ---
 title: What's Your Next Story?
-description: Leadership coaching for professionals navigating transition. Find clarity, capability and confidence with Moya James.
+description: Leadership transition coaching for senior leaders and executives. Find clarity, capability and confidence with Moya James — narrative coaching specialist in the UK and Switzerland.
 eyebrow: Moya James Leadership
-subtitle: Most transitions don't fail for lack of skill. They fail for lack of story.
+subtitle: Thinking about your next chapter? Let's get clear on what it looks like.
 tags:
-    - Narrative leadership coaching
-    - Professional transition
+    - Leadership transition coaching
+    - Narrative coaching
     - The Transition Triad
 cta:
-    label: Book your complimentary call
+    label: Schedule a 15-minute call
     href: /book
-heroIllustration: /Hilda_Kilama.jpg
+cta2:
+    label: £200 Alignment Session
+    href: /book
+heroIllustration: /moya_james_natural.webp
+heroIllustrationFill: true
 heroSlides:
     - /transition-triad
 ---
@@ -22,3 +26,9 @@ Youtold is a narrative coaching practice for leaders navigating the space betwee
 **Clarity** on what you actually want. **Capability** to close the gaps. **Confidence** to step forward.
 
 This is the Transition Triad — and it starts with your story.
+
+---
+
+**150+** leaders coached · **2,000+** coaching hours · **80%+** successful transitions
+
+Pharmaceutical · Banking · Technology

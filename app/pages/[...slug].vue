@@ -30,6 +30,7 @@ const heroMeta = computed(() => {
         subtitle: (current as { subtitle?: string }).subtitle ?? (meta as { subtitle?: string }).subtitle,
         tags: (current as { tags?: string[] }).tags ?? (meta as { tags?: string[] }).tags,
         cta: (current as { cta?: { label: string; href: string } }).cta ?? (meta as { cta?: { label: string; href: string } }).cta,
+        cta2: (current as { cta2?: { label: string; href: string } }).cta2 ?? (meta as { cta2?: { label: string; href: string } }).cta2,
         heroVideo: (current as { heroVideo?: string }).heroVideo ?? (meta as { heroVideo?: string }).heroVideo,
         heroVideoPoster: (current as { heroVideoPoster?: string }).heroVideoPoster ?? (meta as { heroVideoPoster?: string }).heroVideoPoster,
         heroIllustration: (current as { heroIllustration?: string }).heroIllustration ?? (meta as { heroIllustration?: string }).heroIllustration,
@@ -59,6 +60,7 @@ const contentSlides = computed(() => [
             :subtitle="heroMeta.subtitle"
             :tags="heroMeta.tags"
             :cta="heroMeta.cta"
+            :cta2="heroMeta.cta2"
             :content-slides="contentSlides"
             :video-src="heroMeta.heroVideo"
             :video-poster="heroMeta.heroVideoPoster"

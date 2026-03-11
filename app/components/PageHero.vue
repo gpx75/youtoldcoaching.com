@@ -5,6 +5,7 @@ const props = defineProps<{
     subtitle?: string;
     tags?: string[];
     cta?: { label: string; href: string };
+    cta2?: { label: string; href: string };
     contentSlides?: any[];
     videoSrc?: string;
     videoPoster?: string;
@@ -97,7 +98,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 <div
                     v-if="props.illustration"
                     class="mt-2 overflow-hidden rounded-2xl"
-                    :class="props.illustrationFill ? 'min-h-64 flex-1' : 'size-80 lg:size-96'"
+                    :class="props.illustrationFill ? 'min-h-64 lg:h-120' : 'size-80 lg:size-96'"
                 >
                     <img
                         :src="props.illustration"
@@ -134,7 +135,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 </div>
 
                 <!-- Tags + CTA -->
-                <div v-if="props.tags?.length || props.cta" class="flex flex-wrap items-center gap-3">
+                <div v-if="props.tags?.length || props.cta || props.cta2" class="flex flex-wrap items-center gap-3">
                     <div v-if="props.tags?.length" class="flex flex-wrap gap-2">
                         <span
                             v-for="tag in props.tags"
@@ -144,17 +145,29 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             {{ tag }}
                         </span>
                     </div>
-                    <UButton
-                        v-if="props.cta"
-                        :to="props.cta.href"
-                        color="secondary"
-                        variant="solid"
-                        size="lg"
-                        trailing-icon="i-heroicons-arrow-right"
-                        class="rounded-full"
-                    >
-                        {{ props.cta.label }}
-                    </UButton>
+                    <div v-if="props.cta || props.cta2" class="flex flex-wrap gap-3">
+                        <UButton
+                            v-if="props.cta"
+                            :to="props.cta.href"
+                            color="secondary"
+                            variant="solid"
+                            size="lg"
+                            trailing-icon="i-heroicons-arrow-right"
+                            class="rounded-full"
+                        >
+                            {{ props.cta.label }}
+                        </UButton>
+                        <UButton
+                            v-if="props.cta2"
+                            :to="props.cta2.href"
+                            color="neutral"
+                            variant="outline"
+                            size="lg"
+                            class="rounded-full"
+                        >
+                            {{ props.cta2.label }}
+                        </UButton>
+                    </div>
                 </div>
 
                 <!-- Slide dots -->
