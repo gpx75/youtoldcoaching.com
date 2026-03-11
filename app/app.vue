@@ -1,17 +1,19 @@
 <script setup lang="ts">
 useHead(() => ({
-  title: 'You Told Coaching',
-  htmlAttrs: { lang: 'en', 'data-theme': 'cupcake' },
+  title: 'Moya James Leadership',
+  htmlAttrs: { lang: 'en' },
   link: [],
   meta: [
-    { name: 'description', content: 'Coaching for leaders who want grounded clarity and sustainable momentum.' },
+    { name: 'description', content: 'Narrative coaching for leaders navigating professional transition. Youtold Coaching with Moya James.' },
   ],
 }))
 </script>
 
 <template>
+  <UApp>  
   <NuxtRouteAnnouncer />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  </UApp>
 </template>

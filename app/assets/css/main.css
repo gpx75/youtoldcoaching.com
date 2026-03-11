@@ -1,4 +1,159 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import '@nuxt/ui';
 
-@plugin "@tailwindcss/typography";
-@plugin "daisyui";
+/* ── Color scales ──────────────────────────────────────────────── */
+@theme {
+    --font-sans: 'Manrope', sans-serif;
+    --font-serif: 'Fraunces', serif;
+
+    /* Deep Teal Blue — primary brand colour */
+    --color-teal-50:  oklch(97%  0.012 210);
+    --color-teal-100: oklch(93%  0.028 210);
+    --color-teal-200: oklch(85%  0.055 210);
+    --color-teal-300: oklch(74%  0.085 210);
+    --color-teal-400: oklch(62%  0.095 210);
+    --color-teal-500: oklch(52%  0.090 210);
+    --color-teal-600: oklch(44%  0.080 210);
+    --color-teal-700: oklch(38%  0.068 210);
+    --color-teal-800: oklch(30%  0.055 210);
+    --color-teal-900: oklch(22%  0.040 210);
+    --color-teal-950: oklch(15%  0.025 210);
+}
+
+/* ── Theme tokens ──────────────────────────────────────────────── */
+/* Defined outside @layer so they win over any layered Nuxt UI defaults. */
+
+/* Light — white bg · deep teal text */
+:root {
+    /* Force rose gold scale — overrides Tailwind's built-in vivid rose */
+    --color-rose-50:  oklch(97%  0.010 35);
+    --color-rose-100: oklch(93%  0.022 34);
+    --color-rose-200: oklch(87%  0.038 33);
+    --color-rose-300: oklch(79%  0.056 33);
+    --color-rose-400: oklch(71%  0.072 32);
+    --color-rose-500: oklch(63%  0.082 31);
+    --color-rose-600: oklch(54%  0.075 30);
+    --color-rose-700: oklch(45%  0.064 29);
+    --color-rose-800: oklch(36%  0.049 28);
+    --color-rose-900: oklch(27%  0.032 27);
+    --color-rose-950: oklch(18%  0.018 26);
+
+    --ui-primary:          oklch(38%  0.068 210);  /* teal-700 — interactive elements */
+    --ui-bg:               oklch(100% 0     0);    /* pure white */
+    --ui-bg-elevated:      oklch(98%  0.004 78);   /* soft cream */
+    --ui-bg-accented:      oklch(95%  0.010 210);  /* faint teal tint */
+    --ui-bg-inverted:      oklch(22%  0.045 210);
+    --ui-text-highlighted: oklch(22%  0.045 210);  /* deep navy-teal — headings, gradient start */
+    --ui-text:             oklch(57%  0.008 65);   /* warm grey body */
+    --ui-text-muted:       oklch(64%  0.008 65);
+    --ui-text-dimmed:      oklch(72%  0.006 65);
+    --ui-text-toned:       oklch(60%  0.010 210);
+    --ui-border:           oklch(90%  0.012 210);
+    --ui-border-accented:  oklch(82%  0.020 210);
+    --ui-border-inverted:  oklch(22%  0.045 210);
+}
+
+/* Dark — deep teal bg · cream text */
+.dark {
+    /* Rose gold — brighter on dark so buttons pop without being harsh */
+    --color-rose-400: oklch(74%  0.068 33);
+    --color-rose-500: oklch(68%  0.076 32);
+    --color-rose-600: oklch(59%  0.072 31);
+
+    --ui-primary:          oklch(62%  0.095 210);  /* teal-400 — bright on dark */
+    --ui-bg:               oklch(18%  0.030 210);  /* very dark teal-navy */
+    --ui-bg-elevated:      oklch(22%  0.035 210);
+    --ui-bg-accented:      oklch(26%  0.040 210);
+    --ui-bg-inverted:      oklch(98%  0.004 78);   /* cream */
+    --ui-text-highlighted: oklch(98%  0.004 78);
+    --ui-text:             oklch(90%  0.006 76);
+    --ui-text-muted:       oklch(72%  0.010 210);
+    --ui-text-dimmed:      oklch(56%  0.014 210);
+    --ui-text-toned:       oklch(64%  0.012 210);
+    --ui-border:           oklch(28%  0.040 210);
+    --ui-border-accented:  oklch(34%  0.045 210);
+    --ui-border-inverted:  oklch(90%  0.006 76);
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
+@layer base {
+    html {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        font-optical-sizing: auto;
+        font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1, 'case' 1;
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-smooth: always;
+        letter-spacing: 0.01em;
+        line-height: 1.72;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-optical-sizing: auto;
+        font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+        letter-spacing: -0.03em;
+        line-height: 1.06;
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    /* Luminous primary accent on interactive elements */
+    a, button {
+        text-decoration-skip-ink: auto;
+    }
+
+    body {
+        background: linear-gradient(
+            160deg,
+            var(--ui-bg-elevated) 0%,
+            var(--ui-bg) 55%
+        );
+        color: var(--ui-text);
+    }
+}
+
+/* ── Prose — global theme-aware configuration ──────────────────── */
+@layer components {
+    .prose {
+        --tw-prose-body:          var(--ui-text);
+        --tw-prose-headings:      var(--ui-text-highlighted);
+        --tw-prose-lead:          var(--ui-text-muted);
+        --tw-prose-bold:          var(--ui-text-highlighted);
+        --tw-prose-links:         var(--ui-primary);
+        --tw-prose-quotes:        var(--ui-text-muted);
+        --tw-prose-quote-borders: var(--ui-primary);
+        --tw-prose-counters:      var(--ui-text-muted);
+        --tw-prose-bullets:       var(--ui-primary);
+        --tw-prose-hr:            var(--ui-border);
+        --tw-prose-th-borders:    var(--ui-border-accented);
+        --tw-prose-td-borders:    var(--ui-border);
+        --tw-prose-code:          var(--ui-text-highlighted);
+        --tw-prose-pre-bg:        var(--ui-bg-accented);
+        --tw-prose-captions:      var(--ui-text-dimmed);
+        line-height: 1.78;
+    }
+
+    .prose :is(h1, h2, h3, h4, h5, h6) {
+        font-family: var(--font-serif);
+        font-optical-sizing: auto;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        text-wrap: balance;
+    }
+
+    .prose p {
+        text-wrap: pretty;
+    }
+
+    .prose strong {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+}

@@ -1,41 +1,190 @@
 <script setup lang="ts">
 const props = defineProps<{
-  eyebrow?: string
-  title: string
-  subtitle?: string
-  tags?: string[]
-  cta?: { label: string; href: string }
-}>()
+    eyebrow?: string;
+    title: string;
+    subtitle?: string;
+    tags?: string[];
+    cta?: { label: string; href: string };
+    contentSlides?: any[];
+    videoSrc?: string;
+    videoPoster?: string;
+    illustration?: string;
+    illustrationFill?: boolean;
+    contentScroll?: boolean;
+}>();
+
+const slideIndex = ref(0);
+const slideDir = ref<'next' | 'prev'>('next');
+
+const currentSlide = computed(() => props.contentSlides?.[slideIndex.value]);
+const currentTitle = computed(() => (currentSlide.value as any)?.title ?? props.title);
+const hasSlides = computed(() => (props.contentSlides?.length ?? 0) > 1);
+
+let timer: ReturnType<typeof setInterval> | null = null;
+
+function advance() {
+    slideDir.value = 'next';
+    slideIndex.value = (slideIndex.value + 1) % (props.contentSlides?.length ?? 1);
+}
+
+function goTo(i: number) {
+    slideDir.value = i > slideIndex.value ? 'next' : 'prev';
+    slideIndex.value = i;
+    resetTimer();
+}
+
+function resetTimer() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(advance, 10000);
+}
+
+onMounted(() => { if (hasSlides.value) resetTimer(); });
+onUnmounted(() => { if (timer) clearInterval(timer); });
 </script>
 
 <template>
-  <section class="hero bg-base-200 py-10">
-    <div class="hero-content text-center">
-      <div class="max-w-4xl space-y-6">
-        <p v-if="props.eyebrow" class="text-xs font-semibold uppercase tracking-[0.3em] text-base-content/60">
-          {{ props.eyebrow }}
-        </p>
-        <h1 class="text-4xl font-bold sm:text-5xl lg:text-6xl">
-          {{ props.title }}
-        </h1>
-        <p v-if="props.subtitle" class="text-base text-base-content/70 sm:text-lg">
-          {{ props.subtitle }}
-        </p>
-        <div v-if="props.tags?.length" class="flex flex-wrap justify-center gap-3">
-          <span
-            v-for="tag in props.tags"
-            :key="tag"
-            class="badge badge-outline px-4 py-3 text-xs font-semibold uppercase tracking-wide"
-          >
-            {{ tag }}
-          </span>
+    <section class="relative flex w-full flex-col lg:h-full">
+        <!-- Background video -->
+        <div v-if="props.videoSrc" class="pointer-events-none absolute inset-0 z-0">
+            <video
+                class="h-full w-full object-cover"
+                :src="props.videoSrc"
+                :poster="props.videoPoster"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-hidden="true"
+            />
+            <div class="absolute inset-0 bg-(--ui-bg)/55" />
         </div>
-        <div v-if="props.cta">
-          <NuxtLink :to="props.cta.href" class="btn btn-secondary rounded-full">
-            {{ props.cta.label }}
-          </NuxtLink>
+
+        <!-- Layout -->
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:px-16 lg:py-0">
+
+            <!-- Left: eyebrow + title + subtitle + optional portrait -->
+            <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
+                <div
+                    v-if="props.eyebrow"
+                    class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full ring-1 ring-(--ui-primary)/30 bg-(--ui-primary)/6 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/80 backdrop-blur-sm"
+                >
+                    <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70" />
+                    {{ props.eyebrow }}
+                </div>
+
+                <Transition :name="slideDir === 'next' ? 'slide-next' : 'slide-prev'" mode="out-in">
+                    <h1
+                        :key="slideIndex"
+                        class="font-serif font-bold text-balance bg-gradient-to-br from-(--ui-text-highlighted) via-(--ui-text-highlighted) to-(--ui-primary) bg-clip-text text-transparent"
+                        :class="props.illustration
+                            ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
+                            : 'mb-6 text-[3rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
+                    >
+                        {{ currentTitle }}
+                    </h1>
+                </Transition>
+
+                <p
+                    v-if="props.subtitle"
+                    class="text-base leading-relaxed text-muted text-balance sm:text-lg"
+                    :class="props.illustration ? 'mb-6' : 'mb-0'"
+                >
+                    {{ props.subtitle }}
+                </p>
+
+                <!-- Portrait (illustration pages only) -->
+                <div
+                    v-if="props.illustration"
+                    class="mt-2 overflow-hidden rounded-2xl"
+                    :class="props.illustrationFill ? 'min-h-64 flex-1' : 'size-80 lg:size-96'"
+                >
+                    <img
+                        :src="props.illustration"
+                        alt="Moya"
+                        class="h-full w-full object-cover object-top"
+                    />
+                </div>
+            </div>
+
+            <!-- Right: sliding content + tags + CTA -->
+            <div
+                v-if="currentSlide || props.tags?.length || props.cta"
+                class="flex flex-1 flex-col gap-7"
+                :class="props.contentScroll ? 'lg:min-h-0 lg:overflow-hidden lg:py-10' : 'justify-center'"
+            >
+                <!-- Slide content -->
+                <div
+                    v-if="currentSlide"
+                    class="relative"
+                    :class="props.contentScroll ? 'min-h-0 flex-1 overflow-y-auto scroll-smooth pr-1' : ''"
+                >
+                    <Transition :name="slideDir === 'next' ? 'slide-next' : 'slide-prev'" mode="out-in">
+                        <ContentRenderer
+                            :key="slideIndex"
+                            :value="currentSlide"
+                            class="prose prose-sm md:prose-base max-w-none"
+                        />
+                    </Transition>
+                    <!-- Bottom fade hint when scrollable -->
+                    <div
+                        v-if="props.contentScroll"
+                        class="pointer-events-none sticky bottom-0 h-10 bg-gradient-to-t from-(--ui-bg) to-transparent"
+                    />
+                </div>
+
+                <!-- Tags + CTA -->
+                <div v-if="props.tags?.length || props.cta" class="flex flex-wrap items-center gap-3">
+                    <div v-if="props.tags?.length" class="flex flex-wrap gap-2">
+                        <span
+                            v-for="tag in props.tags"
+                            :key="tag"
+                            class="rounded-full ring-1 ring-(--ui-border) bg-(--ui-bg)/80 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted backdrop-blur-sm"
+                        >
+                            {{ tag }}
+                        </span>
+                    </div>
+                    <UButton
+                        v-if="props.cta"
+                        :to="props.cta.href"
+                        color="secondary"
+                        variant="solid"
+                        size="lg"
+                        trailing-icon="i-heroicons-arrow-right"
+                        class="rounded-full"
+                    >
+                        {{ props.cta.label }}
+                    </UButton>
+                </div>
+
+                <!-- Slide dots -->
+                <div v-if="hasSlides" class="flex items-center gap-2">
+                    <button
+                        v-for="(_, i) in props.contentSlides"
+                        :key="i"
+                        class="h-1.5 rounded-full transition-all duration-300"
+                        :class="i === slideIndex
+                            ? 'w-6 bg-(--ui-primary)'
+                            : 'w-1.5 bg-(--ui-primary)/30 hover:bg-(--ui-primary)/60'"
+                        :aria-label="`Go to slide ${i + 1}`"
+                        @click="goTo(i)"
+                    />
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </template>
+
+<style scoped>
+.slide-next-enter-active,
+.slide-next-leave-active,
+.slide-prev-enter-active,
+.slide-prev-leave-active {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.slide-next-enter-from { opacity: 0; transform: translateY(12px); }
+.slide-next-leave-to   { opacity: 0; transform: translateY(-12px); }
+.slide-prev-enter-from { opacity: 0; transform: translateY(-12px); }
+.slide-prev-leave-to   { opacity: 0; transform: translateY(12px); }
+</style>

@@ -1,11 +1,10 @@
 <template>
-    <div class="min-h-screen bg-base-200">
-        <div class="flex min-h-screen flex-col">
-            <SiteHeader />
-            <main class="w-full flex-1 px-6 pb-16 pt-8 sm:px-10 lg:px-16">
-                <slot />
-            </main>
-            <SiteFooter class="mt-auto" />
-        </div>
+    <div class="flex flex-col lg:h-dvh lg:overflow-hidden">
+        <BackgroundPattern />
+        <SiteHeader />
+        <main class="flex-1 lg:min-h-0 lg:overflow-hidden">
+            <slot />
+        </main>
+        <SiteFooter />
     </div>
 </template>

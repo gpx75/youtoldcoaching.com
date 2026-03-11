@@ -1,31 +1,23 @@
 ---
-title: About Moya
-description: Founder of Youtold, guiding leaders back to who they are.
-eyebrow: About Moya
-subtitle: I help leaders reconnect with themselves so they can lead with authenticity and grounded confidence.
+title: From pharma boardroom to coaching practice.
+description: Moya James — leadership coach and Youtold founder. Former pharmaceutical executive who traded corporate certainty for purposeful work in 2016.
+eyebrow: About Moya James
+subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
 tags:
-  - Inner-world awareness
-  - Strategic leadership
-  - Communication mastery
+    - Narrative coaching
+    - Professional transition
+    - Youtold methodology
 cta:
-  label: Explore the leadership path
-  href: /youtold-leadership-path
+    label: Work with me
+    href: /work-with-me
+heroIllustration: /illus-dark.webp
+heroIllustrationFill: true
 ---
 
-## Hi, I am Moya — founder of Youtold.
+After fifteen years in pharmaceutical leadership I made a deliberate choice to leave. Not because something was wrong — but because something else was calling.
 
-I help leaders reconnect with themselves so they can lead others with authenticity, emotional intelligence, and grounded confidence.
+In 2016 I founded Youtold, a coaching practice built on a single conviction: the story you tell about your transition shapes the leader you become on the other side of it.
 
-My work sits at the intersection of:
+My methodology is narrative-centred. We excavate the experiences, values, and moments that make your leadership distinctly yours.
 
-- Inner-world awareness
-- Strategic leadership
-- Communication mastery
-- Identity and mindset
-- Social consciousness
-
-I challenge with purpose. I support with depth. I create space for truth, growth, and transformation.
-
-Your identity is not an obstacle. It is a source of wisdom, depth, and power.
-
-I believe every leader has a story — and when you learn to own it, you lead with impact.
+**Your transition is not a gap in your CV. It is the making of your next chapter.**

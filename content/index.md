@@ -1,21 +1,24 @@
 ---
-title: Youtold
-description: Become the leader your story has been waiting for.
-eyebrow: Youtold — Homepage
-subtitle: Your story is your leadership.
+title: What's Your Next Story?
+description: Leadership coaching for professionals navigating transition. Find clarity, capability and confidence with Moya James.
+eyebrow: Moya James Leadership
+subtitle: Most transitions don't fail for lack of skill. They fail for lack of story.
 tags:
-  - Strategic and human leadership
-  - Identity-led growth
-  - Clarity and purpose
+    - Narrative leadership coaching
+    - Professional transition
+    - The Transition Triad
 cta:
-  label: Book your Leadership Story Session
-  href: /your-entry-point
+    label: Book your complimentary call
+    href: /book
+heroIllustration: /Hilda_Kilama.jpg
+heroSlides:
+    - /transition-triad
 ---
 
-## Become the leader your story has been waiting for
+You are mid-transition. The old role no longer fits. The next one isn't clear yet.
 
-Leadership does not begin with a title. It begins in the quiet, honest moments when you reconnect with yourself — your values, your voice, your lived experience, your truth.
+Youtold is a narrative coaching practice for leaders navigating the space between who you were and who you are becoming.
 
-At Youtold, I guide leaders back to who they are so they can lead others with clarity, purpose, and humanity.
+**Clarity** on what you actually want. **Capability** to close the gaps. **Confidence** to step forward.
 
-This is leadership that is strategic and deeply human. This is leadership shaped by identity, experience, and authenticity. This is leadership that begins within.
+This is the Transition Triad — and it starts with your story.
