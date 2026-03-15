@@ -1,6 +1,6 @@
 ---
 title: From pharma boardroom to coaching practice.
-description: Moya James — leadership coach and Youtold founder. Former pharmaceutical executive who traded corporate certainty for purposeful work in 2016.
+description: Hi I am Moya James — leadership coach and Youtold founder. Former pharmaceutical executive who traded corporate certainty for purposeful work in 2016.
 eyebrow: About Moya James
 subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
 tags:
