@@ -3,10 +3,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   nitro: {
-    preset: 'vercel-static',
+    preset: 'vercel',
   },
   modules: [
-    '@nuxt/content', '@nuxt/ui', '@nuxthq/studio',
+    '@nuxt/content', '@nuxt/ui', 'nuxt-studio',
   ],
   css: ['~/assets/css/main.css'],
   colorMode: {
