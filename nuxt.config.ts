@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     preset: 'vercel-static',
   },
   modules: [
-    '@nuxt/content', '@nuxt/ui',
+    '@nuxt/content', '@nuxt/ui', '@nuxthq/studio',
   ],
   css: ['~/assets/css/main.css'],
   colorMode: {
