@@ -14,7 +14,7 @@ heroIllustration: /moya_james_studio.webp
 heroIllustrationFill: true
 ---
 
-After 17 years in pharmaceutical leadership I made a deliberate choice to leave. Not because something was wrong — but because something else was calling.
+After 15 years in pharmaceutical leadership I made a deliberate choice to leave. Not because something was wrong — but because something else was calling.
 
 In 2016 I founded Youtold, a coaching practice built on a single conviction: the story you tell about your transition shapes the leader you become on the other side of it.
 
