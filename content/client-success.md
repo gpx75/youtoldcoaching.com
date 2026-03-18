@@ -1,7 +1,7 @@
 ---
 title: What changes when you own your story.
 description: Testimonials from leaders who worked with Moya James through Youtold narrative coaching.
-eyebrow: Client Success
+eyebrow: Client Success Stories
 subtitle: These are not reviews. They are dispatches from the other side of a transition.
 tags:
     - Career transition
@@ -9,7 +9,29 @@ tags:
     - Confidence and clarity
 cta:
     label: Start your own transition
-    href: /book?type=15
+    href: /contact?type=15
+sections:
+  - type: credibility
+    eyebrow: In numbers
+    stats:
+      - value: "400+"
+        label: Leaders coached
+      - value: "2,000+"
+        label: Coaching hours
+      - value: "80%+"
+        label: Successful transitions
+      - value: "3"
+        label: Continents
+  - type: action
+    eyebrow: Your turn
+    heading: "[PLACEHOLDER — Client success action heading]"
+    body: "[PLACEHOLDER — Client success action body copy.]"
+    cta:
+      label: Start your transition
+      href: /contact?type=15
+    cta2:
+      label: View programmes
+      href: /services
 ---
 
 > "I came to Moya knowing what I was leaving. I left with a story I was genuinely proud to tell in interviews. I landed the role within three months."

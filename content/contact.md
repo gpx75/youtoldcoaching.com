@@ -2,7 +2,7 @@
 title: Let's find out if this is the right fit.
 calendlyUrl: https://calendly.com/moyajames
 description: Book a 15-minute complimentary call or a £200 Alignment Session with Moya James.
-eyebrow: Book
+eyebrow: Contact
 heroContentScroll: false
 heroIllustrationFill: false
 subtitle: No obligation. No pitch. A real conversation about where you are and where you want to go.

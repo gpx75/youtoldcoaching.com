@@ -2,7 +2,7 @@
 title: From pharma boardroom to coaching practice.
 cta:
   label: Work with me
-  href: /work-with-me
+  href: /services
 description: Hi I am Moya James — leadership coach and Youtold founder. Former pharmaceutical executive who traded corporate certainty for purposeful work in 2016.
 eyebrow: About Moya James
 heroContentScroll: false
@@ -13,6 +13,39 @@ tags:
   - Narrative coaching
   - Professional transition
   - Youtold methodology
+sections:
+  - type: framework
+    eyebrow: The methodology
+    heading: "[PLACEHOLDER — Pathwise™ introduction heading]"
+    body: "[PLACEHOLDER — Methodology overview copy.]"
+    pillars:
+      - label: "[PLACEHOLDER — Activate]"
+        body: "[PLACEHOLDER — Activate pillar description.]"
+      - label: "[PLACEHOLDER — Align]"
+        body: "[PLACEHOLDER — Align pillar description.]"
+      - label: "[PLACEHOLDER — Achieve]"
+        body: "[PLACEHOLDER — Achieve pillar description.]"
+  - type: credibility
+    eyebrow: Background
+    stats:
+      - value: "20+"
+        label: Years pharmaceutical leadership
+      - value: "2016"
+        label: Founded Youtold
+      - value: ICF L2
+        label: Certified coach
+      - value: "400+"
+        label: Leaders coached
+  - type: action
+    eyebrow: Work with me
+    heading: "[PLACEHOLDER — About action heading]"
+    body: "[PLACEHOLDER — About action body copy.]"
+    cta:
+      label: View programmes
+      href: /services
+    cta2:
+      label: Book a call
+      href: /contact?type=15
 ---
 
 After 15 years in pharmaceutical leadership I made a deliberate choice to leave. Not because something was wrong — but because something else was calling.

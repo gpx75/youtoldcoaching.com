@@ -2,9 +2,9 @@
 title: Choose the depth that fits your transition.
 cta:
   label: Book your Alignment Session
-  href: /book?type=90
+  href: /contact?type=90
 description: 3, 6 and 12-month coaching programmes, VIP Strategy Days, and a £200 Alignment Session with Moya James.
-eyebrow: Work With Me
+eyebrow: Services
 heroContentScroll: true
 heroIllustrationFill: false
 subtitle: Every programme is bespoke. These are the containers, not the contents.
@@ -12,6 +12,28 @@ tags:
   - 3 / 6 / 12-month programmes
   - VIP Strategy Days
   - £200 Alignment Session
+sections:
+  - type: credibility
+    eyebrow: Why it works
+    stats:
+      - value: "400+"
+        label: Leaders coached
+      - value: "2,000+"
+        label: Coaching hours
+      - value: "3–12"
+        label: Months per programme
+      - value: ICF L2
+        label: Certified coach
+  - type: action
+    eyebrow: Ready to begin
+    heading: "[PLACEHOLDER — Services action heading]"
+    body: "[PLACEHOLDER — Services action body copy.]"
+    cta:
+      label: Book Alignment Session
+      href: /contact?type=90
+    cta2:
+      label: Free 15-min call
+      href: /contact?type=15
 ---
 
 ## £200 Alignment Session — 90 minutes

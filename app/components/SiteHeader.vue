@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const navigation = [
-    { label: 'Home',             to: '/' },
-    { label: 'About Moya',       to: '/about-moya' },
-    { label: 'Work With Me',     to: '/work-with-me' },
-    { label: 'Transition Triad', to: '/transition-triad' },
-    { label: 'Client Success',   to: '/client-success' },
-    { label: 'Book',             to: '/book' },
+    { label: 'Home',                    to: '/' },
+    { label: 'About Moya',              to: '/about-moya' },
+    { label: 'Services',                to: '/services' },
+    { label: 'Pathwise™ Framework',     to: '/pathwise-framework' },
+    { label: 'Client Success Stories',  to: '/client-success' },
+    { label: 'Contact',                 to: '/contact' },
 ];
 
 const colorMode = useColorMode();
@@ -20,7 +20,7 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
 </script>
 
 <template>
-    <header class="sticky top-0 z-50 border-b border-(--ui-border) bg-(--ui-bg)/80 backdrop-blur-md">
+    <header class="sticky top-0 z-50 border-b border-default bg-default/80 backdrop-blur-md">
         <!-- Primary accent bar -->
         <div class="h-0.5 bg-primary" />
         <div class="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
@@ -86,7 +86,7 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
             leave-from-class="translate-y-0 opacity-100"
             leave-to-class="-translate-y-1 opacity-0"
         >
-            <div v-if="isMenuOpen" class="border-t border-(--ui-border) bg-(--ui-bg) lg:hidden">
+            <div v-if="isMenuOpen" class="border-t border-default bg-default lg:hidden">
                 <nav class="mx-auto flex max-w-7xl flex-col gap-0.5 px-4 py-3">
                     <ULink
                         v-for="item in navigation"
