@@ -104,14 +104,12 @@
         text-rendering: geometricPrecision;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-smooth: always;
         letter-spacing: 0.01em;
         line-height: 1.72;
     }
 
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-serif);
-        font-optical-sizing: auto;
         font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
         letter-spacing: -0.03em;
         line-height: 1.06;
@@ -158,15 +156,8 @@
     }
 
     .prose :is(h1, h2, h3, h4, h5, h6) {
-        font-family: var(--font-serif);
-        font-optical-sizing: auto;
         letter-spacing: -0.025em;
         line-height: 1.1;
-        text-wrap: balance;
-    }
-
-    .prose p {
-        text-wrap: pretty;
     }
 
     .prose strong {
