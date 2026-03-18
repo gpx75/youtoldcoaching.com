@@ -9,6 +9,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'vercel',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/about-moya', '/services', '/pathwise-framework', '/client-success', '/contact'],
+    },
   },
   modules: [
     '@nuxt/content', '@nuxt/ui', 'nuxt-studio',
