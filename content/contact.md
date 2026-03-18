@@ -1,27 +1,33 @@
 ---
 title: Let's find out if this is the right fit.
+description: Book a complimentary 30-minute call or a £120 Alignment Session with Moya James. Leadership transition coaching for senior leaders and executives.
 calendlyUrl: https://calendly.com/moyajames
-description: Book a 15-minute complimentary call or a £200 Alignment Session with Moya James.
 eyebrow: Contact
 heroContentScroll: false
 heroIllustrationFill: false
 subtitle: No obligation. No pitch. A real conversation about where you are and where you want to go.
 tags:
-  - 15-min complimentary call
-  - £200 Alignment Session
-  - Coaching enquiry
+  - Complimentary 30-min call
+  - £120 Alignment Session
+  - Pathwise™ coaching enquiry
 ---
 
-## 15-Minute Complimentary Call
+## Complimentary 30-Minute Call
 
-A brief conversation to understand your situation and whether Youtold is the right approach for your transition. If it isn't, I'll point you somewhere more useful. No charge. No commitment.
+A brief conversation to understand your situation and whether the Pathwise™ methodology is the right approach for your transition. If it isn't, I will point you somewhere more useful.
 
-## £200 Alignment Session — 90 minutes
+No charge. No commitment. No pitch.
 
-If you already know you want to begin, the Alignment Session is the proper starting point. We map your Transition Triad in detail, and you leave with a written summary you can use regardless of what you decide next.
+## Alignment Session — £120
 
-The £200 is credited against any programme you subsequently book.
+A 90-minute deep-dive into your current position. We map your leadership transition in detail using the Pathwise™ framework, identify the specific gaps between where you are and where you want to be, and clarify which programme — if any — will serve you best.
+
+You leave with a written coaching recommendation regardless of what you decide next.
+
+**The £120 is credited in full against your first programme.**
 
 ---
 
-Or email **<hello@moyajames.com>** with a brief note about your situation.
+Most clients move from this conversation into a programme within two to four weeks. The typical journey: **Awareness → Interest → Alignment Session → Programme enrolment.**
+
+Or email **<hello@moyajames.com>** with a brief note about your situation and what you are navigating.

@@ -105,7 +105,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
 
                 <!-- Framework: methodology or pillars -->
                 <section
-                    v-else-if="section.type === 'framework'"
+                    v-else-if="section.type === 'framework' || section.type === 'differentiators'"
                     class="border-t border-default"
                     :aria-label="section.eyebrow || 'Framework'"
                 >

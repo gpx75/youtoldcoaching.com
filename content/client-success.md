@@ -1,15 +1,18 @@
 ---
-title: What changes when you own your story.
-description: Testimonials from leaders who worked with Moya James through Youtold narrative coaching.
+title: Their transitions. Their words.
+description: Client success stories from leaders who worked with Moya James through the Pathwise™ methodology — navigating pivotal career transitions across pharmaceutical, banking, and technology sectors.
 eyebrow: Client Success Stories
-subtitle: These are not reviews. They are dispatches from the other side of a transition.
+subtitle: Real transitions. Real leaders. Real outcomes. Names used with permission.
 tags:
-    - Career transition
-    - Leadership identity
-    - Confidence and clarity
+  - Activate stage
+  - Align stage
+  - Achieve stage
 cta:
-    label: Start your own transition
-    href: /contact?type=15
+  label: Start your own transition
+  href: /contact?type=30
+cta2:
+  label: View programmes
+  href: /services
 sections:
   - type: credibility
     eyebrow: In numbers
@@ -23,29 +26,48 @@ sections:
       - value: "3"
         label: Continents
   - type: action
-    eyebrow: Your turn
-    heading: "[PLACEHOLDER — Client success action heading]"
-    body: "[PLACEHOLDER — Client success action body copy.]"
+    eyebrow: Your transition is next
+    heading: Define Your Path. Own Your Impact.
+    body: The leaders above arrived uncertain. They left with clarity, capability, and the confidence to step into their next chapter. Your transition can follow the same arc.
     cta:
-      label: Start your transition
-      href: /contact?type=15
+      label: Book Alignment Session — £120
+      href: /contact?type=90
     cta2:
-      label: View programmes
-      href: /services
+      label: Complimentary 30-min call
+      href: /contact?type=30
 ---
 
-> "I came to Moya knowing what I was leaving. I left with a story I was genuinely proud to tell in interviews. I landed the role within three months."
->
-> **— Director of Strategy, Financial Services**
+## Activate stage — gaining clarity
 
-> "The narrative work sounds soft until you are doing it. Then you realise every senior conversation you have had for the last decade was secretly about this."
+> [PLACEHOLDER — Sophie Clarke testimonial about gaining clarity on her next leadership move through the Activate phase of Pathwise™.]
 >
-> **— Senior Partner, Professional Services**
+> **Sophie Clarke** · [PLACEHOLDER — Director, Organisation]
+> *Pathway programme*
 
-> "I had done the MBA, I had the track record. What I was missing was the ability to talk about myself as if I believed it. That changed."
+> [PLACEHOLDER — Rajesh Kapoor testimonial about moving from corporate uncertainty to a clear direction using the Pathwise™ framework.]
 >
-> **— VP, Technology sector**
+> **Rajesh Kapoor** · [PLACEHOLDER — Senior Leader, Pharmaceutical sector]
+> *Alignment Session into Pathway programme*
 
-> "Moya holds a very particular kind of space — intellectually rigorous and deeply human at the same time."
+---
+
+## Align stage — building capability
+
+> [PLACEHOLDER — Clara Müller testimonial about developing leadership capability and confidence through the Align phase, including specific outcomes achieved.]
 >
-> **— Chief People Officer, Healthcare**
+> **Clara Müller** · [PLACEHOLDER — VP, Technology sector]
+> *Momentum programme*
+
+---
+
+## Achieve stage — delivering transformation
+
+> [PLACEHOLDER — David Thompson testimonial about the transformation achieved through the full Pathwise™ journey — specific results, role outcome, or leadership impact.]
+>
+> **David Thompson** · [PLACEHOLDER — C-suite, Financial Services]
+> *Impact programme*
+
+> [PLACEHOLDER — Elena Rossi testimonial about stepping into her next chapter with authority and purpose after working through the Achieve phase.]
+>
+> **Elena Rossi** · [PLACEHOLDER — Entrepreneur, formerly Banking sector]
+> *Momentum programme*

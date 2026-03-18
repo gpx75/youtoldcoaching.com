@@ -1,60 +1,95 @@
 ---
-title: Choose the depth that fits your transition.
-cta:
-  label: Book your Alignment Session
-  href: /contact?type=90
-description: 3, 6 and 12-month coaching programmes, VIP Strategy Days, and a £200 Alignment Session with Moya James.
+title: Choose your programme. Begin your transformation.
+description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Moya James.
 eyebrow: Services
 heroContentScroll: true
 heroIllustrationFill: false
-subtitle: Every programme is bespoke. These are the containers, not the contents.
+subtitle: Every engagement is bespoke. These are the frameworks, not the formulae.
 tags:
-  - 3 / 6 / 12-month programmes
-  - VIP Strategy Days
-  - £200 Alignment Session
+  - Pathway · CHF 2,000
+  - Momentum · CHF 5,000
+  - Impact · CHF 9,000
+cta:
+  label: Book Alignment Session — £120
+  href: /contact?type=90
+cta2:
+  label: Complimentary 30-min call
+  href: /contact?type=30
 sections:
   - type: credibility
-    eyebrow: Why it works
+    eyebrow: Why leaders choose Pathwise™
     stats:
       - value: "400+"
         label: Leaders coached
       - value: "2,000+"
         label: Coaching hours
-      - value: "3–12"
-        label: Months per programme
       - value: ICF L2
         label: Certified coach
+      - value: "3–12"
+        label: Months per programme
   - type: action
-    eyebrow: Ready to begin
-    heading: "[PLACEHOLDER — Services action heading]"
-    body: "[PLACEHOLDER — Services action body copy.]"
+    eyebrow: Start with clarity
+    heading: Not sure which programme fits? Begin with an Alignment Session.
+    body: A 90-minute conversation that maps where you are, where you want to be, and which Pathwise™ programme will serve your transition. The £120 is credited in full against your first programme.
     cta:
-      label: Book Alignment Session
+      label: Book Alignment Session — £120
       href: /contact?type=90
     cta2:
-      label: Free 15-min call
-      href: /contact?type=15
+      label: Complimentary 30-min call
+      href: /contact?type=30
 ---
 
-## £200 Alignment Session — 90 minutes
+## Pathway — The Activate Programme
 
-Your entry point. We map where you are, where you want to be, and what the Transition Triad reveals about your specific gaps. You leave with a written coaching recommendation.
+*Find your direction, gain clarity, and set your next steps in motion.*
 
-## 3-Month Intensive
+3 months · 12 sessions · Weekly 60-minute sessions
 
-Six bi-weekly sessions. For professionals with a defined transition underway — a new role, a promotion, a sector change. Focus: Clarity and early Confidence.
+**Investment: CHF 2,000**
 
-## 6-Month Programme
+For leaders at the beginning of their transition — uncertain about direction, needing to articulate what they want, and ready to do the clarity work that makes purposeful action possible.
 
-Twelve sessions over six months. The full Transition Triad at a pace that allows real integration. The most popular container.
+---
 
-## 12-Month Immersive
+## Momentum — The Align Programme
 
-Twenty sessions. For identity-level reinvention — founding a practice, stepping into executive leadership, or rebuilding after a major setback.
+*Build growth, develop your capabilities, and accelerate your leadership impact.*
 
-## VIP Strategy Day
+6 months · 18 sessions · Bi-weekly 60-minute sessions
 
-One intensive day, one defining challenge, complete focus. Available standalone or as an accelerator within any programme.
+**Investment: CHF 5,000**
+
+For leaders who have direction and need to build the capabilities, confidence, and leadership identity to move there decisively. The most popular programme.
+
+---
+
+## Impact — The Achieve Programme
+
+*Reach new heights, achieve lasting transformation, and fully step into your leadership potential.*
+
+12 months · 24 sessions · Bi-weekly 90-minute sessions
+
+**Investment: CHF 9,000**
+
+For identity-level reinvention — founding a practice, stepping into C-suite leadership, or rebuilding after a major career setback. The full Pathwise™ journey.
+
+---
+
+## Pathwise Strategy Day
+
+A half-day or full-day intensive for leaders who need focused, rapid progress on a single defining challenge. Available as a standalone engagement or as an accelerator within any programme.
+
+[PLACEHOLDER — Pathwise Strategy Day pricing and availability details.]
+
+## Bespoke Programmes
+
+For organisations or individuals with urgent needs or outcomes that require a custom design. [PLACEHOLDER — bespoke programme details and enquiry process.]
+
+## Alignment Session — £120
+
+Your entry point into Pathwise™. A 90-minute session that maps your current position, your desired destination, and the specific gaps your transition requires you to close. You leave with a written coaching recommendation.
+
+**The £120 is credited in full against your first programme.**
 
 ---
 

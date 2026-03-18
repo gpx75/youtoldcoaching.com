@@ -1,21 +1,21 @@
 ---
-title: What's Your Next Story?
-cta:
-  label: Schedule a 15-minute call
-  href: /contact?type=15
-description: Leadership transition coaching for senior leaders and executives. Find clarity, capability and confidence with Moya James — narrative coaching specialist in the UK and Switzerland.
+title: Lead the Story You Want to Tell
+description: Leadership transition coaching for senior leaders and executives navigating their next chapter. Moya James guides leaders from uncertainty to empowered leadership using the Pathwise™ methodology.
 eyebrow: Moya James Leadership
 heroContentScroll: false
 heroIllustration: /moya_james_natural.webp
 heroIllustrationFill: true
-subtitle: Thinking about your next chapter? Let's get clear on what it looks like.
+subtitle: Navigate your next chapter with intention, impact, and the leadership you aspire to deliver.
 tags:
   - Leadership transition coaching
-  - Narrative coaching
-  - The Transition Triad
-cta2:
-  label: £200 Alignment Session
+  - Executive coaching
+  - Pathwise™ Methodology
+cta:
+  label: Book Alignment Session — £120
   href: /contact?type=90
+cta2:
+  label: Complimentary 30-min call
+  href: /contact?type=30
 heroSlides:
   - /pathwise-framework
 sections:
@@ -28,30 +28,30 @@ sections:
         label: Coaching hours
       - value: ICF L2
         label: Certified coach
-      - value: "80%+"
-        label: Successful transitions
+      - value: Pathwise™
+        label: Proven methodology
   - type: action
-    eyebrow: Start here
-    heading: "[PLACEHOLDER — Home action heading]"
-    body: "[PLACEHOLDER — Home action body copy.]"
+    eyebrow: Define Your Path. Own Your Impact.
+    heading: Your next chapter begins with one conversation.
+    body: Senior leaders and entrepreneurs across the UK, Switzerland, and globally choose Moya James to navigate pivotal career transitions with clarity, capability, and confidence.
     cta:
-      label: Book Alignment Session
+      label: Book Alignment Session — £120
       href: /contact?type=90
     cta2:
-      label: Free 15-min call
-      href: /contact?type=15
+      label: Complimentary 30-min call
+      href: /contact?type=30
 ---
 
-You are mid-transition. The old role no longer fits. The next one isn't clear yet.
+You are standing at a crossroads. The role you have outgrown no longer fits — but the next chapter hasn't come into focus yet.
 
-Youtold is a narrative coaching practice for leaders navigating the space between who you were and who you are becoming.
+That space between who you were and who you are becoming is the most consequential transition of your leadership career.
 
-**Clarity** on what you actually want. **Capability** to close the gaps. **Confidence** to step forward.
+Moya James works with senior leaders and entrepreneurs — Director to C-suite — who are navigating precisely this moment. The uncertainty. The overwhelm. The quiet erosion of confidence that comes when the old story no longer holds.
 
-This is the Transition Triad — and it starts with your story.
+**The Pathwise™ methodology — Activate → Align → Achieve — was designed for transitions like yours.**
+
+Not a template. A bespoke journey from uncertainty to confident, purposeful leadership.
 
 ---
 
-**150+** leaders coached · **2,000+** coaching hours · **80%+** successful transitions
-
-Pharmaceutical · Banking · Technology
+Pharmaceutical · Banking · Technology · UK · Switzerland · Global
