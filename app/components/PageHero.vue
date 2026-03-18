@@ -44,7 +44,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
 </script>
 
 <template>
-    <section class="relative flex w-full flex-col lg:h-full">
+    <section class="relative flex w-full flex-col lg:h-full lg:overflow-hidden">
         <!-- Background video -->
         <div v-if="props.videoSrc" class="pointer-events-none absolute inset-0 z-0">
             <video
@@ -62,7 +62,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
         </div>
 
         <!-- Layout -->
-        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:px-16 lg:py-0">
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:min-h-0 lg:px-16 lg:py-0">
 
             <!-- Left: eyebrow + title + subtitle + optional portrait -->
             <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
@@ -80,7 +80,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         class="font-serif font-bold text-balance bg-gradient-to-br from-(--ui-text-highlighted) via-(--ui-text-highlighted) to-(--ui-primary) bg-clip-text text-transparent"
                         :class="props.illustration
                             ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
-                            : 'mb-6 text-[3rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
+                            : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
                     >
                         {{ currentTitle }}
                     </h1>
@@ -98,7 +98,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 <div
                     v-if="props.illustration"
                     class="mt-2 overflow-hidden rounded-2xl"
-                    :class="props.illustrationFill ? 'min-h-64 lg:h-120' : 'size-80 lg:size-96'"
+                    :class="props.illustrationFill ? 'h-64 sm:h-80 lg:h-120' : 'size-64 sm:size-80 lg:size-96'"
                 >
                     <img
                         :src="props.illustration"
@@ -130,7 +130,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                     <!-- Bottom fade hint when scrollable -->
                     <div
                         v-if="props.contentScroll"
-                        class="pointer-events-none sticky bottom-0 h-10 bg-gradient-to-t from-(--ui-bg) to-transparent"
+                        class="pointer-events-none sticky bottom-0 hidden h-10 bg-linear-to-t from-default to-transparent lg:block"
                     />
                 </div>
 
