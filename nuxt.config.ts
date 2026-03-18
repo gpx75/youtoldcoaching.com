@@ -2,6 +2,11 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    calendly: {
+      apiKey: process.env.CALENDLY_API_KEY || '',
+    },
+  },
   nitro: {
     preset: 'vercel',
   },

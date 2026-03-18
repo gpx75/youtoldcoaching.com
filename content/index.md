@@ -1,22 +1,23 @@
 ---
 title: What's Your Next Story?
+cta:
+  label: Schedule a 15-minute call
+  href: /book?type=15
 description: Leadership transition coaching for senior leaders and executives. Find clarity, capability and confidence with Moya James — narrative coaching specialist in the UK and Switzerland.
 eyebrow: Moya James Leadership
-subtitle: Thinking about your next chapter? Let's get clear on what it looks like.
-tags:
-    - Leadership transition coaching
-    - Narrative coaching
-    - The Transition Triad
-cta:
-    label: Schedule a 15-minute call
-    href: /book
-cta2:
-    label: £200 Alignment Session
-    href: /book
+heroContentScroll: false
 heroIllustration: /moya_james_natural.webp
 heroIllustrationFill: true
+subtitle: Thinking about your next chapter? Let's get clear on what it looks like.
+tags:
+  - Leadership transition coaching
+  - Narrative coaching
+  - The Transition Triad
+cta2:
+  label: £200 Alignment Session
+  href: /book?type=90
 heroSlides:
-    - /transition-triad
+  - /transition-triad
 ---
 
 You are mid-transition. The old role no longer fits. The next one isn't clear yet.

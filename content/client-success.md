@@ -9,7 +9,7 @@ tags:
     - Confidence and clarity
 cta:
     label: Start your own transition
-    href: /book
+    href: /book?type=15
 ---
 
 > "I came to Moya knowing what I was leaving. I left with a story I was genuinely proud to tell in interviews. I landed the role within three months."

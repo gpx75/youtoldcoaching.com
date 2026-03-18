@@ -37,6 +37,7 @@ const heroMeta = computed(() => {
         heroIllustrationFill: (current as { heroIllustrationFill?: boolean }).heroIllustrationFill ?? (meta as { heroIllustrationFill?: boolean }).heroIllustrationFill,
         heroSlides: (current as { heroSlides?: string[] }).heroSlides ?? (meta as { heroSlides?: string[] }).heroSlides,
         heroContentScroll: (current as { heroContentScroll?: boolean }).heroContentScroll ?? (meta as { heroContentScroll?: boolean }).heroContentScroll,
+        calendlyUrl: (current as { calendlyUrl?: string }).calendlyUrl ?? (meta as { calendlyUrl?: string }).calendlyUrl,
     };
 });
 
@@ -53,7 +54,7 @@ const contentSlides = computed(() => [
 </script>
 
 <template>
-    <div v-if="page" class="lg:h-full">
+    <div v-if="page" :class="heroMeta.calendlyUrl ? 'flex flex-col' : 'lg:h-full'">
         <PageHero
             :eyebrow="heroMeta.eyebrow"
             :title="page.title"
@@ -68,5 +69,6 @@ const contentSlides = computed(() => [
             :illustration-fill="heroMeta.heroIllustrationFill"
             :content-scroll="heroMeta.heroContentScroll"
         />
+        <CalendlyWidget v-if="heroMeta.calendlyUrl" :url="heroMeta.calendlyUrl" />
     </div>
 </template>

@@ -13,6 +13,7 @@ const pageSchema = z.object({
   heroIllustration: z.string().optional(),
   heroIllustrationFill: z.boolean().optional(),
   heroContentScroll: z.boolean().optional(),
+  calendlyUrl: z.string().optional(),
 })
 
 export default defineContentConfig({
