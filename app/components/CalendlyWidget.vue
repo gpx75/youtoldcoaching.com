@@ -190,7 +190,7 @@ onMounted(async () => {
                                 >
                                     <div class="flex items-center justify-between gap-4">
                                         <span class="text-sm font-semibold text-highlighted">{{ et.name }}</span>
-                                        <UBadge color="neutral" variant="soft" size="sm" class="shrink-0 tabular-nums">
+                                        <UBadge class="shrink-0 tabular-nums">
                                             {{ et.duration }} min
                                         </UBadge>
                                     </div>
@@ -346,7 +346,6 @@ onMounted(async () => {
                                     <UInput
                                         v-model="form.name"
                                         placeholder="Your name"
-                                        size="lg"
                                         class="w-full"
                                         required
                                     />
@@ -357,7 +356,6 @@ onMounted(async () => {
                                         v-model="form.email"
                                         type="email"
                                         placeholder="you@example.com"
-                                        size="lg"
                                         class="w-full"
                                         required
                                     />
@@ -368,7 +366,6 @@ onMounted(async () => {
                                         v-model="form.notes"
                                         placeholder="A brief note about where you are and what you're navigating (optional)"
                                         :rows="3"
-                                        size="lg"
                                         class="w-full"
                                     />
                                 </UFormField>

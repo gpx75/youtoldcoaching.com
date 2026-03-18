@@ -47,7 +47,7 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
             <!-- Actions -->
             <div class="ml-auto flex items-center gap-1.5">
                 <UButton
-                    to="/book"
+                    to="/contact"
                     color="secondary"
                     variant="solid"
                     size="sm"
@@ -100,7 +100,7 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
                         {{ item.label }}
                     </ULink>
                     <UButton
-                        to="/book"
+                        to="/contact"
                         color="secondary"
                         variant="solid"
                         class="mt-2 rounded-full sm:hidden"
