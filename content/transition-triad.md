@@ -1,15 +1,17 @@
 ---
 title: Clarity. Capability. Confidence.
+cta:
+  label: See how it works in practice
+  href: /work-with-me
 description: The Transition Triad — the three-part framework at the heart of Youtold narrative coaching.
 eyebrow: The Transition Triad
+heroContentScroll: false
+heroIllustrationFill: false
 subtitle: Most leadership development addresses only one third of the problem.
 tags:
-    - Clarity
-    - Capability
-    - Confidence
-cta:
-    label: See how it works in practice
-    href: /work-with-me
+  - Clarity
+  - Capability
+  - Confidence
 ---
 
 The Transition Triad maps three interlocking deficits that appear in different proportions in every client I work with.

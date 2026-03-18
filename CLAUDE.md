@@ -11,46 +11,66 @@ PROJECT CONTEXT
 Brand:
 Moya James Leadership
 
-Methodology:
-Youtold narrative coaching
+Domain:
+moyajames.com
 
-Framework:
-The Transition Triad
+Tagline:
+Define Your Path. Own Your Impact.
 
-Clarity  
-Capability  
-Confidence
+Methodology / Framework:
+Pathwise™ Methodology – Activate → Align → Achieve
+Guided by inner work: Clarity → Capability → Confidence
+
+Pillars:
+
+Activate: Start the journey, gain clarity, and take first steps
+Align: Build capability, connect skills, values, and purpose
+Achieve: Take confident action, create transformation, and deliver results
 
 Primary markets:
 
-United Kingdom  
-Switzerland  
+United Kingdom
+Switzerland
 Global remote clients
 
 Target audience:
 
 Senior corporate leaders (Director to C-suite)
-Entrepreneurs transitioning from corporate careers or scaling their businesses.
+Entrepreneurs transitioning from corporate careers or scaling their businesses
 
 Visitors typically arrive feeling:
 
-uncertain  
-stuck in transition  
+uncertain
+stuck in transition
 overwhelmed by next career decisions
 
 The website must help them feel:
 
-understood  
-clear  
-confident about their next step.
+understood
+clear
+confident about their next step
+
+Client pain points:
+
+lack of clarity on next career or business move
+overwhelm with transition options
+confidence erosion in new roles
+fear of leaving corporate comfort zone
+
+Client transformations:
+
+clarity of purpose and actionable roadmap
+leadership growth and capability development
+increased confidence and executive presence
+sustainable work-life integration
 
 ---
 
 TECH STACK
 
-Framework: Nuxt 4  
-UI system: Nuxt UI 4  
-CSS engine: Tailwind CSS v4  
+Framework: Nuxt 4
+UI system: Nuxt UI 4
+CSS engine: Tailwind CSS v4
 Content system: Nuxt Content 3
 
 Fonts:
@@ -88,18 +108,18 @@ Tokens must follow Nuxt UI semantic naming.
 
 Examples:
 
---ui-primary  
---ui-bg  
---ui-text  
---ui-muted  
+--ui-primary
+--ui-bg
+--ui-text
+--ui-muted
 --ui-border
 
 Components must reference tokens rather than colors.
 
 Examples:
 
-text-primary  
-bg-elevated  
+text-primary
+bg-elevated
 text-muted
 
 Never use raw colors like:
@@ -151,43 +171,54 @@ COLOR PALETTE
 
 Primary color:
 
-Deep Teal Blue
+Deep Teal Blue (#007C91)
 
 Used for:
 
-navigation  
-structure  
-headings  
+navigation
+structure
+headings
 active states
 
 Secondary color:
 
-Rose Gold
+Rose Gold (#B76E79)
 
 Used for:
 
-CTA buttons  
-interactive highlights  
+CTA buttons
+interactive highlights
 accent elements
 
 Supporting colors:
 
-White  
-Soft Cream  
-Warm Grey
+White (#FFFFFF)
+Warm Grey (#E5E1DF)
+Dark Grey (#333333)
 
 Visual tone must feel:
 
-premium  
-calm  
-strategic  
+premium
+calm
+strategic
 feminine leadership strength
 
 Avoid:
 
-saturated colors  
-generic corporate palettes  
+saturated colors
+generic corporate palettes
 trendy UI gimmicks
+
+Style:
+
+sophisticated
+premium
+warm
+uncluttered
+modern
+globally appealing
+
+Imagery: Professional photography only, lifestyle shots. Avoid stock or AI-generated images.
 
 ---
 
@@ -199,14 +230,14 @@ Dark mode is not a separate design.
 
 Light mode:
 
-white / cream backgrounds  
-deep teal headings  
+white / cream backgrounds
+deep teal headings
 rose gold CTAs
 
 Dark mode:
 
-deep teal backgrounds  
-cream text  
+deep teal backgrounds
+cream text
 rose gold accents preserved
 
 Hierarchy and layout rhythm must remain identical.
@@ -223,15 +254,15 @@ white or soft cream
 
 Optional gradients:
 
-cream → white  
+cream → white
 deep teal → darker teal
 
 Gradients must remain extremely subtle.
 
 Optional patterns:
 
-fine editorial grid  
-dot grid  
+fine editorial grid
+dot grid
 subtle line pattern
 
 Opacity must remain ≤5%.
@@ -262,10 +293,10 @@ HERO STORYTELLING STRUCTURE
 
 Each page should follow the same narrative arc.
 
-Question  
-Recognition  
-Framework  
-Credibility  
+Question
+Recognition
+Framework
+Credibility
 Action
 
 Example structure:
@@ -274,7 +305,7 @@ Hero headline (question)
 
 Recognition of the visitor's transition challenge
 
-Introduction of the Transition Triad framework
+Introduction of the Pathwise™ framework (Activate → Align → Achieve)
 
 Credibility signals
 
@@ -286,39 +317,52 @@ This structure mirrors how leaders make strategic decisions.
 
 SITE STRUCTURE
 
+Navigation:
+
+Home
+About Moya
+Services
+Pathwise™ Framework
+Client Success Stories
+Contact
+
 Home
 
 Hero headline:
 
-What's Your Next Story?
+Lead the Story You Want to Tell
 
 Subheadline:
 
-Thinking about your next chapter? Let's get clear on what it looks like.
+Navigate your next chapter with intention, impact, and the leadership you aspire to deliver.
 
 Include:
 
-clear value proposition  
-recognition of leadership transition pain  
-Transition Triad overview  
-Youtold narrative coaching explanation  
-credibility signals  
-primary CTA: Schedule 15-minute call  
-secondary CTA: £200 Alignment Session
+clear value proposition
+recognition of leadership transition pain
+Pathwise™ overview: Activate → Align → Achieve
+coaching explanation
+credibility signals
+primary CTA: Book Alignment Session (£120)
+secondary CTA: Complimentary 30-minute call
 
 ---
 
 About Moya
 
+First-person bio:
+
+"I help senior leaders and entrepreneurs navigate pivotal career transitions through the Pathwise™ framework. I guide clients from uncertainty to empowered leadership, enabling them to step into their next chapter with authority and purpose."
+
 Professional credibility.
 
-17 years pharmaceutical industry leadership.
+20+ years pharmaceutical industry leadership.
 
 Global experience.
 
 Transition to entrepreneurship in 2016.
 
-Creation of the Youtold methodology.
+Creation of the Pathwise™ methodology.
 
 ---
 
@@ -328,21 +372,35 @@ Explain coaching approach.
 
 Programmes:
 
-3-month intensive  
-6-month programme  
-12-month programme  
-VIP day intensives
+Pathway (Activate pillar)
+3 months, 12 sessions, weekly 60-min
+Investment: CHF 2,000
+Find your direction, gain clarity, and set your next steps in motion
 
-Alignment Session (£200)
+Momentum (Align pillar)
+6 months, 18 sessions, biweekly 60-min
+Investment: CHF 5,000
+Build growth, develop your capabilities, and accelerate your leadership impact
+
+Impact (Achieve pillar)
+12 months, 24 sessions, biweekly 90-min
+Investment: CHF 9,000
+Reach new heights, achieve lasting transformation, and fully step into your leadership potential
+
+Additional offerings:
+
+Pathwise Strategy Day (half-day and full-day intensives)
+Bespoke programmes tailored to urgent needs or specific outcomes
+Alignment Session (£120)
 
 ---
 
-Transition Triad
+Pathwise™ Framework
 
-Explain the methodology.
+Explain the methodology: Activate → Align → Achieve
 
-Clarity  
-Capability  
+Clarity
+Capability
 Confidence
 
 Explain how narrative coaching powers the framework.
@@ -353,7 +411,15 @@ Client Success
 
 Testimonials and leadership transformation stories.
 
-Focus on real outcomes.
+Focus on real outcomes aligned to Activate → Align → Achieve stages.
+
+Placeholder testimonials:
+
+Sophie Clarke
+Rajesh Kapoor
+Clara Müller
+David Thompson
+Elena Rossi
 
 ---
 
@@ -361,10 +427,14 @@ Book / Contact
 
 Two primary actions:
 
-Schedule 15-minute call  
-Book Alignment Session
+Schedule Alignment Session (£120)
+Book Complimentary 30-Min Call
 
 Include calendar integration.
+
+Conversion funnel:
+
+Awareness → Interest → Evaluation → Action → Programme enrolment
 
 ---
 
@@ -372,9 +442,10 @@ CREDIBILITY SIGNALS
 
 Prominently highlight:
 
-150+ leaders coached  
-2000+ coaching hours  
-80%+ successful transitions
+400+ leaders coached
+2,000+ coaching hours
+ICF Level 2 certified
+Proven Pathwise™ methodology
 
 These proof signals should appear on the homepage.
 
@@ -384,8 +455,8 @@ INDUSTRY EXPERTISE
 
 Highlight leadership experience across:
 
-Pharmaceutical  
-Banking  
+Pharmaceutical
+Banking
 Technology
 
 This builds trust with senior leaders.
@@ -398,19 +469,46 @@ Optimize the site for leadership transition coaching searches.
 
 Primary keyword themes:
 
-leadership transition coaching  
-career transition coaching for executives  
-narrative coaching  
-executive leadership transition  
-leadership coaching UK  
-leadership coaching Switzerland
+leadership transition coaching
+executive career transition
+C-suite coaching
+corporate to entrepreneur transition
+career change coaching
+executive coaching Switzerland
+leadership coaching UK
+
+Secondary keyword themes:
+
+senior leadership development
+career pivot coaching
+strategic career planning
+leadership confidence
+bespoke executive coaching
+global leadership coaching
+narrative coaching
 
 Ensure:
 
-clean heading hierarchy  
-semantic HTML  
-meta descriptions  
-structured content.
+clean heading hierarchy
+semantic HTML
+meta descriptions
+structured content
+
+---
+
+COMPETITOR DIFFERENTIATION
+
+Deep corporate sector expertise across pharmaceutical, banking, and technology.
+
+Global and cross-cultural experience spanning UK, Switzerland, and emerging markets.
+
+Proprietary Pathwise™ methodology: Activate → Align → Achieve.
+
+Bespoke, high-touch programming.
+
+Story-driven, journey-focused framework.
+
+Internal leadership and external impact focus.
 
 ---
 
@@ -420,9 +518,9 @@ Use Nuxt Content to support authority content.
 
 Future articles may include:
 
-The Hidden Cost of Staying in the Wrong Role  
-Why Leadership Transitions Fail  
-The Transition Triad Explained  
+The Hidden Cost of Staying in the Wrong Role
+Why Leadership Transitions Fail
+Pathwise™ Framework Explained
 From Corporate Leader to Entrepreneur
 
 Articles should strengthen SEO authority and thought leadership.
@@ -439,10 +537,10 @@ Visitors should immediately feel:
 
 The site must communicate:
 
-clarity  
-strategic thinking  
-leadership authority  
-trust  
+clarity
+strategic thinking
+leadership authority
+trust
 premium coaching experience
 
 ---
@@ -503,6 +601,6 @@ Apply them.
 ## Additional Constraints
 
 - If specific content is missing, preserve the structure and use clearly marked placeholders rather than inventing claims, testimonials, or credentials.
-- Prefer refactoring existing components and architecture where possible instead of rebuilding everything from scratch.
+- Prefer refactoring existing components and architecture where possible instead of rebuilding from scratch.
 - Preserve SEO-critical structure, semantic markup, and content hierarchy during refactoring.
 - Validate all changes against responsive behavior across mobile, tablet, and desktop, with mobile-first priority.
