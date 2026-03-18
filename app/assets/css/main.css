@@ -77,21 +77,21 @@
 
     /* Backgrounds: deep teal-navy */
     --ui-bg:               oklch(18%  0.030 210);
-    --ui-bg-elevated:      oklch(22%  0.035 210);
-    --ui-bg-accented:      oklch(26%  0.040 210);
-    --ui-bg-inverted:      oklch(98%  0.004 78);   /* cream */
+    --ui-bg-elevated:      oklch(23%  0.036 210);  /* +1% for card separation */
+    --ui-bg-accented:      oklch(27%  0.042 210);
+    --ui-bg-inverted:      oklch(97%  0.012 78);   /* warm cream */
 
-    /* Text */
-    --ui-text-highlighted: oklch(98%  0.004 78);   /* cream — headings */
-    --ui-text:             oklch(90%  0.006 76);
-    --ui-text-muted:       oklch(72%  0.010 210);
-    --ui-text-dimmed:      oklch(56%  0.014 210);
-    --ui-text-toned:       oklch(64%  0.012 210);
+    /* Text: cream-family — warm throughout, mirrors light mode warmth */
+    --ui-text-highlighted: oklch(97%  0.012 78);   /* warm cream — headings */
+    --ui-text:             oklch(93%  0.014 80);   /* warm cream — body */
+    --ui-text-muted:       oklch(68%  0.010 75);   /* warm neutral muted */
+    --ui-text-dimmed:      oklch(52%  0.008 75);   /* warm neutral dimmed */
+    --ui-text-toned:       oklch(64%  0.012 210);  /* teal-tinted accent text */
 
-    /* Borders */
-    --ui-border:           oklch(28%  0.040 210);
-    --ui-border-accented:  oklch(34%  0.045 210);
-    --ui-border-inverted:  oklch(90%  0.006 76);
+    /* Borders: lifted for perceptible separation on dark backgrounds */
+    --ui-border:           oklch(34%  0.042 210);
+    --ui-border-accented:  oklch(43%  0.048 210);
+    --ui-border-inverted:  oklch(93%  0.014 80);   /* warm cream */
 }
 
 /* ── Base ──────────────────────────────────────────────────────── */
