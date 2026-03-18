@@ -74,17 +74,14 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                     {{ props.eyebrow }}
                 </div>
 
-                <Transition :name="slideDir === 'next' ? 'slide-next' : 'slide-prev'" mode="out-in">
-                    <h1
-                        :key="slideIndex"
-                        class="font-serif font-bold text-balance bg-gradient-to-br from-(--ui-text-highlighted) via-(--ui-text-highlighted) to-(--ui-primary) bg-clip-text text-transparent"
-                        :class="props.illustration
-                            ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
-                            : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
-                    >
-                        {{ currentTitle }}
-                    </h1>
-                </Transition>
+                <h1
+                    class="font-serif font-bold text-balance text-highlighted"
+                    :class="props.illustration
+                        ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
+                        : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
+                >
+                    {{ currentTitle }}
+                </h1>
 
                 <p
                     v-if="props.subtitle"
@@ -140,7 +137,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         <span
                             v-for="tag in props.tags"
                             :key="tag"
-                            class="rounded-full ring-1 ring-(--ui-border) bg-(--ui-bg)/80 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted backdrop-blur-sm"
+                            class="rounded-full ring-1 ring-default bg-(--ui-bg)/80 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted backdrop-blur-sm"
                         >
                             {{ tag }}
                         </span>
@@ -177,8 +174,8 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         :key="i"
                         class="h-1.5 rounded-full transition-all duration-300"
                         :class="i === slideIndex
-                            ? 'w-6 bg-(--ui-primary)'
-                            : 'w-1.5 bg-(--ui-primary)/30 hover:bg-(--ui-primary)/60'"
+                            ? 'w-6 bg-primary'
+                            : 'w-1.5 bg-primary/30 hover:bg-primary/60'"
                         :aria-label="`Go to slide ${i + 1}`"
                         @click="goTo(i)"
                     />
