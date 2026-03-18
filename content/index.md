@@ -16,9 +16,17 @@ cta:
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
-heroSlides:
-  - /pathwise-framework
 sections:
+  - type: framework
+    eyebrow: The Pathwise™ Methodology
+    heading: Activate. Align. Achieve.
+    pillars:
+      - label: Activate
+        body: Start the journey, gain clarity, and take first steps. You cannot move purposefully towards something you haven't yet articulated. Activate is where we excavate your values, your non-negotiables, and the narrative threads that define your leadership distinctly.
+      - label: Align
+        body: Build capability, connect skills, values, and purpose. Identify the gaps — skills to develop, strengths to name, and the leadership identity to inhabit with full conviction. The work here is both practical and deeply personal.
+      - label: Achieve
+        body: Take confident action, create transformation, and deliver results. This is where the internal work translates into external impact — in how you lead, how you communicate, and how others experience you.
   - type: credibility
     eyebrow: Proven results
     stats:
