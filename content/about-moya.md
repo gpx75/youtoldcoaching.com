@@ -21,4 +21,4 @@ In 2016 I founded Youtold, a coaching practice built on a single conviction: the
 
 My methodology is narrative-centred. We excavate the experiences, values, and moments that make your leadership distinctly yours.
 
-**Your transition is not a gap in your CV. It is the making of your next chapter.**
+**Your transition is not a gap in your Resume. It is the making of your next chapter.**
