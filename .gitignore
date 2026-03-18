@@ -25,3 +25,17 @@ logs
 
 pnpm-lock.yaml
 .vercel
+
+# Public image library — only commit images explicitly used in the codebase
+public/images/*
+!public/images/moya.png
+!public/images/pexels-pierre-blache-651604-2834219.jpg
+
+# Unused public assets
+public/moya.png
+public/moya.webp
+public/moya_james_natural.webp
+public/moya_james_studio.webp
+public/illus-dark.pxd
+public/Gemini_Generated_Image_*
+public/pexels-*.jpg
