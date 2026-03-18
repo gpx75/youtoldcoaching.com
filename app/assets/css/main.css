@@ -2,12 +2,12 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
-/* ── Color scales ──────────────────────────────────────────────── */
+/* ── Theme: fonts + custom color scales ────────────────────────── */
 @theme {
     --font-sans: 'Manrope', sans-serif;
     --font-serif: 'Fraunces', serif;
 
-    /* Deep Teal Blue — primary brand colour */
+    /* Deep Teal Blue — primary brand colour (#007C91) */
     --color-teal-50:  oklch(97%  0.012 210);
     --color-teal-100: oklch(93%  0.028 210);
     --color-teal-200: oklch(85%  0.055 210);
@@ -19,14 +19,8 @@
     --color-teal-800: oklch(30%  0.055 210);
     --color-teal-900: oklch(22%  0.040 210);
     --color-teal-950: oklch(15%  0.025 210);
-}
 
-/* ── Theme tokens ──────────────────────────────────────────────── */
-/* Defined outside @layer so they win over any layered Nuxt UI defaults. */
-
-/* Light — white bg · deep teal text */
-:root {
-    /* Force rose gold scale — overrides Tailwind's built-in vivid rose */
+    /* Rose Gold — secondary brand colour (#B76E79), overrides Tailwind's vivid rose */
     --color-rose-50:  oklch(97%  0.010 35);
     --color-rose-100: oklch(93%  0.022 34);
     --color-rose-200: oklch(87%  0.038 33);
@@ -38,39 +32,63 @@
     --color-rose-800: oklch(36%  0.049 28);
     --color-rose-900: oklch(27%  0.032 27);
     --color-rose-950: oklch(18%  0.018 26);
+}
 
-    --ui-primary:          oklch(38%  0.068 210);  /* teal-700 — interactive elements */
+/* ── Semantic tokens: light mode ───────────────────────────────── */
+/* Defined outside @layer so they win over any layered Nuxt UI defaults. */
+:root {
+    /* Brand primary: deep teal — navigation, headings, structure, active states */
+    --ui-primary:          oklch(38%  0.068 210);  /* teal-700 */
+
+    /* Brand secondary: rose gold — CTA buttons, interactive highlights, accents */
+    --ui-secondary:        oklch(63%  0.082 31);   /* rose-500 */
+
+    /* Backgrounds: white → soft cream */
     --ui-bg:               oklch(100% 0     0);    /* pure white */
     --ui-bg-elevated:      oklch(98%  0.004 78);   /* soft cream */
     --ui-bg-accented:      oklch(95%  0.010 210);  /* faint teal tint */
-    --ui-bg-inverted:      oklch(22%  0.045 210);
-    --ui-text-highlighted: oklch(22%  0.045 210);  /* deep navy-teal — headings, gradient start */
-    --ui-text:             oklch(57%  0.008 65);   /* warm grey body */
+    --ui-bg-inverted:      oklch(22%  0.040 210);  /* deep teal-navy */
+
+    /* Text */
+    --ui-text-highlighted: oklch(22%  0.040 210);  /* deep teal-navy — headings */
+    --ui-text:             oklch(57%  0.008 65);   /* warm grey — body */
     --ui-text-muted:       oklch(64%  0.008 65);
     --ui-text-dimmed:      oklch(72%  0.006 65);
     --ui-text-toned:       oklch(60%  0.010 210);
+
+    /* Borders */
     --ui-border:           oklch(90%  0.012 210);
     --ui-border-accented:  oklch(82%  0.020 210);
-    --ui-border-inverted:  oklch(22%  0.045 210);
+    --ui-border-inverted:  oklch(22%  0.040 210);
 }
 
-/* Dark — deep teal bg · cream text */
+/* ── Semantic tokens: dark mode ────────────────────────────────── */
 .dark {
-    /* Rose gold — brighter on dark so buttons pop without being harsh */
+    /* Rose gold — slightly brighter so CTAs pop without harshness */
     --color-rose-400: oklch(74%  0.068 33);
     --color-rose-500: oklch(68%  0.076 32);
     --color-rose-600: oklch(59%  0.072 31);
 
-    --ui-primary:          oklch(62%  0.095 210);  /* teal-400 — bright on dark */
-    --ui-bg:               oklch(18%  0.030 210);  /* very dark teal-navy */
+    /* Brand primary: brighter teal on dark backgrounds */
+    --ui-primary:          oklch(62%  0.095 210);  /* teal-400 */
+
+    /* Brand secondary: rose gold preserved */
+    --ui-secondary:        oklch(68%  0.076 32);   /* rose-500 dark variant */
+
+    /* Backgrounds: deep teal-navy */
+    --ui-bg:               oklch(18%  0.030 210);
     --ui-bg-elevated:      oklch(22%  0.035 210);
     --ui-bg-accented:      oklch(26%  0.040 210);
     --ui-bg-inverted:      oklch(98%  0.004 78);   /* cream */
-    --ui-text-highlighted: oklch(98%  0.004 78);
+
+    /* Text */
+    --ui-text-highlighted: oklch(98%  0.004 78);   /* cream — headings */
     --ui-text:             oklch(90%  0.006 76);
     --ui-text-muted:       oklch(72%  0.010 210);
     --ui-text-dimmed:      oklch(56%  0.014 210);
     --ui-text-toned:       oklch(64%  0.012 210);
+
+    /* Borders */
     --ui-border:           oklch(28%  0.040 210);
     --ui-border-accented:  oklch(34%  0.045 210);
     --ui-border-inverted:  oklch(90%  0.006 76);
@@ -104,7 +122,6 @@
         text-wrap: pretty;
     }
 
-    /* Luminous primary accent on interactive elements */
     a, button {
         text-decoration-skip-ink: auto;
     }
@@ -119,7 +136,7 @@
     }
 }
 
-/* ── Prose — global theme-aware configuration ──────────────────── */
+/* ── Prose ─────────────────────────────────────────────────────── */
 @layer components {
     .prose {
         --tw-prose-body:          var(--ui-text);
