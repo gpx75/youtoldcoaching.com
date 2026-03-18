@@ -62,7 +62,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
         </div>
 
         <!-- Layout -->
-        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:min-h-0 lg:px-16 lg:py-0">
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 pb-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:min-h-0 lg:px-16 lg:py-0">
 
             <!-- Left: eyebrow + title + subtitle + optional portrait -->
             <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
@@ -109,7 +109,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
             <div
                 v-if="currentSlide || props.tags?.length || props.cta"
                 class="flex flex-1 flex-col gap-7"
-                :class="props.contentScroll ? 'lg:min-h-0 lg:overflow-hidden lg:py-10' : 'justify-center'"
+                :class="props.contentScroll ? 'lg:min-h-0 lg:overflow-hidden lg:py-10' : 'lg:py-10 justify-center'"
             >
                 <!-- Slide content -->
                 <div
