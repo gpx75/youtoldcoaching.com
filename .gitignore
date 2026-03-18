@@ -30,6 +30,7 @@ pnpm-lock.yaml
 public/images/*
 !public/images/moya.png
 !public/images/pexels-pierre-blache-651604-2834219.jpg
+!public/images/about-hero.jpg
 
 # Unused public assets
 public/moya.png

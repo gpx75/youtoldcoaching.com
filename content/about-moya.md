@@ -3,8 +3,7 @@ title: Guiding leaders from uncertainty to empowered leadership.
 description: Moya James — ICF Level 2 certified leadership coach with 20+ years in pharmaceutical industry leadership. Creator of the Pathwise™ methodology. Based in the UK and Switzerland, coaching globally.
 eyebrow: About Moya James
 heroContentScroll: false
-heroIllustration: /moya_james_studio.webp
-heroIllustrationFill: true
+heroBgImage: /images/about-hero.jpg
 subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
 tags:
   - 20+ years pharmaceutical leadership

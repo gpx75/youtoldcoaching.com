@@ -33,6 +33,7 @@ const heroMeta = computed(() => {
         cta2:                 (current as any).cta2                 ?? (meta as any).cta2,
         heroVideo:            (current as any).heroVideo            ?? (meta as any).heroVideo,
         heroVideoPoster:      (current as any).heroVideoPoster      ?? (meta as any).heroVideoPoster,
+        heroBgImage:          (current as any).heroBgImage          ?? (meta as any).heroBgImage,
         heroIllustration:     (current as any).heroIllustration     ?? (meta as any).heroIllustration,
         heroIllustrationFill: (current as any).heroIllustrationFill ?? (meta as any).heroIllustrationFill,
         heroSlides:           (current as any).heroSlides           ?? (meta as any).heroSlides,
@@ -69,6 +70,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                 :cta="heroMeta.cta"
                 :cta2="heroMeta.cta2"
                 :content-slides="contentSlides"
+                :bg-image="heroMeta.heroBgImage"
                 :video-src="heroMeta.heroVideo"
                 :video-poster="heroMeta.heroVideoPoster"
                 :illustration="heroMeta.heroIllustration"

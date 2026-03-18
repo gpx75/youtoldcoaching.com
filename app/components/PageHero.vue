@@ -7,12 +7,15 @@ const props = defineProps<{
     cta?: { label: string; href: string };
     cta2?: { label: string; href: string };
     contentSlides?: any[];
+    bgImage?: string;
     videoSrc?: string;
     videoPoster?: string;
     illustration?: string;
     illustrationFill?: boolean;
     contentScroll?: boolean;
 }>();
+
+const hasDarkBg = computed(() => !!(props.bgImage || props.videoSrc));
 
 const slideIndex = ref(0);
 const slideDir = ref<'next' | 'prev'>('next');
@@ -45,6 +48,17 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
 
 <template>
     <section class="relative flex w-full flex-col lg:h-full lg:overflow-hidden">
+        <!-- Background image -->
+        <div v-if="props.bgImage" class="pointer-events-none absolute inset-0 z-0">
+            <img
+                :src="props.bgImage"
+                alt=""
+                aria-hidden="true"
+                class="h-full w-full object-cover object-center"
+            />
+            <div class="absolute inset-0 bg-(--ui-primary)/60" />
+        </div>
+
         <!-- Background video -->
         <div v-if="props.videoSrc" class="pointer-events-none absolute inset-0 z-0">
             <video
@@ -68,25 +82,34 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
             <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
                 <div
                     v-if="props.eyebrow"
-                    class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full ring-1 ring-(--ui-primary)/30 bg-(--ui-primary)/6 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/80 backdrop-blur-sm"
+                    class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1"
+                    :class="hasDarkBg
+                        ? 'bg-white/10 ring-white/25 text-white/80'
+                        : 'bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80'"
                 >
-                    <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70" />
+                    <span
+                        class="h-1.5 w-1.5 shrink-0 rounded-full"
+                        :class="hasDarkBg ? 'bg-white/60' : 'bg-(--ui-primary)/70'"
+                    />
                     {{ props.eyebrow }}
                 </div>
 
                 <h1
-                    class="font-serif font-bold text-balance text-highlighted"
-                    :class="props.illustration
-                        ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
-                        : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'"
+                    class="font-serif font-bold text-balance"
+                    :class="[
+                        hasDarkBg ? 'text-white' : 'text-highlighted',
+                        props.illustration
+                            ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
+                            : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'
+                    ]"
                 >
                     {{ currentTitle }}
                 </h1>
 
                 <p
                     v-if="props.subtitle"
-                    class="text-base leading-relaxed text-muted text-balance sm:text-lg"
-                    :class="props.illustration ? 'mb-6' : 'mb-0'"
+                    class="text-base leading-relaxed text-balance sm:text-lg"
+                    :class="[hasDarkBg ? 'text-white/80' : 'text-muted', props.illustration ? 'mb-6' : 'mb-0']"
                 >
                     {{ props.subtitle }}
                 </p>
@@ -137,7 +160,10 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         <span
                             v-for="tag in props.tags"
                             :key="tag"
-                            class="rounded-full ring-1 ring-default bg-(--ui-bg)/80 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted backdrop-blur-sm"
+                            class="rounded-full px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm ring-1"
+                            :class="hasDarkBg
+                                ? 'bg-white/10 ring-white/20 text-white/70'
+                                : 'bg-(--ui-bg)/80 ring-default text-muted'"
                         >
                             {{ tag }}
                         </span>
@@ -160,7 +186,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             color="neutral"
                             variant="outline"
                             size="lg"
-                            class="rounded-full"
+                            :class="hasDarkBg ? 'rounded-full border-white/30 text-white hover:bg-white/10' : 'rounded-full'"
                         >
                             {{ props.cta2.label }}
                         </UButton>
