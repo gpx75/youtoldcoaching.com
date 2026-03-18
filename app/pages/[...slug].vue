@@ -60,7 +60,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
     <div v-if="page">
 
         <!-- ── Hero panel: fills viewport on desktop ─────────────────── -->
-        <div class="lg:flex lg:h-[calc(100dvh-3.5rem)] lg:flex-col">
+        <div class="lg:flex lg:h-[calc(100dvh-3.5rem)] lg:flex-col lg:overflow-hidden">
             <PageHero
                 :eyebrow="heroMeta.eyebrow"
                 :title="page.title"
@@ -88,11 +88,11 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     class="border-t border-default"
                     :aria-label="section.eyebrow || 'Recognition'"
                 >
-                    <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:px-16">
+                    <div class="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-14 lg:px-16">
                         <p v-if="section.eyebrow" class="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
                             {{ section.eyebrow }}
                         </p>
-                        <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+                        <div class="grid gap-6 lg:grid-cols-2 lg:gap-10 lg:items-start">
                             <h2 class="font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
                                 {{ section.heading }}
                             </h2>
@@ -109,7 +109,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     class="border-t border-default"
                     :aria-label="section.eyebrow || 'Framework'"
                 >
-                    <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:px-16">
+                    <div class="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-14 lg:px-16">
                         <p v-if="section.eyebrow" class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
                             {{ section.eyebrow }}
                         </p>
@@ -138,7 +138,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     class="border-t border-default bg-(--ui-bg-elevated)/40"
                     :aria-label="section.eyebrow || 'Credibility'"
                 >
-                    <div class="mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-16">
+                    <div class="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-12 lg:px-16">
                         <p v-if="section.eyebrow" class="mb-8 text-center text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
                             {{ section.eyebrow }}
                         </p>
@@ -157,7 +157,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     class="border-t border-default"
                     :aria-label="section.eyebrow || 'Call to action'"
                 >
-                    <div class="mx-auto max-w-3xl px-6 py-16 text-center md:px-10">
+                    <div class="mx-auto max-w-3xl px-6 py-12 text-center md:px-10 md:py-16">
                         <p v-if="section.eyebrow" class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
                             {{ section.eyebrow }}
                         </p>

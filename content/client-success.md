@@ -2,6 +2,7 @@
 title: Their transitions. Their words.
 description: Client success stories from leaders who worked with Moya James through the Pathwise™ methodology — navigating pivotal career transitions across pharmaceutical, banking, and technology sectors.
 eyebrow: Client Success Stories
+heroContentScroll: true
 subtitle: Real transitions. Real leaders. Real outcomes. Names used with permission.
 tags:
   - Activate stage
