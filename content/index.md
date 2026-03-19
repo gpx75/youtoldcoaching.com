@@ -10,7 +10,7 @@ cta2:
 description: Leadership transition coaching for senior leaders and executives navigating their next chapter. Moya James guides leaders from uncertainty to empowered leadership using the Pathwise™ methodology.
 eyebrow: Moya James Leadership
 heroBg:
-  light: /images/london_day.png
+  light: /images/london_day.jpg
   dark: /images/london_night.jpg
 heroContentScroll: false
 heroIllustrationFill: false
