@@ -60,6 +60,24 @@
     --ui-border:           oklch(90%  0.012 210);
     --ui-border-accented:  oklch(82%  0.020 210);
     --ui-border-inverted:  oklch(22%  0.040 210);
+
+    /* ── On-dark surface tokens ──────────────────────────────────────
+       Used exclusively for elements placed on always-dark surfaces
+       (hero sections with full-bleed dark images). Values stay constant
+       in both light and dark mode because the image makes the surface
+       dark regardless of the active colour mode.
+       Never use bg-white/*, text-white/*, ring-white/*, etc. directly —
+       reference these tokens instead.
+    ─────────────────────────────────────────────────────────────────── */
+    --ui-on-dark-text:          rgba(255, 255, 255, 1.00);
+    --ui-on-dark-text-soft:     rgba(255, 255, 255, 0.80);
+    --ui-on-dark-text-muted:    rgba(255, 255, 255, 0.70);
+    --ui-on-dark-pill-bg:       rgba(255, 255, 255, 0.10);
+    --ui-on-dark-pill-ring:     rgba(255, 255, 255, 0.25);
+    --ui-on-dark-pill-ring-sm:  rgba(255, 255, 255, 0.20);
+    --ui-on-dark-border:        rgba(255, 255, 255, 0.30);
+    --ui-on-dark-dot:           rgba(255, 255, 255, 0.60);
+    --ui-on-dark-hover:         rgba(255, 255, 255, 0.10);
 }
 
 /* ── Semantic tokens: dark mode ────────────────────────────────── */

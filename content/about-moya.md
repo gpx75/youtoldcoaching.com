@@ -5,6 +5,7 @@ eyebrow: About Moya James
 heroContentScroll: false
 heroBgImage: /images/about-hero.jpg
 subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
+bodyHeading: ""
 tags:
   - 20+ years pharmaceutical leadership
   - ICF Level 2 certified

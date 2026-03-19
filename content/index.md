@@ -3,13 +3,16 @@ title: Lead the Story You Want to Tell
 description: Leadership transition coaching for senior leaders and executives navigating their next chapter. Moya James guides leaders from uncertainty to empowered leadership using the Pathwise™ methodology.
 eyebrow: Moya James Leadership
 heroContentScroll: false
-heroIllustration: /moya_james_natural.webp
-heroIllustrationFill: true
+heroBg:
+  light: /images/london_day.png
+  dark: /images/london_night.jpg
+heroPortrait: /images/527A3887.png
 subtitle: Navigate your next chapter with intention, impact, and the leadership you aspire to deliver.
+bodyHeading: "Where are you right now?"
 tags:
   - Leadership transition coaching
   - Executive coaching
-  - Pathwise™ Methodology
+  - "Pathwise™ Methodology"
 cta:
   label: Book Alignment Session — £120
   href: /contact?type=90
@@ -18,7 +21,7 @@ cta2:
   href: /contact?type=30
 sections:
   - type: framework
-    eyebrow: The Pathwise™ Methodology
+    eyebrow: "The Pathwise™ Methodology"
     heading: Activate. Align. Achieve.
     pillars:
       - label: Activate
@@ -36,7 +39,7 @@ sections:
         label: Coaching hours
       - value: ICF L2
         label: Certified coach
-      - value: Pathwise™
+      - value: "Pathwise™"
         label: Proven methodology
   - type: action
     eyebrow: Define Your Path. Own Your Impact.

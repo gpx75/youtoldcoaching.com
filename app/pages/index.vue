@@ -26,6 +26,7 @@ const heroMeta = computed(() => {
     return {
         eyebrow:              (current as any).eyebrow              ?? (meta as any).eyebrow,
         subtitle:             (current as any).subtitle             ?? (meta as any).subtitle,
+        bodyHeading:          (current as any).bodyHeading          ?? (meta as any).bodyHeading,
         tags:                 (current as any).tags                 ?? (meta as any).tags,
         cta:                  (current as any).cta                  ?? (meta as any).cta,
         cta2:                 (current as any).cta2                 ?? (meta as any).cta2,
@@ -37,6 +38,10 @@ const heroMeta = computed(() => {
         heroContentScroll:    (current as any).heroContentScroll    ?? (meta as any).heroContentScroll,
         calendlyUrl:          (current as any).calendlyUrl          ?? (meta as any).calendlyUrl,
         sections:             (current as any).sections             ?? (meta as any).sections ?? null,
+        // Light/dark background images and portrait — from frontmatter
+        heroBgLight:   (current as any).heroBg?.light   ?? (meta as any).heroBg?.light,
+        heroBgDark:    (current as any).heroBg?.dark    ?? (meta as any).heroBg?.dark,
+        heroPortrait:  (current as any).heroPortrait    ?? (meta as any).heroPortrait,
     };
 });
 
@@ -51,16 +56,24 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
         <!-- ── Homepage Hero: London aerial + Moya portrait ──────────── -->
         <section class="relative flex w-full flex-col overflow-hidden lg:h-dvh">
 
-            <!-- Background: London aerial with deep teal overlay -->
+            <!-- Background: London day (light) / London night (dark) with teal overlay -->
             <div class="pointer-events-none absolute inset-0 z-0">
                 <img
-                    src="/images/pexels-pierre-blache-651604-2834219.jpg"
+                    :src="heroMeta.heroBgLight"
                     alt=""
                     aria-hidden="true"
-                    class="h-full w-full object-cover object-center"
+                    class="h-full w-full object-cover object-center dark:hidden"
                 />
-                <div class="absolute inset-0 bg-(--ui-primary)/55" />
+                <img
+                    :src="heroMeta.heroBgDark"
+                    alt=""
+                    aria-hidden="true"
+                    class="hidden h-full w-full object-cover object-center dark:block"
+                />
             </div>
+
+            <!-- Cream/teal gradient from viewport left:0 — sits above bg, below content -->
+            <div class="hero-gradient-panel pointer-events-none absolute inset-0 z-[1]" aria-hidden="true" />
 
             <!-- Bottom fade: blend hero into page background -->
             <div class="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-28 bg-linear-to-t from-default to-transparent" />
@@ -74,21 +87,21 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     <!-- Eyebrow -->
                     <div
                         v-if="heroMeta.eyebrow"
-                        class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-white/10 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/80 ring-1 ring-white/25 backdrop-blur-sm"
+                        class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-(--ui-primary)/6 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/80 ring-1 ring-(--ui-primary)/30 backdrop-blur-sm dark:bg-(--ui-on-dark-pill-bg) dark:text-(--ui-on-dark-text-soft) dark:ring-(--ui-on-dark-pill-ring)"
                     >
-                        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
+                        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)" />
                         {{ heroMeta.eyebrow }}
                     </div>
 
                     <!-- Headline -->
-                    <h1 class="mb-5 font-serif font-bold text-balance text-white text-[2.4rem] leading-tight sm:text-5xl lg:text-[3.8rem] lg:leading-[1.1]">
+                    <h1 class="mb-5 font-serif font-bold text-balance text-highlighted dark:text-(--ui-on-dark-text) text-[2.4rem] leading-tight sm:text-5xl lg:text-[3.8rem] lg:leading-[1.1]">
                         {{ page.title }}
                     </h1>
 
                     <!-- Subtitle -->
                     <p
                         v-if="heroMeta.subtitle"
-                        class="mb-8 max-w-lg text-base leading-relaxed text-white/80 text-balance sm:text-lg"
+                        class="mb-8 max-w-lg text-base leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft) text-balance sm:text-lg"
                     >
                         {{ heroMeta.subtitle }}
                     </p>
@@ -98,7 +111,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         <span
                             v-for="tag in heroMeta.tags"
                             :key="tag"
-                            class="rounded-full bg-white/10 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white/70 ring-1 ring-white/20 backdrop-blur-sm"
+                            class="rounded-full bg-(--ui-bg)/80 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted ring-1 ring-default backdrop-blur-sm dark:bg-(--ui-on-dark-pill-bg) dark:text-(--ui-on-dark-text-muted) dark:ring-(--ui-on-dark-pill-ring-sm)"
                         >
                             {{ tag }}
                         </span>
@@ -123,7 +136,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                             color="neutral"
                             variant="ghost"
                             size="lg"
-                            class="rounded-full border border-white/30 text-white hover:bg-white/10"
+                            class="rounded-full dark:border dark:border-(--ui-on-dark-border) dark:text-(--ui-on-dark-text) dark:hover:bg-(--ui-on-dark-hover)"
                         >
                             {{ heroMeta.cta2.label }}
                         </UButton>
@@ -133,7 +146,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                 <!-- Right column (42%): Moya portrait — mobile in flow, desktop absolute -->
                 <div class="flex justify-center pb-8 lg:hidden">
                     <img
-                        src="/images/moya.png"
+                        :src="heroMeta.heroPortrait"
                         alt="Moya James"
                         class="w-64 max-w-xs object-contain"
                     />
@@ -143,10 +156,10 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
 
             <!-- Desktop portrait: absolutely anchored, fades in from left -->
             <img
-                src="/images/moya.png"
+                :src="heroMeta.heroPortrait"
                 alt="Moya James"
                 aria-hidden="true"
-                class="pointer-events-none absolute bottom-0 right-6 hidden h-[105dvh] w-auto object-contain object-bottom lg:block mask-[linear-gradient(to_right,transparent_0%,black_18%)]"
+                class="pointer-events-none absolute bottom-0 -right-32 hidden h-[95dvh] w-auto object-contain object-bottom lg:block mask-[linear-gradient(to_right,transparent_0%,black_18%)]"
             />
         </section>
 
@@ -155,7 +168,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
             <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20 lg:px-16">
                 <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-start">
                     <h2 class="font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
-                        Where are you right now?
+                        {{ heroMeta.bodyHeading }}
                     </h2>
                     <ContentRenderer
                         :value="page"
@@ -288,3 +301,28 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
 
     </div>
 </template>
+
+<style scoped>
+/* Cream gradient panel — starts at viewport left:0, fades to transparent
+   at ~68% of viewport width (behind the portrait column).
+   Sits above the background image (z-0) but behind all content (z-10). */
+.hero-gradient-panel {
+    background: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 0%,
+        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 38%,
+        color-mix(in srgb, var(--ui-bg-elevated) 25%, transparent) 52%,
+        transparent 62%
+    );
+}
+
+:global(.dark) .hero-gradient-panel {
+    background: linear-gradient(
+        to right,
+        rgba(0, 95, 112, 0.95) 0%,
+        rgba(0, 95, 112, 0.95) 38%,
+        rgba(0, 95, 112, 0.20) 52%,
+        transparent 62%
+    );
+}
+</style>

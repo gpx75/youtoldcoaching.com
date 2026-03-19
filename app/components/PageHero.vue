@@ -84,23 +84,23 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                     v-if="props.eyebrow"
                     class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1"
                     :class="hasDarkBg
-                        ? 'bg-white/10 ring-white/25 text-white/80'
+                        ? 'bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring) text-(--ui-on-dark-text-soft)'
                         : 'bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80'"
                 >
                     <span
                         class="h-1.5 w-1.5 shrink-0 rounded-full"
-                        :class="hasDarkBg ? 'bg-white/60' : 'bg-(--ui-primary)/70'"
+                        :class="hasDarkBg ? 'bg-(--ui-on-dark-dot)' : 'bg-(--ui-primary)/70'"
                     />
                     {{ props.eyebrow }}
                 </div>
 
                 <h1
-                    class="font-serif font-bold text-balance"
+                    class="font-serif font-bold text-balance break-words"
                     :class="[
-                        hasDarkBg ? 'text-white' : 'text-highlighted',
+                        hasDarkBg ? 'text-(--ui-on-dark-text)' : 'text-highlighted',
                         props.illustration
                             ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
-                            : 'mb-6 text-[2.4rem] sm:text-6xl lg:text-7xl xl:text-[5rem]'
+                            : 'mb-6 text-[2.4rem] sm:text-5xl lg:text-6xl xl:text-7xl'
                     ]"
                 >
                     {{ currentTitle }}
@@ -109,7 +109,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 <p
                     v-if="props.subtitle"
                     class="text-base leading-relaxed text-balance sm:text-lg"
-                    :class="[hasDarkBg ? 'text-white/80' : 'text-muted', props.illustration ? 'mb-6' : 'mb-0']"
+                    :class="[hasDarkBg ? 'text-(--ui-on-dark-text-soft)' : 'text-muted', props.illustration ? 'mb-6' : 'mb-0']"
                 >
                     {{ props.subtitle }}
                 </p>
@@ -162,7 +162,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             :key="tag"
                             class="rounded-full px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm ring-1"
                             :class="hasDarkBg
-                                ? 'bg-white/10 ring-white/20 text-white/70'
+                                ? 'bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring-sm) text-(--ui-on-dark-text-muted)'
                                 : 'bg-(--ui-bg)/80 ring-default text-muted'"
                         >
                             {{ tag }}
@@ -186,7 +186,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             color="neutral"
                             variant="outline"
                             size="lg"
-                            :class="hasDarkBg ? 'rounded-full border-white/30 text-white hover:bg-white/10' : 'rounded-full'"
+                            :class="hasDarkBg ? 'rounded-full border-(--ui-on-dark-border) text-(--ui-on-dark-text) hover:bg-(--ui-on-dark-hover)' : 'rounded-full'"
                         >
                             {{ props.cta2.label }}
                         </UButton>

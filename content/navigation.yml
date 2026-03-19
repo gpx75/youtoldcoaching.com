@@ -1,0 +1,21 @@
+brand:
+  name: Moya James
+  tagline: Moya James Leadership
+
+items:
+  - label: Home
+    to: /
+  - label: About Moya
+    to: /about-moya
+  - label: Services
+    to: /services
+  - label: "Pathwise™ Framework"
+    to: /pathwise-framework
+  - label: Client Success Stories
+    to: /client-success
+  - label: Contact
+    to: /contact
+
+cta:
+  label: Book a Session
+  to: /contact

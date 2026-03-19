@@ -1,6 +1,8 @@
 <script setup lang="ts">
 defineProps<{
     size?: 'sm' | 'md' | 'lg';
+    name?: string;
+    tagline?: string;
 }>();
 </script>
 
@@ -10,11 +12,11 @@ defineProps<{
             :class="{ 'text-lg': size === 'sm', 'text-xl': size === 'md', 'text-3xl': size === 'lg' }"
             class="font-serif font-semibold tracking-tight text-highlighted"
         >
-            Moya James
+            {{ name ?? 'Moya James' }}
         </div>
         <span
             :class="{ 'text-[0.5rem]': size === 'sm', 'text-[0.55rem]': size === 'md', 'text-[0.65rem]': size === 'lg' }"
             class="font-sans font-medium tracking-[0.25em] uppercase text-dimmed"
-        >Youtold Coaching</span>
+        >{{ tagline ?? 'Moya James Leadership' }}</span>
     </div>
 </template>

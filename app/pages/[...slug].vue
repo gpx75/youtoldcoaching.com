@@ -28,6 +28,7 @@ const heroMeta = computed(() => {
     return {
         eyebrow:              (current as any).eyebrow              ?? (meta as any).eyebrow,
         subtitle:             (current as any).subtitle             ?? (meta as any).subtitle,
+        bodyHeading:          (current as any).bodyHeading          ?? (meta as any).bodyHeading,
         tags:                 (current as any).tags                 ?? (meta as any).tags,
         cta:                  (current as any).cta                  ?? (meta as any).cta,
         cta2:                 (current as any).cta2                 ?? (meta as any).cta2,
@@ -55,6 +56,12 @@ const contentSlides = computed(() => [
 ]);
 
 const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
+
+// True when the markdown body has actual content (not just an empty AST)
+const hasBody = computed(() => {
+    const children = (page.value?.body as any)?.children;
+    return Array.isArray(children) && children.length > 0;
+});
 </script>
 
 <template>
@@ -78,6 +85,32 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                 :content-scroll="heroMeta.heroContentScroll"
             />
         </div>
+
+        <!-- ── Body prose: bio, recognition, or any markdown body ──────── -->
+        <!-- Two-column when bodyHeading is set; full-width prose otherwise -->
+        <section
+            v-if="hasBody"
+            class="border-t border-default"
+            :aria-label="heroMeta.bodyHeading || 'Content'"
+        >
+            <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20 lg:px-16">
+                <div v-if="heroMeta.bodyHeading" class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-start">
+                    <h2 class="font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
+                        {{ heroMeta.bodyHeading }}
+                    </h2>
+                    <ContentRenderer
+                        :value="page"
+                        class="prose prose-sm md:prose-base max-w-none text-muted"
+                    />
+                </div>
+                <div v-else class="mx-auto max-w-3xl">
+                    <ContentRenderer
+                        :value="page"
+                        class="prose prose-sm md:prose-base max-w-none text-muted"
+                    />
+                </div>
+            </div>
+        </section>
 
         <!-- ── Below-fold: storytelling sections ─────────────────────── -->
         <!-- Structure: Question (hero) → Recognition → Framework → Credibility → Action -->

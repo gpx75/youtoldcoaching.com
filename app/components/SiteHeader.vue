@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const navigation = [
-    { label: 'Home',                    to: '/' },
-    { label: 'About Moya',              to: '/about-moya' },
-    { label: 'Services',                to: '/services' },
-    { label: 'Pathwise™ Framework',     to: '/pathwise-framework' },
-    { label: 'Client Success Stories',  to: '/client-success' },
-    { label: 'Contact',                 to: '/contact' },
-];
+// Navigation driven by content/navigation.yml — editable in Nuxt Studio
+const { data: navData } = await useAsyncData('navigation', () => {
+    return queryCollection('navigation').first();
+});
+
+const navigation = computed(() => navData.value?.items ?? []);
+const navCta = computed(() => navData.value?.cta);
+const brandName = computed(() => navData.value?.brand?.name ?? 'Moya James');
+const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
 
 const colorMode = useColorMode();
 const isDark = computed(() => colorMode.value === 'dark');
@@ -26,7 +27,7 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
         <div class="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
             <!-- Logo -->
             <NuxtLink to="/" class="mr-2 shrink-0">
-                <Logo size="md" />
+                <Logo size="md" :name="brandName" :tagline="brandTagline" />
             </NuxtLink>
 
             <!-- Desktop nav -->
@@ -47,13 +48,14 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
             <!-- Actions -->
             <div class="ml-auto flex items-center gap-1.5">
                 <UButton
-                    to="/contact"
+                    v-if="navCta"
+                    :to="navCta.to"
                     color="secondary"
                     variant="solid"
                     size="sm"
                     class="hidden rounded-full sm:flex"
                 >
-                    Book a Session
+                    {{ navCta.label }}
                 </UButton>
 
                 <UButton
@@ -100,12 +102,13 @@ watch(() => route.path, () => { isMenuOpen.value = false; });
                         {{ item.label }}
                     </ULink>
                     <UButton
-                        to="/contact"
+                        v-if="navCta"
+                        :to="navCta.to"
                         color="secondary"
                         variant="solid"
                         class="mt-2 rounded-full sm:hidden"
                     >
-                        Book a Session
+                        {{ navCta.label }}
                     </UButton>
                 </nav>
             </div>
