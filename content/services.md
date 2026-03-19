@@ -1,31 +1,26 @@
 ---
 title: Choose your programme. Begin your transformation.
-description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Moya James.
-eyebrow: Services
-heroContentScroll: true
-heroIllustrationFill: false
-subtitle: Every engagement is bespoke. These are the frameworks, not the formulae.
-tags:
-  - Pathway · CHF 2,000
-  - Momentum · CHF 5,000
-  - Impact · CHF 9,000
 cta:
   label: Book Alignment Session — £120
   href: /contact?type=90
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
+description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Moya James.
+eyebrow: Services
+heroContentScroll: true
+heroIllustrationFill: false
 sections:
   - type: credibility
     eyebrow: Why leaders choose Pathwise™
     stats:
-      - value: "400+"
+      - value: 400+
         label: Leaders coached
-      - value: "2,000+"
+      - value: 2,000+
         label: Coaching hours
       - value: ICF L2
         label: Certified coach
-      - value: "3–12"
+      - value: 3–12
         label: Months per programme
   - type: action
     eyebrow: Start with clarity
@@ -37,6 +32,11 @@ sections:
     cta2:
       label: Complimentary 30-min call
       href: /contact?type=30
+subtitle: Every engagement is bespoke. These are the frameworks, not the formulae.
+tags:
+  - Pathway · CHF 2,000
+  - Momentum · CHF 5,000
+  - Impact · CHF 9,000
 ---
 
 ## Pathway — The Activate Programme

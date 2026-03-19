@@ -1,20 +1,15 @@
 ---
 title: Activate. Align. Achieve.
-description: The Pathwise™ Methodology — a proprietary three-phase framework guiding senior leaders from uncertainty to confident, purposeful leadership. Developed by Moya James across 400+ coaching engagements.
-eyebrow: Pathwise™ Framework
-heroContentScroll: false
-heroIllustrationFill: false
-subtitle: A proprietary methodology for leaders navigating pivotal transitions. Not a template — a journey.
-tags:
-  - Activate
-  - Align
-  - Achieve
 cta:
   label: View programmes
   href: /services
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
+description: The Pathwise™ Methodology — a proprietary three-phase framework guiding senior leaders from uncertainty to confident, purposeful leadership. Developed by Moya James across 400+ coaching engagements.
+eyebrow: Pathwise™ Framework
+heroContentScroll: false
+heroIllustrationFill: false
 sections:
   - type: framework
     eyebrow: The inner work
@@ -29,11 +24,11 @@ sections:
   - type: credibility
     eyebrow: Grounded in practice
     stats:
-      - value: "400+"
+      - value: 400+
         label: Leaders coached
-      - value: "2,000+"
+      - value: 2,000+
         label: Coaching hours
-      - value: "80%+"
+      - value: 80%+
         label: Successful transitions
       - value: ICF L2
         label: Certified coach
@@ -47,6 +42,11 @@ sections:
     cta2:
       label: Complimentary 30-min call
       href: /contact?type=30
+subtitle: A proprietary methodology for leaders navigating pivotal transitions. Not a template — a journey.
+tags:
+  - Activate
+  - Align
+  - Achieve
 ---
 
 The Pathwise™ Methodology is the proprietary framework at the heart of every engagement with Moya James. It maps the three sequential phases of a meaningful leadership transition.

@@ -1,7 +1,7 @@
 ---
 title: Let's find out if this is the right fit.
-description: Book a complimentary 30-minute call or a £120 Alignment Session with Moya James. Leadership transition coaching for senior leaders and executives.
 calendlyUrl: https://calendly.com/moyajames
+description: Book a complimentary 30-minute call or a £120 Alignment Session with Moya James. Leadership transition coaching for senior leaders and executives.
 eyebrow: Contact
 heroContentScroll: false
 heroIllustrationFill: false

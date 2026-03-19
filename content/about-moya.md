@@ -1,21 +1,17 @@
 ---
 title: Guiding leaders from uncertainty to empowered leadership.
-description: Moya James — ICF Level 2 certified leadership coach with 20+ years in pharmaceutical industry leadership. Creator of the Pathwise™ methodology. Based in the UK and Switzerland, coaching globally.
-eyebrow: About Moya James
-heroContentScroll: false
-heroBgImage: /images/about-hero.jpg
-subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
 bodyHeading: ""
-tags:
-  - 20+ years pharmaceutical leadership
-  - ICF Level 2 certified
-  - Pathwise™ creator
 cta:
   label: View programmes
   href: /services
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
+description: Moya James — ICF Level 2 certified leadership coach with 20+ years in pharmaceutical industry leadership. Creator of the Pathwise™ methodology. Based in the UK and Switzerland, coaching globally.
+eyebrow: About Moya James
+heroBgImage: /images/about-hero.jpg
+heroContentScroll: false
+heroIllustrationFill: false
 sections:
   - type: differentiators
     eyebrow: What makes this approach different
@@ -36,13 +32,13 @@ sections:
   - type: credibility
     eyebrow: Background and credentials
     stats:
-      - value: "20+"
+      - value: 20+
         label: Years pharmaceutical leadership
       - value: "2016"
         label: Founded coaching practice
       - value: ICF L2
         label: Certified coach
-      - value: "400+"
+      - value: 400+
         label: Leaders coached
   - type: action
     eyebrow: Work with Moya
@@ -54,6 +50,11 @@ sections:
     cta2:
       label: Complimentary 30-min call
       href: /contact?type=30
+subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
+tags:
+  - 20+ years pharmaceutical leadership
+  - ICF Level 2 certified
+  - Pathwise™ creator
 ---
 
 I help senior leaders and entrepreneurs navigate pivotal career transitions through the Pathwise™ framework. I guide clients from uncertainty to empowered leadership, enabling them to step into their next chapter with authority and purpose.
