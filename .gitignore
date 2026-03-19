@@ -29,6 +29,7 @@ pnpm-lock.yaml
 # Public image library — only commit images explicitly used in the codebase
 public/images/*
 !public/images/about-hero.jpg
+!public/images/pattern.png
 !public/images/london_day.jpg
 !public/images/london_night.jpg
 !public/images/527A3887.png
