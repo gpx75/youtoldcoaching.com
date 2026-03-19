@@ -54,7 +54,7 @@ tags:
   - Pathwise™ Methodology
 ---
 
-You are standing at a crossroads. The role you have outgrown no longer fits — but the next chapter hasn't come into focus yet.
+You ddare standing at a crossroads. The role you have outgrown no longer fits — but the next chapter hasn't come into focus yet.
 
 That space between who you were and who you are becoming is the most consequential transition of your leadership career.
 
