@@ -82,19 +82,131 @@ Manrope (sans-serif for body text)
 
 DESIGN SYSTEM RULES
 
-Nuxt UI is the primary design system.
+Nuxt UI v4 is the primary design system. Reference: https://ui.nuxt.com/llms-full.txt
 
-Tailwind utilities may be used only for layout and spacing.
+Tailwind CSS v4 utilities may be used for layout, spacing, and responsive breakpoints.
 
-Visual styling must rely on Nuxt UI tokens and semantic classes.
+Visual styling must rely on Nuxt UI semantic tokens and component props — never raw colors.
 
 Do not introduce other UI frameworks.
 
-Never hardcode tailwind coloring or hex colors in components.
+Never hardcode hex colors or Tailwind literal color names in components.
+
+Never create `<style scoped>` blocks in Vue files. All reusable CSS goes in `main.css`.
 
 Never create page-level styling systems.
 
-All styling must come from centralized design tokens, means nuxtUI Semantic colors (https://ui.nuxt.com/docs/getting-started/theme/design-system)
+---
+
+## NUXT UI v4 — COMPONENT ARCHITECTURE
+
+### Color alias system
+
+Nuxt UI v4 uses semantic color aliases configured in `app.config.ts`:
+
+```ts
+export default defineAppConfig({
+  ui: {
+    colors: {
+      primary: 'teal',     // Deep Teal Blue — navigation, structure, headings
+      secondary: 'rose',   // Rose Gold — CTAs, interactive highlights
+      neutral: 'stone',    // Warm neutral — body text, muted states
+      warning: 'gold',     // Antique Gold — secondary CTAs, decorative accents
+    }
+  }
+})
+```
+
+These aliases generate CSS variables following `--ui-{color}-{shade}` (e.g. `--ui-primary-500`).
+
+Only import colors that are actually used. Currently active: `primary`, `secondary`, `neutral`, `warning`.
+
+### Semantic CSS variables
+
+Nuxt UI generates these semantic tokens automatically. Override them in `main.css` `:root` / `.dark` blocks:
+
+- `--ui-bg` — page background
+- `--ui-bg-elevated` — card/surface background
+- `--ui-bg-accented` — highlighted surface
+- `--ui-bg-inverted` — inverted surface
+- `--ui-text` — body text
+- `--ui-text-highlighted` — headings (utility class: `text-highlighted`)
+- `--ui-text-muted` — secondary text (utility class: `text-muted`)
+- `--ui-text-dimmed` — tertiary text (utility class: `text-dimmed`)
+- `--ui-text-toned` — teal-tinted accent text (utility class: `text-toned`)
+- `--ui-border` — default border (utility class: `border-default`)
+- `--ui-border-accented` — stronger border
+- `--ui-primary` — primary brand color (utility class: `text-primary`, `bg-primary`)
+
+Components must reference tokens rather than colors:
+
+```
+text-highlighted    not    text-teal-900
+text-muted          not    text-gray-500
+bg-elevated         not    bg-stone-50
+border-default      not    border-gray-200
+```
+
+### Layout components
+
+The app layout must use these Nuxt UI layout components:
+
+- **`<UHeader>`** — sticky top navigation with mobile toggle, slots: `#top`, `#title`, `#default`, `#right`, `#body`
+- **`<UFooter>`** — page footer, slots: `#left`, `#center`, `#right`
+- **`<UNavigationMenu>`** — horizontal (desktop) or vertical (mobile) navigation from `items[]` array
+- **`<UColorModeButton>`** — light/dark toggle with built-in sun/moon icons
+- **`<UColorModeImage>`** — switches image source by color mode: `:light="..." :dark="..."`
+- **`<UPageSection>`** — content section with `title`, `description`, `headline`, `links`, `orientation` props and `#body` slot
+- **`<UButton>`** — all interactive buttons, styled via `color` + `variant` + `size` props
+
+Components NOT currently used but available if needed:
+- `<UContainer>` — horizontal centering (currently manual `mx-auto max-w-7xl`)
+- `<USeparator>` — replaces manual `border-t border-default` dividers (v4 name; was `UDivider` in v3)
+
+### Component theming via app.config.ts
+
+All component styling must be centralized in `app.config.ts`, never per-instance:
+
+```ts
+export default defineAppConfig({
+  ui: {
+    // Global component overrides
+    button: {
+      defaultVariants: { size: 'lg' }
+    },
+    header: {
+      slots: {
+        root: 'bg-default/80 backdrop-blur-md border-b border-default ...'
+      }
+    },
+    pageSection: {
+      slots: {
+        container: 'py-14 md:py-20 lg:py-20',
+        title: 'font-serif text-2xl sm:text-3xl font-semibold tracking-tight',
+        headline: 'text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70',
+        description: 'text-base leading-relaxed'
+      }
+    }
+  }
+})
+```
+
+**Slots system**: Each Nuxt UI component exposes named CSS class targets (e.g. `root`, `base`, `label`, `header`, `body`, `footer`, `container`). Override these in `app.config.ts` globally, or per-instance via the `:ui` prop (last resort).
+
+**Per-instance overrides** via `:ui` prop take precedence over global config — use sparingly:
+```vue
+<UPageSection :ui="{ root: 'border-t border-default' }" />
+```
+
+### Content rendering
+
+Use `<ContentRenderer>` from `@nuxt/content` (not a Nuxt UI component) for all markdown body prose:
+
+```vue
+<ContentRenderer :value="page" class="prose prose-sm md:prose-base max-w-none" />
+```
+
+Nuxt UI provides prose styling when `ui.content: true` or `ui.prose: true` — this styles headings, lists, blockquotes, code, links, and tables rendered from markdown.
 
 ---
 
@@ -104,27 +216,9 @@ All design tokens must live strictly in:
 
 app/assets/css/main.css
 
-Tokens must follow Nuxt UI semantic naming.
+Color aliases are declared in `app.config.ts` under `ui.colors`.
 
-primary: 'teal', // Deep Teal Blue — navigation, structure, headings
-secondary: 'rose', // Rose Gold — CTAs, interactive highlights
-neutral: 'stone', // Warm neutral — body text, muted states
-
-Examples:
-
---ui-primary
---ui-bg
---ui-text
---ui-muted
---ui-border
-
-Components must reference tokens rather than colors.
-
-Examples:
-
-text-primary
-bg-elevated
-text-muted
+Custom token overrides (backgrounds, text, borders) are declared in `main.css` `:root` and `.dark` blocks.
 
 Strictly Never use raw colors like:
 
@@ -159,40 +253,83 @@ hover:bg-(--ui-on-dark-hover)    instead of  hover:bg-white/10
 
 TAILWIND THEME CASCADE
 
-Ensure correct override order:
+The `main.css` file must follow this exact structure:
 
-@import 'tailwindcss'
-@import '@nuxt/ui'
+```css
+@import url('https://fonts.googleapis.com/css2?family=...');
+@import 'tailwindcss';
+@import '@nuxt/ui';
 
-@theme { ... }
+@theme {
+  --font-sans: 'Manrope', sans-serif;
+  --font-serif: 'Fraunces', serif;
+  --color-teal-*: ...;    /* Custom color scales */
+  --color-rose-*: ...;
+  --color-gold-*: ...;
+}
 
-:root { ... }
+:root {
+  --ui-container: 80rem;
+  --ui-header-height: 3.5rem;
+  --ui-primary: ...;       /* Semantic token overrides */
+  --ui-bg: ...;
+  --ui-text: ...;
+  /* On-dark surface tokens */
+  --ui-on-dark-text: ...;
+}
 
-.dark { ... }
+.dark { ... }              /* Dark mode semantic overrides */
 
-The :root overrides must always win over Tailwind defaults.
+@layer base { ... }        /* HTML/body base styles */
+@layer components { ... }  /* Reusable CSS classes (gradients, transitions) */
+
+/* Outside @layer: dark mode overrides for classes that need higher specificity */
+.dark .hero-gradient-panel { ... }
+```
+
+**Override precedence** (lowest → highest):
+1. Tailwind defaults
+2. Nuxt UI library defaults
+3. `@theme` color scales
+4. `:root` / `.dark` semantic tokens
+5. `app.config.ts` component slot overrides
+6. Component `:ui` prop (per-instance)
+7. `html:root` / `html.dark` (specificity 0,1,1 — for forcing tokens like `--ui-warning-foreground`)
+
+Nuxt UI does not natively handle a dual-font setup (serif headings + sans body). The Fraunces/Manrope split is defined via `@theme` variables (`--font-serif`, `--font-sans`) and applied via `font-serif` / `font-sans` utility classes and base layer rules.
 
 ---
 
 COMPONENT CUSTOMIZATION
 
-Components must never be styled directly.
+Components must never be styled with scoped CSS or inline styles.
 
-All component configuration must live in:
+All component configuration must live in `app.config.ts` under the `ui` key.
 
-app.config.ts
+Use the **slots** pattern (Nuxt UI v4) — not `default` (v3):
 
-Example:
-
+```ts
 defineAppConfig({
-ui: {
-button: {
-default: {
-size: 'lg'
-}
-}
-}
+  ui: {
+    button: {
+      defaultVariants: {
+        size: 'lg'
+      }
+    },
+    pageSection: {
+      slots: {
+        container: 'py-14 md:py-20',
+        title: 'font-serif text-2xl sm:text-3xl font-semibold'
+      }
+    }
+  }
 })
+```
+
+Per-instance overrides use the `:ui` prop (same slot keys):
+```vue
+<UPageSection :ui="{ root: 'border-t border-default bg-(--ui-bg-elevated)/40' }" />
+```
 
 ---
 
@@ -710,14 +847,28 @@ It must:
 - Render body prose when `page.body` has content:
     - Two-column layout when `bodyHeading` is set (heading left, prose right)
     - Full-width centred prose when `bodyHeading` is absent
-- Render `sections[]` in sequence: recognition → framework/differentiators → credibility → action
+- Render `sections[]` via the shared `<StorySection>` component
+
+### StorySection component
+
+`app/components/StorySection.vue` is the shared renderer for below-fold storytelling sections, backed by `<UPageSection>`. It handles five section types driven by frontmatter `sections[]`:
+
+- **recognition** — horizontal two-column layout (headline + description)
+- **framework** / **differentiators** — pillar cards in a responsive grid (`#body` slot)
+- **credibility** — stats grid with responsive font sizing (`#body` slot)
+- **action** — CTA band with `links` prop for buttons
+
+All pages render sections the same way:
+```vue
+<StorySection v-for="section in meta.sections" :key="section.type" :section="section" />
+```
 
 `app/pages/index.vue` follows the same content-driven rule:
 
 - All image paths come from `heroMeta.heroBg.light`, `.dark`, and `heroMeta.heroPortrait`
 - `bodyHeading` comes from frontmatter — never hardcoded
 
-`app/pages/about-moya.vue` exists as a **bespoke page** because its full-viewport two-column hero layout (`.hero-left` / `.hero-bg` CSS grid) cannot be reproduced by `[...slug].vue` + `PageHero`. It must remain content-driven (all strings from `content/about-moya.md`) and must follow the hero token rules below.
+`app/pages/about-moya.vue` exists as a **bespoke page** because its full-viewport two-column hero layout (`.about-hero-gradient` overlay on a background image grid) cannot be reproduced by `[...slug].vue` + `PageHero`. It must remain content-driven (all strings from `content/about-moya.md`) and must follow the hero token rules below.
 
 ---
 
@@ -799,27 +950,14 @@ On bespoke pages with a full-bleed background image and a cream/teal gradient te
 - The gradient panel sits at `z-[1]` (above background images at `z-0`, below all content at `z-10`).
 - Use `pointer-events: none` and `aria-hidden="true"`.
 
-Light mode gradient (cream):
-```css
-background: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 0%,
-    color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 38%,
-    color-mix(in srgb, var(--ui-bg-elevated) 25%, transparent) 52%,
-    transparent 62%
-);
-```
+Gradients are **responsive** — direction changes based on viewport:
 
-Dark mode gradient (teal):
-```css
-background: linear-gradient(
-    to right,
-    rgba(0, 95, 112, 0.95) 0%,
-    rgba(0, 95, 112, 0.95) 38%,
-    rgba(0, 95, 112, 0.20) 52%,
-    transparent 62%
-);
-```
+- **Mobile (<1024px)**: Vertical gradient (covers stacked text content)
+  - Homepage (`.hero-gradient-panel`): `to bottom` — text at top, portrait at bottom
+  - About page (`.about-hero-gradient`): `to top` — face at top, text at bottom
+- **Desktop (≥1024px)**: Horizontal gradient (`to right`) — text on left, image fades in on right
+
+All gradient definitions live in `main.css` under `@layer components` (light mode) and outside `@layer` (dark mode overrides with `.dark` prefix). These use `color-mix()` (light) and `rgba()` (dark) which cannot be expressed as Tailwind utilities.
 
 ### Bespoke page checklist
 
@@ -852,3 +990,35 @@ Do:
 - Fetch global config in layout-level components using `queryCollection`
 - Use `ContentRenderer` for all markdown body prose
 - Use fallback defaults in components only as a last resort during migration
+
+---
+
+## CSS ARCHITECTURE — STRICT RULES
+
+### No scoped styles
+
+Vue `<style scoped>` blocks are **prohibited** in this project. All CSS must live in `main.css`.
+
+- Reusable CSS classes (gradients, transitions) → `@layer components { }` in `main.css`
+- Dark mode overrides for those classes → outside `@layer` with `.dark` prefix (for proper specificity)
+- Layout and spacing → Tailwind utility classes directly on elements
+- Component visual styling → `app.config.ts` slot overrides or Nuxt UI `color`/`variant` props
+
+### Where CSS lives
+
+| What | Where |
+|------|-------|
+| Color scales (`--color-teal-*`) | `main.css` → `@theme { }` |
+| Semantic tokens (`--ui-primary`, `--ui-bg`) | `main.css` → `:root { }` and `.dark { }` |
+| Layout tokens (`--ui-container`, `--ui-header-height`) | `main.css` → `:root { }` |
+| On-dark surface tokens (`--ui-on-dark-*`) | `main.css` → `:root { }` |
+| Base styles (html, body, headings) | `main.css` → `@layer base { }` |
+| Prose styles | `main.css` → `@layer components { .prose { } }` |
+| Hero gradients, slide transitions | `main.css` → `@layer components { }` |
+| Dark hero gradient overrides | `main.css` → outside `@layer` (`.dark .hero-gradient-panel`) |
+| Component default props/slots | `app.config.ts` → `ui: { }` |
+| Color aliases | `app.config.ts` → `ui.colors: { }` |
+
+### Nuxt UI components currently in use
+
+`UHeader`, `UFooter`, `UNavigationMenu`, `UButton`, `UColorModeButton`, `UColorModeImage`, `UPageSection`, `UCard`, `UAlert`, `UBadge`, `UInput`, `UFormField`, `UTextarea`, `USkeleton`
