@@ -35,5 +35,41 @@ export default defineAppConfig({
                 size:    'sm',
             },
         },
+
+        // ── Header ──────────────────────────────────────────────────────────
+        // Match existing brand header: slightly more opaque bg, primary accent bar
+        header: {
+            slots: {
+                root: 'bg-default/80 backdrop-blur-md border-b border-default h-(--ui-header-height) sticky top-0 z-50',
+            },
+        },
+
+        // ── Footer ──────────────────────────────────────────────────────────
+        // Compact padding, primary-tinted top border
+        footer: {
+            slots: {
+                root: 'border-t border-(--ui-primary)/25 bg-default',
+                container: 'py-5 lg:py-5 lg:flex lg:items-center lg:justify-between lg:gap-x-3',
+            },
+        },
+
+        // ── NavigationMenu ──────────────────────────────────────────────────
+        // Match existing nav link styling
+        navigationMenu: {
+            slots: {
+                link: 'rounded-md px-2.5 py-1.5 text-sm font-medium',
+            },
+        },
+
+        // ── PageSection ─────────────────────────────────────────────────────
+        // Compact padding to match current site rhythm; serif headings
+        pageSection: {
+            slots: {
+                container: 'py-14 md:py-20 lg:py-20',
+                title: 'font-serif text-2xl sm:text-3xl font-semibold tracking-tight',
+                headline: 'text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70',
+                description: 'text-base leading-relaxed',
+            },
+        },
     },
 })

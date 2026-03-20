@@ -63,6 +63,10 @@
 /* ── Semantic tokens: light mode ───────────────────────────────── */
 /* Defined outside @layer so they win over any layered Nuxt UI defaults. */
 :root {
+    /* ── Layout tokens ─────────────────────────────────────────────── */
+    --ui-container: 80rem;       /* max-w-7xl equivalent for UContainer */
+    --ui-header-height: 3.5rem;  /* sticky header height for UHeader   */
+
     /* Brand primary: deep teal — navigation, headings, structure, active states */
     --ui-primary:          oklch(38%  0.068 210);  /* teal-700 */
 
