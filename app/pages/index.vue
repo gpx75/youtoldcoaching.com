@@ -77,7 +77,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
             <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 md:px-10 lg:flex-row lg:items-stretch lg:px-16">
 
                 <!-- Left column (60%): tagline, headline, CTAs -->
-                <div class="flex flex-col justify-start pb-10 lg:w-[58%] lg:justify-center lg:py-20 lg:pr-14">
+                <div class="flex flex-col justify-start pt-6 pb-10 lg:w-[58%] lg:justify-center lg:py-20 lg:pr-14">
 
                     <!-- Eyebrow -->
                     <div
@@ -138,12 +138,12 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     </div>
                 </div>
 
-                <!-- Right column (42%): Moya portrait — mobile in flow, desktop absolute -->
-                <div class="flex justify-center pb-8 lg:hidden">
+                <!-- Right column: Moya portrait — mobile: cropped half-body anchored at bottom -->
+                <div class="flex justify-end items-end overflow-hidden lg:hidden">
                     <img
                         :src="heroMeta.heroPortrait"
                         alt="Moya James"
-                        class="w-64 max-w-xs object-contain"
+                        class="h-80 w-auto max-w-[75%] object-cover object-top"
                     />
                 </div>
 
@@ -187,28 +187,3 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
 
     </div>
 </template>
-
-<style scoped>
-/* Cream gradient panel — starts at viewport left:0, fades to transparent
-   at ~68% of viewport width (behind the portrait column).
-   Sits above the background image (z-0) but behind all content (z-10). */
-.hero-gradient-panel {
-    background: linear-gradient(
-        to right,
-        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 0%,
-        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 38%,
-        color-mix(in srgb, var(--ui-bg-elevated) 25%, transparent) 52%,
-        transparent 62%
-    );
-}
-
-:global(.dark) .hero-gradient-panel {
-    background: linear-gradient(
-        to right,
-        rgba(0, 95, 112, 0.95) 0%,
-        rgba(0, 95, 112, 0.95) 38%,
-        rgba(0, 95, 112, 0.20) 52%,
-        transparent 62%
-    );
-}
-</style>

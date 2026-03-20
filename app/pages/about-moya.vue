@@ -38,43 +38,43 @@ useHead(() => ({
 
         <!-- ═══════════════════════════════════════════════════════════
              SECTION 1 — HERO
-             Full-viewport two-column grid. Left = text with solid teal
-             background. Right = image with blend overlay on left edge.
+             Full-viewport two-column grid. Left = text with gradient
+             overlay. Right = background image visible through grid.
              ═══════════════════════════════════════════════════════════ -->
         <div>
-            <section class="hero">
+            <section class="relative grid grid-cols-1 lg:grid-cols-2 min-h-dvh lg:h-dvh w-full overflow-hidden">
 
                 <!-- Full-viewport background image -->
-                <div class="hero-bg" aria-hidden="true">
+                <div class="absolute inset-0 z-0" aria-hidden="true">
                     <img
                         :src="meta.heroBgImage"
                         alt="Moya James"
-                        class="hero-img"
+                        class="block h-full w-full object-cover object-[60%_top]"
                     />
                 </div>
 
-                <!-- Left text panel: semi-transparent overlay -->
-                <div class="hero-left">
-                    <div class="hero-content">
+                <!-- Left text panel: gradient overlay + content -->
+                <div class="about-hero-gradient relative z-[1] flex flex-col justify-center p-8 pt-[55dvh] md:px-8 md:py-12 lg:p-16 lg:pt-16 max-md:pb-12">
+                    <div class="flex max-w-[560px] flex-col gap-6">
 
                         <!-- Eyebrow badge — light: teal pill; dark: on-dark pill -->
-                        <div class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1 bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)">
+                        <div class="inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1 bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)">
                             <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)" />
                             {{ meta.eyebrow }}
                         </div>
 
                         <!-- H1 -->
-                        <h1 class="hero-h1 font-serif text-highlighted dark:text-(--ui-on-dark-text)">
+                        <h1 class="m-0 font-serif text-[1.75rem] font-bold leading-[1.15] text-balance text-highlighted md:text-[3rem] dark:text-(--ui-on-dark-text)">
                             {{ page.title }}
                         </h1>
 
                         <!-- Subheading -->
-                        <p class="hero-sub text-muted dark:text-(--ui-on-dark-text-soft)">
+                        <p class="m-0 text-lg leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft)">
                             {{ meta.subtitle }}
                         </p>
 
                         <!-- Credential badges -->
-                        <div v-if="meta.tags?.length" class="credentials">
+                        <div v-if="meta.tags?.length" class="flex flex-wrap gap-2">
                             <span
                                 v-for="tag in meta.tags"
                                 :key="tag"
@@ -83,7 +83,7 @@ useHead(() => ({
                         </div>
 
                         <!-- CTAs — matches PageHero light/dark split -->
-                        <div class="cta-row">
+                        <div class="flex flex-wrap gap-3">
                             <UButton
                                 v-if="meta.cta"
                                 :to="meta.cta.href"
@@ -117,8 +117,8 @@ useHead(() => ({
              SECTION 2 — BIO
              Markdown body prose from content/about-moya.md
              ═══════════════════════════════════════════════════════════ -->
-        <section class="bio-section">
-            <div class="bio-inner">
+        <section class="bg-default py-20 px-8">
+            <div class="mx-auto max-w-[800px]">
                 <ContentRenderer
                     :value="page"
                     class="prose prose-sm md:prose-base max-w-none"
@@ -138,143 +138,3 @@ useHead(() => ({
 
     </div>
 </template>
-
-<style scoped>
-/* ─── HERO WRAPPER ──────────────────────────────────────────────────────── */
-.hero {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-/* ─── FULL-VIEWPORT BACKGROUND IMAGE ───────────────────────────────────── */
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-/* ─── LEFT TEXT PANEL ───────────────────────────────────────────────────── */
-/* Semi-transparent cream overlay in light, semi-transparent teal in dark */
-.hero-left {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem;
-    background: linear-gradient(
-        to right,
-        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 0%,
-        color-mix(in srgb, var(--ui-bg-elevated) 95%, transparent) 65%,
-        color-mix(in srgb, var(--ui-bg-elevated) 50%, transparent) 82%,
-        transparent 100%
-    );
-    color: var(--ui-text-highlighted);
-}
-
-:global(.dark) .hero-left {
-    background: linear-gradient(
-        to right,
-        rgba(0, 95, 112, 0.95) 0%,
-        rgba(0, 95, 112, 0.95) 65%,
-        rgba(0, 95, 112, 0.50) 82%,
-        transparent 100%
-    );
-    color: var(--ui-on-dark-text);
-}
-
-.hero-content {
-    max-width: 560px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.hero-h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.15;
-    text-wrap: balance;
-    margin: 0;
-}
-
-.hero-sub {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.credentials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-/* ─── RIGHT COLUMN ──────────────────────────────────────────────────────── */
-.hero-right {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 60% top;
-    display: block;
-}
-
-/* ─── BIO SECTION ───────────────────────────────────────────────────────── */
-.bio-section {
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
-    padding: 5rem 2rem;
-}
-
-.bio-inner {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* ─── TABLET (768px – 1024px) ───────────────────────────────────────────── */
-@media (max-width: 1024px) {
-    .hero {
-        grid-template-columns: 1fr;
-        height: 100vh;
-    }
-
-    .hero-left {
-        padding: 3rem 2rem;
-    }
-}
-
-/* ─── MOBILE (< 768px) ──────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .hero-left {
-        padding: 2rem;
-        justify-content: flex-end;
-        padding-bottom: 3rem;
-    }
-
-    .hero-h1 {
-        font-size: 1.75rem;
-    }
-}
-</style>
