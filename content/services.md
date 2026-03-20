@@ -8,7 +8,7 @@ cta2:
   href: /contact?type=30
 description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Moya James.
 eyebrow: Services
-heroContentScroll: true
+heroContentScroll: false
 heroIllustrationFill: false
 sections:
   - type: credibility

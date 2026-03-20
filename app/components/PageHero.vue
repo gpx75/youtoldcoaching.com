@@ -163,7 +163,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             class="rounded-full px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm ring-1"
                             :class="hasDarkBg
                                 ? 'bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring-sm) text-(--ui-on-dark-text-muted)'
-                                : 'bg-(--ui-bg)/80 ring-default text-muted'"
+                                : 'bg-(--ui-bg)/80 ring-default text-muted dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring-sm) dark:text-(--ui-on-dark-text-muted)'"
                         >
                             {{ tag }}
                         </span>

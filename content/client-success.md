@@ -8,7 +8,7 @@ cta2:
   href: /services
 description: Client success stories from leaders who worked with Moya James through the Pathwise™ methodology — navigating pivotal career transitions across pharmaceutical, banking, and technology sectors.
 eyebrow: Client Success Stories
-heroContentScroll: true
+heroContentScroll: false
 heroIllustrationFill: false
 sections:
   - type: credibility

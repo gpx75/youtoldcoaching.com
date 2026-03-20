@@ -5,6 +5,7 @@ export default defineAppConfig({
             primary:   'teal',   // Deep Teal Blue — navigation, structure, headings
             secondary: 'rose',   // Rose Gold — CTAs, interactive highlights
             neutral:   'stone',  // Warm neutral — body text, muted states
+            warning:   'gold',   // Antique Gold — complimentary call CTA, decorative accents
         },
 
         // ── Form elements ─────────────────────────────────────────────────
