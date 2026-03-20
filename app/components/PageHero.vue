@@ -183,10 +183,10 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         <UButton
                             v-if="props.cta2"
                             :to="props.cta2.href"
-                            color="neutral"
-                            variant="outline"
+                            color="warning"
+                            variant="solid"
                             size="lg"
-                            :class="hasDarkBg ? 'rounded-full border-(--ui-on-dark-border) text-(--ui-on-dark-text) hover:bg-(--ui-on-dark-hover)' : 'rounded-full'"
+                            class="rounded-full"
                         >
                             {{ props.cta2.label }}
                         </UButton>

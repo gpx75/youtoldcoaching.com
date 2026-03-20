@@ -20,6 +20,19 @@
     --color-teal-900: oklch(22%  0.040 210);
     --color-teal-950: oklch(15%  0.025 210);
 
+    /* Gold — warm gold for secondary CTA buttons */
+    --color-gold-50:  oklch(98%  0.015 85);
+    --color-gold-100: oklch(95%  0.035 85);
+    --color-gold-200: oklch(90%  0.065 80);
+    --color-gold-300: oklch(83%  0.090 75);
+    --color-gold-400: oklch(76%  0.100 70);
+    --color-gold-500: oklch(68%  0.105 65);
+    --color-gold-600: oklch(58%  0.095 60);
+    --color-gold-700: oklch(48%  0.080 58);
+    --color-gold-800: oklch(38%  0.060 55);
+    --color-gold-900: oklch(28%  0.040 52);
+    --color-gold-950: oklch(18%  0.022 50);
+
     /* Rose Gold — secondary brand colour (#B76E79), overrides Tailwind's vivid rose */
     --color-rose-50:  oklch(97%  0.010 35);
     --color-rose-100: oklch(93%  0.022 34);
@@ -42,6 +55,9 @@
 
     /* Brand secondary: rose gold — CTA buttons, interactive highlights, accents */
     --ui-secondary:        oklch(63%  0.082 31);   /* rose-500 */
+
+    /* Warning mapped to warm gold — used for secondary CTA buttons */
+    --ui-warning:          oklch(68%  0.105 65);   /* gold-500 */
 
     /* Backgrounds: white → soft cream */
     --ui-bg:               oklch(100% 0     0);    /* pure white */
@@ -92,6 +108,9 @@
 
     /* Brand secondary: rose gold preserved */
     --ui-secondary:        oklch(68%  0.076 32);   /* rose-500 dark variant */
+
+    /* Warning mapped to warm gold — brighter for dark mode */
+    --ui-warning:          oklch(76%  0.100 70);   /* gold-400 */
 
     /* Backgrounds: deep teal-navy */
     --ui-bg:               oklch(18%  0.030 210);

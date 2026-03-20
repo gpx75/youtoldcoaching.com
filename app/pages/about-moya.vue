@@ -98,10 +98,10 @@ useHead(() => ({
                             <UButton
                                 v-if="meta.cta2"
                                 :to="meta.cta2.href"
-                                color="neutral"
-                                variant="outline"
+                                color="warning"
+                                variant="solid"
                                 size="lg"
-                                class="rounded-full dark:border-(--ui-on-dark-border) dark:text-(--ui-on-dark-text) dark:hover:bg-(--ui-on-dark-hover)"
+                                class="rounded-full"
                             >
                                 {{ meta.cta2.label }}
                             </UButton>
@@ -204,8 +204,8 @@ useHead(() => ({
                         <UButton
                             v-if="section.cta2"
                             :to="section.cta2.href"
-                            color="neutral"
-                            variant="outline"
+                            color="warning"
+                            variant="solid"
                             size="lg"
                             class="rounded-full"
                         >

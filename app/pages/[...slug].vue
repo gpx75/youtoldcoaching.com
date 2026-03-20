@@ -216,8 +216,8 @@ const hasBody = computed(() => {
                             <UButton
                                 v-if="section.cta2"
                                 :to="section.cta2.href"
-                                color="neutral"
-                                variant="outline"
+                                color="warning"
+                                variant="solid"
                                 size="lg"
                                 class="rounded-full"
                             >

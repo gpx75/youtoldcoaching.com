@@ -133,10 +133,10 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         <UButton
                             v-if="heroMeta.cta2"
                             :to="heroMeta.cta2.href"
-                            color="neutral"
-                            variant="ghost"
+                            color="warning"
+                            variant="solid"
                             size="lg"
-                            class="rounded-full dark:border dark:border-(--ui-on-dark-border) dark:text-(--ui-on-dark-text) dark:hover:bg-(--ui-on-dark-hover)"
+                            class="rounded-full"
                         >
                             {{ heroMeta.cta2.label }}
                         </UButton>
@@ -282,8 +282,8 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                             <UButton
                                 v-if="section.cta2"
                                 :to="section.cta2.href"
-                                color="neutral"
-                                variant="outline"
+                                color="warning"
+                                variant="solid"
                                 size="lg"
                                 class="rounded-full"
                             >
