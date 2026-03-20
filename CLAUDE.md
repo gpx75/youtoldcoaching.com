@@ -84,6 +84,8 @@ DESIGN SYSTEM RULES
 
 Nuxt UI v4 is the primary design system. Reference: https://ui.nuxt.com/llms-full.txt
 
+AI skill installed at `.agents/skills/nuxt-ui/` — provides 125+ component references, theming guides, layout patterns, and composable docs. Use `/nuxt-ui` or load references from `.agents/skills/nuxt-ui/references/` when working with Nuxt UI components.
+
 Tailwind CSS v4 utilities may be used for layout, spacing, and responsive breakpoints.
 
 Visual styling must rely on Nuxt UI semantic tokens and component props — never raw colors.
