@@ -15,7 +15,9 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    '@nuxt/content', '@nuxt/ui', 'nuxt-studio',
+    '@nuxt/content',
+    ['@nuxt/ui', { colors: ['secondary', 'success', 'info', 'warning', 'error'] }],
+    'nuxt-studio',
   ],
   css: ['~/assets/css/main.css'],
   colorMode: {

@@ -53,7 +53,7 @@ The Pathwise™ Methodology is the proprietary framework at the heart of every e
 
 **Activate** — Start the journey, gain clarity, and take first steps.
 
-You cannot move purposefully towards something you haven't yet articulated. Activate is where we excavate your values, your non-negotiables, and the narrative threads that define your leadership distinctly. What you want. Why it matters. What has been holding the story in place.
+You caaaannot move purposefully towards something you haven't yet articulated. Activate is where we excavate your values, your non-negotiables, and the narrative threads that define your leadership distinctly. What you want. Why it matters. What has been holding the story in place.
 
 **Align** — Build capability, connect skills, values, and purpose.
 

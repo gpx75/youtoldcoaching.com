@@ -45,6 +45,19 @@
     --color-rose-800: oklch(36%  0.049 28);
     --color-rose-900: oklch(27%  0.032 27);
     --color-rose-950: oklch(18%  0.018 26);
+
+    /* Antique Gold — tertiary accent colour (~#C4A265), warm amber-gold, slightly muted */
+    --color-gold-50:  oklch(97%  0.014 82);
+    --color-gold-100: oklch(93%  0.032 80);
+    --color-gold-200: oklch(87%  0.058 76);
+    --color-gold-300: oklch(80%  0.082 72);
+    --color-gold-400: oklch(73%  0.100 70);
+    --color-gold-500: oklch(65%  0.098 68);
+    --color-gold-600: oklch(56%  0.086 66);
+    --color-gold-700: oklch(47%  0.070 64);
+    --color-gold-800: oklch(37%  0.052 62);
+    --color-gold-900: oklch(27%  0.034 61);
+    --color-gold-950: oklch(17%  0.018 60);
 }
 
 /* ── Semantic tokens: light mode ───────────────────────────────── */
@@ -56,8 +69,10 @@
     /* Brand secondary: rose gold — CTA buttons, interactive highlights, accents */
     --ui-secondary:        oklch(63%  0.082 31);   /* rose-500 */
 
-    /* Warning mapped to warm gold — used for secondary CTA buttons */
-    --ui-warning:          oklch(68%  0.105 65);   /* gold-500 */
+    /* Brand tertiary / warning: antique gold — complimentary CTA, decorative accents */
+    --ui-tertiary:              oklch(65%  0.098 68);   /* gold-500 */
+    --ui-warning:               oklch(65%  0.098 68);   /* gold-500 */
+    --ui-warning-foreground:    oklch(98%  0.004 78);   /* cream — light text on gold, matches secondary style */
 
     /* Backgrounds: white → soft cream */
     --ui-bg:               oklch(100% 0     0);    /* pure white */
@@ -96,6 +111,16 @@
     --ui-on-dark-hover:         rgba(255, 255, 255, 0.10);
 }
 
+/* ── Warning foreground: force cream text on gold button in both modes ──
+   html:root (0,1,1) beats :root (0,1,0) — wins over Nuxt UI generated CSS.
+   html.dark (0,1,1) beats .dark (0,1,0) — same principle for dark mode.   */
+html:root {
+    --ui-warning-foreground: oklch(98%  0.004 78);  /* cream */
+}
+html.dark {
+    --ui-warning-foreground: oklch(98%  0.004 78);  /* cream */
+}
+
 /* ── Semantic tokens: dark mode ────────────────────────────────── */
 .dark {
     /* Rose gold — slightly brighter so CTAs pop without harshness */
@@ -109,8 +134,9 @@
     /* Brand secondary: rose gold preserved */
     --ui-secondary:        oklch(68%  0.076 32);   /* rose-500 dark variant */
 
-    /* Warning mapped to warm gold — brighter for dark mode */
-    --ui-warning:          oklch(76%  0.100 70);   /* gold-400 */
+    /* Brand tertiary / warning: antique gold slightly lifted on dark backgrounds */
+    --ui-tertiary:              oklch(73%  0.100 70);   /* gold-400 */
+    --ui-warning:               oklch(73%  0.100 70);   /* gold-400 */
 
     /* Backgrounds: deep teal-navy */
     --ui-bg:               oklch(18%  0.030 210);

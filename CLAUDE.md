@@ -215,9 +215,21 @@ Rose Gold (#B76E79)
 
 Used for:
 
-CTA buttons
+primary CTA buttons (`color="secondary" variant="solid"`)
 interactive highlights
 accent elements
+
+Tertiary color:
+
+Antique Gold (~#C4A265)
+
+Token: `--ui-warning` / `--ui-tertiary` (Nuxt UI `color="warning"`)
+Foreground: cream (`--ui-warning-foreground`) — light text on gold in both light and dark mode.
+
+Used for:
+
+secondary / complimentary CTA buttons (`color="warning" variant="solid"`)
+decorative accents
 
 Supporting colors:
 
@@ -726,7 +738,7 @@ Every hero has one of three surface types. The surface type determines which tok
   - Eyebrow pill: `bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80`
   - Eyebrow dot: `bg-(--ui-primary)/70`
   - Tags: `bg-(--ui-bg)/80 ring-default text-muted`
-  - CTA2: `rounded-full` only (no extra border/text classes needed)
+  - CTA2: `color="warning" variant="solid" class="rounded-full"`
 
 **Dark surface** — full-bleed background image or video with an overlay.
 
@@ -738,7 +750,7 @@ Every hero has one of three surface types. The surface type determines which tok
   - Eyebrow pill: `bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring) text-(--ui-on-dark-text-soft)`
   - Eyebrow dot: `bg-(--ui-on-dark-dot)`
   - Tags: `bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring-sm) text-(--ui-on-dark-text-muted)`
-  - CTA2: `rounded-full border-(--ui-on-dark-border) text-(--ui-on-dark-text) hover:bg-(--ui-on-dark-hover)`
+  - CTA2: `color="warning" variant="solid" class="rounded-full"`
 
 **Mixed surface** — cream gradient in light mode, teal gradient in dark mode (used on `index.vue` and `about-moya.vue`).
 
@@ -751,24 +763,21 @@ Every hero has one of three surface types. The surface type determines which tok
   - Eyebrow pill: `bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)`
   - Eyebrow dot: `bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)`
   - Tags: `bg-(--ui-bg)/80 ring-default text-muted dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring-sm) dark:text-(--ui-on-dark-text-muted)`
-  - CTA2: `rounded-full dark:border-(--ui-on-dark-border) dark:text-(--ui-on-dark-text) dark:hover:bg-(--ui-on-dark-hover)`
+  - CTA2: `color="warning" variant="solid" class="rounded-full"`
 
 ### CTA button conventions (all hero types)
 
-Primary CTA is always:
+Primary CTA is always rose gold:
 ```html
 <UButton color="secondary" variant="solid" size="lg" trailing-icon="i-heroicons-arrow-right" class="rounded-full">
 ```
 
-Secondary CTA on light surface:
+Secondary CTA is always antique gold (all surface types — the gold + cream foreground reads well on both light and dark backgrounds):
 ```html
-<UButton color="neutral" variant="outline" size="lg" class="rounded-full">
+<UButton color="warning" variant="solid" size="lg" class="rounded-full">
 ```
 
-Secondary CTA on dark or mixed surface (add dark-surface overrides):
-```html
-<UButton color="neutral" variant="outline" size="lg" class="rounded-full dark:border-(--ui-on-dark-border) dark:text-(--ui-on-dark-text) dark:hover:bg-(--ui-on-dark-hover)">
-```
+The `color="warning"` maps to `--ui-warning` (antique gold) with `--ui-warning-foreground` (cream) as the text colour, defined in `main.css` for both light and dark modes. No extra surface-specific overrides are needed.
 
 Never use `!important` overrides or scoped CSS to force button colours. Always use Nuxt UI `color` + `variant` props.
 
