@@ -76,7 +76,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
         </div>
 
         <!-- Layout -->
-        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 pb-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:min-h-0 lg:px-16 lg:py-0">
+        <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 pt-6 pb-10 md:px-10 lg:flex-row lg:items-stretch lg:gap-12 lg:min-h-0 lg:px-16 lg:py-0">
 
             <!-- Left: eyebrow + title + subtitle + optional portrait -->
             <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
@@ -210,17 +210,3 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
         </div>
     </section>
 </template>
-
-<style scoped>
-.slide-next-enter-active,
-.slide-next-leave-active,
-.slide-prev-enter-active,
-.slide-prev-leave-active {
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.slide-next-enter-from { opacity: 0; transform: translateY(12px); }
-.slide-next-leave-to   { opacity: 0; transform: translateY(-12px); }
-.slide-prev-enter-from { opacity: 0; transform: translateY(-12px); }
-.slide-prev-leave-to   { opacity: 0; transform: translateY(12px); }
-</style>

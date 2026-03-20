@@ -91,7 +91,7 @@ defineProps<{
         <template #body>
             <div v-if="section.stats?.length" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
                 <div v-for="stat in section.stats" :key="stat.value" class="text-center">
-                    <p class="font-serif text-3xl font-bold text-highlighted">{{ stat.value }}</p>
+                    <p class="font-serif text-xl font-bold text-highlighted sm:text-3xl">{{ stat.value }}</p>
                     <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
                 </div>
             </div>
