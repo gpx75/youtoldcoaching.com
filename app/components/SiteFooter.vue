@@ -12,12 +12,14 @@ const copyright = computed(
 </script>
 
 <template>
-    <footer class="border-t border-(--ui-primary)/25 bg-default px-4 py-5 sm:px-6 lg:px-8">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 sm:flex-row">
+    <UFooter>
+        <template #left>
             <Logo size="sm" :name="brandName" :tagline="brandTagline" />
+        </template>
+        <template #right>
             <p class="text-sm text-dimmed">
                 &copy; {{ new Date().getFullYear() }} {{ copyright }}
             </p>
-        </div>
-    </footer>
+        </template>
+    </UFooter>
 </template>

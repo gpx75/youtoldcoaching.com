@@ -41,7 +41,7 @@ useHead(() => ({
              Full-viewport two-column grid. Left = text with solid teal
              background. Right = image with blend overlay on left edge.
              ═══════════════════════════════════════════════════════════ -->
-        <div class="-mt-10 md:-mt-12 lg:mt-0">
+        <div>
             <section class="hero">
 
                 <!-- Full-viewport background image -->
@@ -130,92 +130,11 @@ useHead(() => ({
              SECTIONS 3–5 — DIFFERENTIATORS / CREDIBILITY / ACTION
              Driven by sections[] array in about-moya.md frontmatter
              ═══════════════════════════════════════════════════════════ -->
-        <template v-for="section in meta.sections" :key="section.type">
-
-            <!-- Differentiators -->
-            <section
-                v-if="section.type === 'differentiators'"
-                class="border-t border-default"
-            >
-                <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20 lg:px-16">
-                    <p v-if="section.eyebrow" class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
-                        {{ section.eyebrow }}
-                    </p>
-                    <h2 class="mb-10 font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
-                        {{ section.heading }}
-                    </h2>
-                    <div v-if="section.pillars?.length" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        <div
-                            v-for="pillar in section.pillars"
-                            :key="pillar.label"
-                            class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6"
-                        >
-                            <p class="mb-2 font-semibold text-highlighted">{{ pillar.label }}</p>
-                            <p class="text-sm leading-relaxed text-muted">{{ pillar.body }}</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Credibility stats -->
-            <section
-                v-else-if="section.type === 'credibility'"
-                class="border-t border-default bg-(--ui-bg-elevated)/40"
-            >
-                <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20 lg:px-16">
-                    <p v-if="section.eyebrow" class="mb-8 text-center text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
-                        {{ section.eyebrow }}
-                    </p>
-                    <div v-if="section.stats?.length" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
-                        <div v-for="stat in section.stats" :key="stat.value" class="text-center">
-                            <p class="font-serif text-3xl font-bold text-highlighted">{{ stat.value }}</p>
-                            <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Action / CTA -->
-            <section
-                v-else-if="section.type === 'action'"
-                class="border-t border-default"
-            >
-                <div class="mx-auto max-w-3xl px-6 py-14 text-center md:px-10 md:py-20">
-                    <p v-if="section.eyebrow" class="mb-4 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/70">
-                        {{ section.eyebrow }}
-                    </p>
-                    <h2 v-if="section.heading" class="mb-4 font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
-                        {{ section.heading }}
-                    </h2>
-                    <p v-if="section.body" class="mb-8 text-base leading-relaxed text-muted">
-                        {{ section.body }}
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <UButton
-                            v-if="section.cta"
-                            :to="section.cta.href"
-                            color="secondary"
-                            variant="solid"
-                            size="lg"
-                            class="rounded-full"
-                        >
-                            {{ section.cta.label }}
-                        </UButton>
-                        <UButton
-                            v-if="section.cta2"
-                            :to="section.cta2.href"
-                            color="warning"
-                            variant="solid"
-                            size="lg"
-                            class="rounded-full"
-                        >
-                            {{ section.cta2.label }}
-                        </UButton>
-                    </div>
-                </div>
-            </section>
-
-        </template>
+        <StorySection
+            v-for="section in meta.sections"
+            :key="section.type"
+            :section="section"
+        />
 
     </div>
 </template>
@@ -269,7 +188,7 @@ useHead(() => ({
         rgba(0, 95, 112, 0.50) 82%,
         transparent 100%
     );
-    color: #ffffff;
+    color: var(--ui-on-dark-text);
 }
 
 .hero-content {
@@ -324,14 +243,9 @@ useHead(() => ({
 
 /* ─── BIO SECTION ───────────────────────────────────────────────────────── */
 .bio-section {
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
     padding: 5rem 2rem;
-}
-
-:global(.dark) .bio-section {
-    background-color: #1a1a1a;
-    color: #F5F0EB;
 }
 
 .bio-inner {
