@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Nuxt Dev Server",
+      "runtimeExecutable": "/Users/gpx/.volta/bin/npx",
+      "runtimeArgs": ["nuxt", "dev"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "Nuxt Preview (Production Build)",
+      "runtimeExecutable": "/Users/gpx/.volta/bin/npx",
+      "runtimeArgs": ["nuxt", "preview"],
+      "port": 3000
+    }
+  ]
+}
