@@ -350,3 +350,15 @@ html.dark {
         );
     }
 }
+
+/* ── View Transition: circular reveal for color mode toggle ─── */
+::view-transition-old(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    animation: none;
+    z-index: 9999;
+}

@@ -39,7 +39,7 @@ const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
             >
                 {{ navCta.label }}
             </UButton>
-            <UColorModeButton size="sm" />
+            <ColorModeButton />
         </template>
 
         <!-- Mobile menu body -->
