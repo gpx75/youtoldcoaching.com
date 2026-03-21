@@ -26,6 +26,10 @@ logs
 pnpm-lock.yaml
 .vercel
 
+# Skills installer artifacts (actual skills tracked in .agents/skills/)
+skills-lock.json
+skills/
+
 # Public image library — only commit images explicitly used in the codebase
 public/images/*
 !public/images/about-hero.jpg
