@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
+@source "../../../content/**/*";
+
+
 /* ── Theme: fonts + custom color scales ────────────────────────── */
 @theme static {
     --font-sans: 'Manrope', system-ui, sans-serif;

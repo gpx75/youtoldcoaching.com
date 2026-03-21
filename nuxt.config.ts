@@ -1,39 +1,32 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
-
 export default defineNuxtConfig({
-  app: {
-    head: {
-      link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-      ],
-    },
-  },
   runtimeConfig: {
     calendly: {
       apiKey: process.env.CALENDLY_API_KEY || '',
     },
   },
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/fonts',
+    '@nuxt/image',
+    '@nuxt/ui',
+    '@nuxt/content',
+    '@vueuse/nuxt',
+    'nuxt-og-image',
+    'nuxt-studio',
+    'motion-v/nuxt',
+  ],
   nitro: {
     preset: 'vercel',
     prerender: {
+      routes: ['/'],
       crawlLinks: true,
-      routes: ['/', '/about-moya', '/services', '/pathwise-framework', '/client-success', '/contact'],
     },
   },
-  modules: [
-    '@nuxt/content',
-    ['@nuxt/ui', { colors: ['secondary', 'success', 'info', 'warning', 'error'] }],
-    'nuxt-studio',
-  ],
   css: ['~/assets/css/main.css'],
   colorMode: {
     preference: 'light',
     fallback: 'light',
-  },
-  vite: {
-    plugins: [tailwindcss()],
   },
   studio: {
     repository: {
@@ -41,6 +34,14 @@ export default defineNuxtConfig({
       owner: 'gpx75',
       repo: 'youtoldcoaching.com',
       branch: 'main',
+    },
+  },
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs',
+      },
     },
   },
   devtools: { enabled: true },
