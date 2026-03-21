@@ -1,4 +1,4 @@
-export function useSiteConfig() {
+export function useSiteSettings() {
     const { data } = useAsyncData('site-config', () => {
         return queryCollection('site').first()
     })
