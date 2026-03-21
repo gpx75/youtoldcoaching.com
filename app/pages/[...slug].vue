@@ -9,7 +9,7 @@ if (!page.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
 
-const { titleSuffix, defaultDescription } = useSiteConfig()
+const { titleSuffix, defaultDescription } = useSiteSettings()
 
 useHead(() => ({
     title: page.value?.title ? `${page.value.title} · ${titleSuffix.value}` : titleSuffix.value,

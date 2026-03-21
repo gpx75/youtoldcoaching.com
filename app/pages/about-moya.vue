@@ -21,7 +21,7 @@ const meta = computed(() => {
     };
 });
 
-const { titleSuffix, defaultDescription } = useSiteConfig()
+const { titleSuffix, defaultDescription } = useSiteSettings()
 
 useHead(() => ({
     title: page.value?.title
