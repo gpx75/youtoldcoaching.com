@@ -6,6 +6,7 @@ eyebrow: Contact
 heroContentScroll: false
 heroIllustrationFill: false
 subtitle: No obligation. No pitch. A real conversation about where you are and where you want to go.
+subtitleFont: script
 tags:
   - Complimentary 30-min call
   - £120 Alignment Session

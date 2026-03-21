@@ -35,7 +35,7 @@ const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
                 color="secondary"
                 variant="solid"
                 size="sm"
-                class="hidden rounded-full sm:flex"
+                class="hidden sm:flex"
             >
                 {{ navCta.label }}
             </UButton>
@@ -50,7 +50,7 @@ const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
                 :to="navCta.to"
                 color="secondary"
                 variant="solid"
-                class="mt-4 rounded-full sm:hidden"
+                class="mt-4 sm:hidden"
             >
                 {{ navCta.label }}
             </UButton>

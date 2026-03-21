@@ -22,6 +22,13 @@ onUnmounted(() => { pageScrollable.value = false })
 
 const booking = useCalendlyBooking()
 
+// Content-driven labels from site.yml — editable in Nuxt Studio
+const { data: siteData } = await useAsyncData('site-calendly', () => {
+    return queryCollection('site').first()
+})
+const labels = computed(() => siteData.value?.calendly?.labels ?? {})
+const contactEmail = computed(() => siteData.value?.contact?.email ?? '')
+
 const form = reactive({ name: '', email: '', notes: '' })
 
 const userTimezone = computed(() => Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -168,8 +175,8 @@ onMounted(async () => {
                     <UCard>
                         <div class="space-y-4">
                             <div>
-                                <p class="font-semibold text-base text-highlighted">Choose a session</p>
-                                <p class="text-sm text-muted mt-0.5">Select the type that best matches where you are.</p>
+                                <p class="font-semibold text-base text-highlighted">{{ labels.chooseSession }}</p>
+                                <p class="text-sm text-muted mt-0.5">{{ labels.chooseSessionHint }}</p>
                             </div>
 
                             <div v-if="booking.loadingEventTypes.value" class="space-y-2">
@@ -191,7 +198,7 @@ onMounted(async () => {
                                     <div class="flex items-center justify-between gap-4">
                                         <span class="text-sm font-semibold text-highlighted">{{ et.name }}</span>
                                         <UBadge class="shrink-0 tabular-nums">
-                                            {{ et.duration }} min
+                                            {{ et.duration }} {{ labels.minutesSuffix }}
                                         </UBadge>
                                     </div>
                                     <p v-if="et.description" class="mt-1 text-xs text-muted line-clamp-2">
@@ -205,8 +212,8 @@ onMounted(async () => {
                                 color="warning"
                                 variant="soft"
                                 icon="i-heroicons-exclamation-triangle"
-                                title="No session types found"
-                                description="Check your Calendly configuration."
+                                :title="labels.noSessionTypes"
+                                :description="labels.noSessionTypesHint"
                             />
                         </div>
                     </UCard>
@@ -215,7 +222,7 @@ onMounted(async () => {
                     <UCard>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <p class="font-semibold text-base text-highlighted">Pick a time</p>
+                                <p class="font-semibold text-base text-highlighted">{{ labels.pickTime }}</p>
                                 <span class="text-xs text-muted">{{ userTimezone }}</span>
                             </div>
 
@@ -259,7 +266,7 @@ onMounted(async () => {
                                             class="mt-0.5 text-[10px] tabular-nums"
                                             :class="selectedDayKey === day.key ? 'text-primary' : 'text-muted'"
                                         >
-                                            {{ day.slots.length }} open
+                                            {{ day.slots.length }} {{ labels.openSuffix }}
                                         </span>
                                     </button>
                                 </div>
@@ -291,8 +298,8 @@ onMounted(async () => {
                                 color="neutral"
                                 variant="soft"
                                 icon="i-heroicons-calendar-x-mark"
-                                title="No availability in the next 14 days"
-                                description="Email hello@moyajames.com and we'll find a time."
+                                :title="labels.noAvailability"
+                                :description="labels.noAvailabilityHint"
                             />
                         </div>
                     </UCard>
@@ -313,10 +320,10 @@ onMounted(async () => {
                         <UCard v-if="selectedSlotSummary">
                             <div class="flex items-start justify-between gap-4">
                                 <div class="space-y-1">
-                                    <p class="text-xs uppercase tracking-widest text-muted">Selected</p>
+                                    <p class="text-xs uppercase tracking-widest text-muted">{{ labels.selected }}</p>
                                     <p class="font-semibold text-sm text-highlighted">{{ selectedSlotSummary }}</p>
                                     <p v-if="booking.selectedEventType.value" class="text-xs text-muted">
-                                        {{ booking.selectedEventType.value.name }} · {{ booking.selectedEventType.value.duration }} min
+                                        {{ booking.selectedEventType.value.name }} · {{ booking.selectedEventType.value.duration }} {{ labels.minutesSuffix }}
                                     </p>
                                 </div>
                                 <UButton
@@ -335,36 +342,36 @@ onMounted(async () => {
                     <UCard>
                         <div class="space-y-5">
                             <div>
-                                <p class="font-semibold text-base text-highlighted">Your details</p>
+                                <p class="font-semibold text-base text-highlighted">{{ labels.yourDetails }}</p>
                                 <p class="text-sm text-muted mt-0.5">
-                                    I'll use these to prepare for our conversation.
+                                    {{ labels.yourDetailsHint }}
                                 </p>
                             </div>
 
                             <form class="space-y-4" @submit.prevent="openCalendlyPopup">
-                                <UFormField label="Name">
+                                <UFormField :label="labels.nameLabel">
                                     <UInput
                                         v-model="form.name"
-                                        placeholder="Your name"
+                                        :placeholder="labels.namePlaceholder"
                                         class="w-full"
                                         required
                                     />
                                 </UFormField>
 
-                                <UFormField label="Email">
+                                <UFormField :label="labels.emailLabel">
                                     <UInput
                                         v-model="form.email"
                                         type="email"
-                                        placeholder="you@example.com"
+                                        :placeholder="labels.emailPlaceholder"
                                         class="w-full"
                                         required
                                     />
                                 </UFormField>
 
-                                <UFormField label="What's on your mind?" :required="false">
+                                <UFormField :label="labels.notesLabel" :required="false">
                                     <UTextarea
                                         v-model="form.notes"
-                                        placeholder="A brief note about where you are and what you're navigating (optional)"
+                                        :placeholder="labels.notesPlaceholder"
                                         :rows="3"
                                         class="w-full"
                                     />
@@ -377,11 +384,11 @@ onMounted(async () => {
                                     class="w-full"
                                     icon="i-heroicons-calendar-days"
                                     :disabled="!booking.selectedSlot.value || !form.name || !form.email"
-                                    label="Continue to confirm"
+                                    :label="labels.submitButton"
                                 />
 
                                 <p v-if="!booking.selectedSlot.value" class="text-center text-xs text-muted">
-                                    Select a time slot to continue
+                                    {{ labels.selectSlotHint }}
                                 </p>
                             </form>
                         </div>

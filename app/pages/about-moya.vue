@@ -15,19 +15,22 @@ const meta = computed(() => {
         tags:        (current as any).tags        ?? [],
         cta:         (current as any).cta,
         cta2:        (current as any).cta2,
-        heroBgImage: (current as any).heroBgImage,
-        sections:    (current as any).sections    ?? [],
+        heroBgImage:  (current as any).heroBgImage,
+        subtitleFont: (current as any).subtitleFont,
+        sections:     (current as any).sections    ?? [],
     };
 });
 
+const { titleSuffix, defaultDescription } = useSiteConfig()
+
 useHead(() => ({
     title: page.value?.title
-        ? `${page.value.title} · Moya James Leadership`
-        : 'About Moya James · Moya James Leadership',
+        ? `${page.value.title} · ${titleSuffix.value}`
+        : titleSuffix.value,
     meta: [
         {
             name: 'description',
-            content: (page.value as any)?.description || (page.value as any)?.subtitle || '',
+            content: (page.value as any)?.description || (page.value as any)?.subtitle || defaultDescription.value,
         },
     ],
 }));
@@ -64,12 +67,15 @@ useHead(() => ({
                         </div>
 
                         <!-- H1 -->
-                        <h1 class="m-0 font-serif text-[1.75rem] font-bold leading-[1.15] text-balance text-highlighted md:text-[3rem] dark:text-(--ui-on-dark-text)">
+                        <h1 class="hero-title m-0 text-highlighted dark:text-(--ui-on-dark-text)">
                             {{ page.title }}
                         </h1>
 
                         <!-- Subheading -->
-                        <p class="m-0 text-lg leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft)">
+                        <p
+                            class="m-0 leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft)"
+                            :class="meta.subtitleFont === 'script' ? 'subtitle-script' : 'text-lg'"
+                        >
                             {{ meta.subtitle }}
                         </p>
 
@@ -91,7 +97,6 @@ useHead(() => ({
                                 variant="solid"
                                 size="lg"
                                 trailing-icon="i-heroicons-arrow-right"
-                                class="rounded-full"
                             >
                                 {{ meta.cta.label }}
                             </UButton>
@@ -101,7 +106,6 @@ useHead(() => ({
                                 color="warning"
                                 variant="solid"
                                 size="lg"
-                                class="rounded-full"
                             >
                                 {{ meta.cta2.label }}
                             </UButton>

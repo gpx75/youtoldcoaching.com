@@ -51,6 +51,7 @@ sections:
       label: Complimentary 30-min call
       href: /contact?type=30
 subtitle: I know what it feels like to leave behind a version of yourself that everyone else thought was working fine.
+subtitleFont: script
 tags:
   - 20+ years pharmaceutical leadership
   - ICF Level 2 certified

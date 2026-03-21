@@ -5,16 +5,22 @@ brand:
 items:
   - label: Home
     to: /
+    icon: i-heroicons-home
   - label: About Moya
     to: /about-moya
+    icon: i-heroicons-user
   - label: Services
     to: /services
+    icon: i-heroicons-briefcase
   - label: "Pathwise™ Framework"
     to: /pathwise-framework
+    icon: i-heroicons-arrow-trending-up
   - label: Client Success Stories
     to: /client-success
+    icon: i-heroicons-chat-bubble-left-right
   - label: Contact
     to: /contact
+    icon: i-heroicons-envelope
 
 cta:
   label: Book a Session

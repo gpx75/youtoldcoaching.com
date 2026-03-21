@@ -13,6 +13,7 @@ const props = defineProps<{
     illustration?: string;
     illustrationFill?: boolean;
     contentScroll?: boolean;
+    subtitleFont?: 'script' | 'serif' | 'sans';
 }>();
 
 const hasDarkBg = computed(() => !!(props.bgImage || props.videoSrc));
@@ -95,12 +96,10 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 </div>
 
                 <h1
-                    class="font-serif font-bold text-balance break-words"
+                    class="hero-title"
                     :class="[
                         hasDarkBg ? 'text-(--ui-on-dark-text)' : 'text-highlighted',
-                        props.illustration
-                            ? 'mb-4 text-[2.4rem] sm:text-5xl lg:text-[3.5rem]'
-                            : 'mb-6 text-[2.4rem] sm:text-5xl lg:text-6xl xl:text-7xl'
+                        props.illustration ? 'mb-4' : 'mb-6'
                     ]"
                 >
                     {{ currentTitle }}
@@ -108,8 +107,13 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
 
                 <p
                     v-if="props.subtitle"
-                    class="text-base leading-relaxed text-balance sm:text-lg"
-                    :class="[hasDarkBg ? 'text-(--ui-on-dark-text-soft)' : 'text-muted', props.illustration ? 'mb-6' : 'mb-0']"
+                    class="leading-relaxed text-balance"
+                    :class="[
+                        hasDarkBg ? 'text-(--ui-on-dark-text-soft)' : 'text-muted',
+                        props.illustration ? 'mb-6' : 'mb-0',
+                        props.subtitleFont === 'script' ? 'subtitle-script' : 'text-base sm:text-lg',
+                        props.subtitleFont === 'serif' ? 'font-serif' : '',
+                    ]"
                 >
                     {{ props.subtitle }}
                 </p>
@@ -176,7 +180,6 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             variant="solid"
                             size="lg"
                             trailing-icon="i-heroicons-arrow-right"
-                            class="rounded-full"
                         >
                             {{ props.cta.label }}
                         </UButton>
@@ -186,7 +189,6 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             color="warning"
                             variant="solid"
                             size="lg"
-                            class="rounded-full"
                         >
                             {{ props.cta2.label }}
                         </UButton>
