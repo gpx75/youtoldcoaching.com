@@ -22,11 +22,5 @@ const darkPatternUrl = computed(() => siteData.value?.background?.darkPattern ??
         </svg>
     </div>
 
-    <!-- Dark mode: teal texture -->
-    <div
-        v-if="darkPatternUrl"
-        aria-hidden="true"
-        class="hidden dark:block pointer-events-none fixed inset-0 z-0 bg-pattern-dark"
-        :style="{ '--bg-pattern-url': `url('${darkPatternUrl}')` }"
-    />
+    <!-- Dark mode: no background pattern — clean solid teal gradient -->
 </template>

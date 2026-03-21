@@ -81,8 +81,11 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
 
             <!-- Left: eyebrow + title + subtitle + optional portrait -->
             <div class="flex flex-col lg:w-5/12 lg:shrink-0 lg:py-10" :class="props.illustration ? '' : 'justify-center'">
-                <div
+                <Motion
                     v-if="props.eyebrow"
+                    :initial="{ opacity: 0, filter: 'blur(10px)', y: 8 }"
+                    :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
+                    :transition="{ duration: 0.5, delay: 0.1 }"
                     class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1"
                     :class="hasDarkBg
                         ? 'bg-(--ui-on-dark-pill-bg) ring-(--ui-on-dark-pill-ring) text-(--ui-on-dark-text-soft)'
@@ -93,9 +96,13 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         :class="hasDarkBg ? 'bg-(--ui-on-dark-dot)' : 'bg-(--ui-primary)/70'"
                     />
                     {{ props.eyebrow }}
-                </div>
+                </Motion>
 
-                <h1
+                <Motion
+                    tag="h1"
+                    :initial="{ opacity: 0, filter: 'blur(12px)', y: 12 }"
+                    :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
+                    :transition="{ duration: 0.6, delay: 0.2 }"
                     class="hero-title"
                     :class="[
                         hasDarkBg ? 'text-(--ui-on-dark-text)' : 'text-highlighted',
@@ -103,10 +110,14 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                     ]"
                 >
                     {{ currentTitle }}
-                </h1>
+                </Motion>
 
-                <p
+                <Motion
                     v-if="props.subtitle"
+                    tag="p"
+                    :initial="{ opacity: 0, y: 10 }"
+                    :animate="{ opacity: 1, y: 0 }"
+                    :transition="{ duration: 0.5, delay: 0.4 }"
                     class="leading-relaxed text-balance"
                     :class="[
                         hasDarkBg ? 'text-(--ui-on-dark-text-soft)' : 'text-muted',
@@ -116,11 +127,14 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                     ]"
                 >
                     {{ props.subtitle }}
-                </p>
+                </Motion>
 
                 <!-- Portrait (illustration pages only) -->
-                <div
+                <Motion
                     v-if="props.illustration"
+                    :initial="{ opacity: 0, scale: 0.97 }"
+                    :animate="{ opacity: 1, scale: 1 }"
+                    :transition="{ duration: 0.6, delay: 0.5 }"
                     class="mt-2 overflow-hidden rounded-2xl"
                     :class="props.illustrationFill ? 'h-64 sm:h-80 lg:h-120' : 'size-64 sm:size-80 lg:size-96'"
                 >
@@ -129,7 +143,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         alt="Moya"
                         class="h-full w-full object-cover object-top"
                     />
-                </div>
+                </Motion>
             </div>
 
             <!-- Right: sliding content + tags + CTA -->
@@ -139,8 +153,11 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 :class="props.contentScroll ? 'lg:min-h-0 lg:overflow-hidden lg:py-10' : 'lg:py-10 justify-center'"
             >
                 <!-- Slide content -->
-                <div
+                <Motion
                     v-if="currentSlide"
+                    :initial="{ opacity: 0, y: 16 }"
+                    :animate="{ opacity: 1, y: 0 }"
+                    :transition="{ duration: 0.5, delay: 0.5 }"
                     class="relative"
                     :class="props.contentScroll ? 'min-h-0 flex-1 overflow-y-auto scroll-smooth pr-1' : ''"
                 >
@@ -156,10 +173,16 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         v-if="props.contentScroll"
                         class="pointer-events-none sticky bottom-0 hidden h-10 bg-linear-to-t from-default to-transparent lg:block"
                     />
-                </div>
+                </Motion>
 
                 <!-- Tags + CTA -->
-                <div v-if="props.tags?.length || props.cta || props.cta2" class="flex flex-wrap items-center gap-3">
+                <Motion
+                    v-if="props.tags?.length || props.cta || props.cta2"
+                    :initial="{ opacity: 0, y: 10 }"
+                    :animate="{ opacity: 1, y: 0 }"
+                    :transition="{ duration: 0.5, delay: 0.6 }"
+                    class="flex flex-wrap items-center gap-3"
+                >
                     <div v-if="props.tags?.length" class="flex flex-wrap gap-2">
                         <span
                             v-for="tag in props.tags"
@@ -193,7 +216,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             {{ props.cta2.label }}
                         </UButton>
                     </div>
-                </div>
+                </Motion>
 
                 <!-- Slide dots -->
                 <div v-if="hasSlides" class="flex items-center gap-2">

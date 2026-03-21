@@ -115,24 +115,24 @@ html.dark {
     /* Brand primary: brighter teal on dark backgrounds */
     --ui-primary: var(--ui-color-primary-400);
 
-    /* Backgrounds: deep teal-navy — widened range for clearer surface hierarchy */
-    --ui-bg:               oklch(16%  0.028 210);
-    --ui-bg-muted:         oklch(19%  0.030 210);
-    --ui-bg-elevated:      oklch(22%  0.034 210);
-    --ui-bg-accented:      oklch(26%  0.040 210);
+    /* Backgrounds: deep teal-navy — wider spread for clear surface hierarchy */
+    --ui-bg:               oklch(14%  0.022 210);  /* deepest base */
+    --ui-bg-muted:         oklch(17%  0.024 210);
+    --ui-bg-elevated:      oklch(21%  0.026 210);  /* cards & surfaces — perceptibly lighter */
+    --ui-bg-accented:      oklch(25%  0.030 210);  /* highlighted surfaces */
     --ui-bg-inverted:      oklch(97%  0.012 78);   /* warm cream */
 
     /* Text: cream-family — warm throughout, mirrors light mode warmth */
     --ui-text-highlighted: oklch(97%  0.012 78);   /* warm cream — headings */
-    --ui-text:             oklch(93%  0.014 80);   /* warm cream — body */
-    --ui-text-muted:       oklch(72%  0.012 75);   /* warm neutral muted — lifted for readability */
-    --ui-text-dimmed:      oklch(56%  0.008 75);   /* warm neutral dimmed — lifted */
+    --ui-text:             oklch(90%  0.010 80);   /* warm cream — body (slightly toned down) */
+    --ui-text-muted:       oklch(70%  0.010 75);   /* warm neutral muted */
+    --ui-text-dimmed:      oklch(54%  0.008 75);   /* warm neutral dimmed */
     --ui-text-toned:       oklch(64%  0.012 210);  /* teal-tinted accent text */
 
-    /* Borders: lifted for perceptible separation on dark backgrounds */
-    --ui-border:           oklch(34%  0.042 210);
-    --ui-border-muted:     oklch(30%  0.036 210);  /* softer separators */
-    --ui-border-accented:  oklch(43%  0.048 210);
+    /* Borders: stronger separation on dark backgrounds */
+    --ui-border:           oklch(30%  0.030 210);
+    --ui-border-muted:     oklch(26%  0.024 210);  /* softer separators */
+    --ui-border-accented:  oklch(40%  0.040 210);  /* active/hover borders */
     --ui-border-inverted:  oklch(93%  0.014 80);   /* warm cream */
 }
 

@@ -83,30 +83,49 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                 <div class="flex flex-col justify-start pt-6 pb-10 lg:w-[58%] lg:justify-center lg:py-20 lg:pr-14">
 
                     <!-- Eyebrow -->
-                    <div
+                    <Motion
                         v-if="heroMeta.eyebrow"
+                        :initial="{ opacity: 0, filter: 'blur(10px)', y: 8 }"
+                        :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
+                        :transition="{ duration: 0.5, delay: 0.1 }"
                         class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-(--ui-primary)/6 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/80 ring-1 ring-(--ui-primary)/30 backdrop-blur-sm dark:bg-(--ui-on-dark-pill-bg) dark:text-(--ui-on-dark-text-soft) dark:ring-(--ui-on-dark-pill-ring)"
                     >
                         <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)" />
                         {{ heroMeta.eyebrow }}
-                    </div>
+                    </Motion>
 
                     <!-- Headline -->
-                    <h1 class="hero-title mb-5 text-highlighted dark:text-(--ui-on-dark-text)">
+                    <Motion
+                        tag="h1"
+                        :initial="{ opacity: 0, filter: 'blur(12px)', y: 12 }"
+                        :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
+                        :transition="{ duration: 0.6, delay: 0.2 }"
+                        class="hero-title mb-5 text-highlighted dark:text-(--ui-on-dark-text)"
+                    >
                         {{ page.title }}
-                    </h1>
+                    </Motion>
 
                     <!-- Subtitle -->
-                    <p
+                    <Motion
                         v-if="heroMeta.subtitle"
+                        tag="p"
+                        :initial="{ opacity: 0, y: 10 }"
+                        :animate="{ opacity: 1, y: 0 }"
+                        :transition="{ duration: 0.5, delay: 0.4 }"
                         class="mb-8 max-w-lg leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft) text-balance"
                         :class="heroMeta.subtitleFont === 'script' ? 'subtitle-script' : 'text-base sm:text-lg'"
                     >
                         {{ heroMeta.subtitle }}
-                    </p>
+                    </Motion>
 
                     <!-- Tags -->
-                    <div v-if="heroMeta.tags?.length" class="mb-8 flex flex-wrap gap-2">
+                    <Motion
+                        v-if="heroMeta.tags?.length"
+                        :initial="{ opacity: 0, y: 10 }"
+                        :animate="{ opacity: 1, y: 0 }"
+                        :transition="{ duration: 0.5, delay: 0.5 }"
+                        class="mb-8 flex flex-wrap gap-2"
+                    >
                         <span
                             v-for="tag in heroMeta.tags"
                             :key="tag"
@@ -114,10 +133,15 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         >
                             {{ tag }}
                         </span>
-                    </div>
+                    </Motion>
 
                     <!-- CTAs -->
-                    <div class="flex flex-wrap gap-3">
+                    <Motion
+                        :initial="{ opacity: 0, y: 10 }"
+                        :animate="{ opacity: 1, y: 0 }"
+                        :transition="{ duration: 0.5, delay: 0.6 }"
+                        class="flex flex-wrap gap-3"
+                    >
                         <UButton
                             v-if="heroMeta.cta"
                             :to="heroMeta.cta.href"
@@ -137,31 +161,51 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         >
                             {{ heroMeta.cta2.label }}
                         </UButton>
-                    </div>
+                    </Motion>
                 </div>
 
                 <!-- Right column: Moya portrait — mobile: cropped half-body anchored at bottom -->
-                <div class="flex justify-end items-end overflow-hidden lg:hidden">
+                <Motion
+                    :initial="{ opacity: 0, y: 20 }"
+                    :animate="{ opacity: 1, y: 0 }"
+                    :transition="{ duration: 0.7, delay: 0.5 }"
+                    class="flex justify-end items-end overflow-hidden lg:hidden"
+                >
                     <img
                         :src="heroMeta.heroPortrait"
                         alt="Moya James"
                         class="h-80 w-auto max-w-[75%] object-cover object-top"
                     />
-                </div>
+                </Motion>
 
             </div>
 
-            <!-- Desktop portrait: absolutely anchored, fades in from left -->
-            <img
-                :src="heroMeta.heroPortrait"
-                alt="Moya James"
-                aria-hidden="true"
-                class="pointer-events-none absolute bottom-0 -right-32 hidden h-[95dvh] w-auto object-contain object-bottom lg:block mask-[linear-gradient(to_right,transparent_0%,black_18%)]"
-            />
+            <!-- Desktop portrait: absolutely anchored, fades in from right -->
+            <Motion
+                :initial="{ opacity: 0, x: 40 }"
+                :animate="{ opacity: 1, x: 0 }"
+                :transition="{ duration: 0.8, delay: 0.4 }"
+                class="pointer-events-none absolute bottom-0 -right-32 hidden lg:block"
+            >
+                <img
+                    :src="heroMeta.heroPortrait"
+                    alt="Moya James"
+                    aria-hidden="true"
+                    class="h-[95dvh] w-auto object-contain object-bottom mask-[linear-gradient(to_right,transparent_0%,black_18%)]"
+                />
+            </Motion>
         </section>
 
         <!-- ── Recognition: body prose from index.md ────────────────── -->
-        <section class="border-t border-default" aria-label="Recognition">
+        <Motion
+            :initial="{ opacity: 0, y: 24 }"
+            :while-in-view="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.6 }"
+            :in-view-options="{ once: true }"
+            tag="section"
+            class="border-t border-default"
+            aria-label="Recognition"
+        >
             <div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20 lg:px-16">
                 <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-start">
                     <h2 class="font-serif text-2xl font-semibold tracking-tight text-highlighted sm:text-3xl">
@@ -173,7 +217,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     />
                 </div>
             </div>
-        </section>
+        </Motion>
 
         <!-- ── Below-fold: storytelling sections ─────────────────────── -->
         <template v-if="hasSections">
