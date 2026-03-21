@@ -2,8 +2,38 @@ brand:
   name: Moya James
   tagline: Moya James Leadership
 
+metaDefaults:
+  titleSuffix: Moya James Leadership
+  description: Narrative coaching for leaders navigating professional transition. Pathwise™ methodology with Moya James.
+
 footer:
   copyright: Moya James Leadership. All rights reserved.
 
 contact:
   email: hello@moyajames.com
+
+background:
+  darkPattern: /images/pattern169.jpg
+
+calendly:
+  labels:
+    chooseSession: Choose a session
+    chooseSessionHint: Select the type that best matches where you are.
+    pickTime: Pick a time
+    noSessionTypes: No session types found
+    noSessionTypesHint: Check your Calendly configuration.
+    noAvailability: No availability in the next 14 days
+    noAvailabilityHint: Email hello@moyajames.com and we'll find a time.
+    yourDetails: Your details
+    yourDetailsHint: I'll use these to prepare for our conversation.
+    nameLabel: Name
+    namePlaceholder: Your name
+    emailLabel: Email
+    emailPlaceholder: you@example.com
+    notesLabel: What's on your mind?
+    notesPlaceholder: A brief note about where you are and what you're navigating (optional)
+    submitButton: Continue to confirm
+    selectSlotHint: Select a time slot to continue
+    minutesSuffix: min
+    openSuffix: open
+    selected: Selected

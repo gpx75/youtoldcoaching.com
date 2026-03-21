@@ -7,15 +7,17 @@ if (!page.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
 
+const { titleSuffix, defaultDescription } = useSiteConfig()
+
 useHead(() => ({
-    title: page.value?.title ? `${page.value.title} · Moya James Leadership` : 'Moya James Leadership',
+    title: page.value?.title ? `${page.value.title} · ${titleSuffix.value}` : titleSuffix.value,
     meta: [
         {
             name: 'description',
             content:
                 page.value?.description ||
                 page.value?.subtitle ||
-                'Coaching for leaders who want grounded clarity.',
+                defaultDescription.value,
         },
     ],
 }));
@@ -37,6 +39,7 @@ const heroMeta = computed(() => {
         heroSlides:           (current as any).heroSlides           ?? (meta as any).heroSlides,
         heroContentScroll:    (current as any).heroContentScroll    ?? (meta as any).heroContentScroll,
         calendlyUrl:          (current as any).calendlyUrl          ?? (meta as any).calendlyUrl,
+        subtitleFont:         (current as any).subtitleFont         ?? (meta as any).subtitleFont,
         sections:             (current as any).sections             ?? (meta as any).sections ?? null,
         // Light/dark background images and portrait — from frontmatter
         heroBgLight:   (current as any).heroBg?.light   ?? (meta as any).heroBg?.light,
@@ -89,14 +92,15 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                     </div>
 
                     <!-- Headline -->
-                    <h1 class="mb-5 font-serif font-bold text-balance text-highlighted dark:text-(--ui-on-dark-text) text-[2.4rem] leading-tight sm:text-5xl lg:text-[3.8rem] lg:leading-[1.1]">
+                    <h1 class="hero-title mb-5 text-highlighted dark:text-(--ui-on-dark-text)">
                         {{ page.title }}
                     </h1>
 
                     <!-- Subtitle -->
                     <p
                         v-if="heroMeta.subtitle"
-                        class="mb-8 max-w-lg text-base leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft) text-balance sm:text-lg"
+                        class="mb-8 max-w-lg leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft) text-balance"
+                        :class="heroMeta.subtitleFont === 'script' ? 'subtitle-script' : 'text-base sm:text-lg'"
                     >
                         {{ heroMeta.subtitle }}
                     </p>
@@ -121,7 +125,6 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                             variant="solid"
                             size="lg"
                             trailing-icon="i-heroicons-arrow-right"
-                            class="rounded-full"
                         >
                             {{ heroMeta.cta.label }}
                         </UButton>
@@ -131,7 +134,6 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                             color="warning"
                             variant="solid"
                             size="lg"
-                            class="rounded-full"
                         >
                             {{ heroMeta.cta2.label }}
                         </UButton>

@@ -10,6 +10,7 @@ const ctaSchema = z.object({
 const pillarSchema = z.object({
     label: z.string(),
     body: z.string(),
+    icon: z.string().optional(),
 })
 
 const statSchema = z.object({
@@ -61,6 +62,7 @@ const pageSchema = z.object({
     description: z.string().optional(),
     eyebrow: z.string().optional(),
     subtitle: z.string().optional(),
+    subtitleFont: z.enum(['script', 'serif', 'sans']).optional(),
     // Heading displayed alongside the markdown body prose section
     bodyHeading: z.string().optional(),
     tags: z.array(z.string()).optional(),
@@ -95,6 +97,7 @@ const navigationSchema = z.object({
     items: z.array(z.object({
         label: z.string(),
         to: z.string(),
+        icon: z.string().optional(),
     })),
     cta: z.object({
         label: z.string(),
@@ -104,16 +107,49 @@ const navigationSchema = z.object({
 
 // ── Site config schema (content/site.yml) ─────────────────────────────────────
 
+const calendlyLabelsSchema = z.object({
+    chooseSession: z.string().optional(),
+    chooseSessionHint: z.string().optional(),
+    pickTime: z.string().optional(),
+    noSessionTypes: z.string().optional(),
+    noSessionTypesHint: z.string().optional(),
+    noAvailability: z.string().optional(),
+    noAvailabilityHint: z.string().optional(),
+    yourDetails: z.string().optional(),
+    yourDetailsHint: z.string().optional(),
+    nameLabel: z.string().optional(),
+    namePlaceholder: z.string().optional(),
+    emailLabel: z.string().optional(),
+    emailPlaceholder: z.string().optional(),
+    notesLabel: z.string().optional(),
+    notesPlaceholder: z.string().optional(),
+    submitButton: z.string().optional(),
+    selectSlotHint: z.string().optional(),
+    minutesSuffix: z.string().optional(),
+    openSuffix: z.string().optional(),
+    selected: z.string().optional(),
+})
+
 const siteSchema = z.object({
     brand: z.object({
         name: z.string(),
         tagline: z.string().optional(),
+    }).optional(),
+    metaDefaults: z.object({
+        titleSuffix: z.string().optional(),
+        description: z.string().optional(),
     }).optional(),
     footer: z.object({
         copyright: z.string(),
     }).optional(),
     contact: z.object({
         email: z.string(),
+    }).optional(),
+    background: z.object({
+        darkPattern: z.string().optional(),
+    }).optional(),
+    calendly: z.object({
+        labels: calendlyLabelsSchema.optional(),
     }).optional(),
 })
 

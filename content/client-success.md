@@ -33,6 +33,7 @@ sections:
       label: Complimentary 30-min call
       href: /contact?type=30
 subtitle: Real transitions. Real leaders. Real outcomes. Names used with permission.
+subtitleFont: script
 tags:
   - Activate stage
   - Align stage

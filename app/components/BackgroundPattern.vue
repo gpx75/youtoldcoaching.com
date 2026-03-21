@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const { data: siteData } = await useAsyncData('site-bg', () => {
+    return queryCollection('site').first()
+})
+
+const darkPatternUrl = computed(() => siteData.value?.background?.darkPattern ?? '')
+</script>
+
 <template>
     <!-- Light mode: subtle dot grid -->
     <div
@@ -16,8 +24,9 @@
 
     <!-- Dark mode: teal texture -->
     <div
+        v-if="darkPatternUrl"
         aria-hidden="true"
-        class="hidden dark:block pointer-events-none fixed inset-0 z-0"
-        style="background: url('/images/pattern169.jpg') center / cover no-repeat; opacity: 0.15;"
+        class="hidden dark:block pointer-events-none fixed inset-0 z-0 bg-pattern-dark"
+        :style="{ '--bg-pattern-url': `url('${darkPatternUrl}')` }"
     />
 </template>

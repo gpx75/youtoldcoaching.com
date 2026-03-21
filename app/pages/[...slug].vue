@@ -9,15 +9,17 @@ if (!page.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
 
+const { titleSuffix, defaultDescription } = useSiteConfig()
+
 useHead(() => ({
-    title: page.value?.title ? `${page.value.title} · Moya James Leadership` : 'Moya James Leadership',
+    title: page.value?.title ? `${page.value.title} · ${titleSuffix.value}` : titleSuffix.value,
     meta: [
         {
             name: 'description',
             content:
                 page.value?.description ||
                 page.value?.subtitle ||
-                'Coaching for leaders who want grounded clarity.',
+                defaultDescription.value,
         },
     ],
 }));
@@ -40,6 +42,7 @@ const heroMeta = computed(() => {
         heroSlides:           (current as any).heroSlides           ?? (meta as any).heroSlides,
         heroContentScroll:    (current as any).heroContentScroll    ?? (meta as any).heroContentScroll,
         calendlyUrl:          (current as any).calendlyUrl          ?? (meta as any).calendlyUrl,
+        subtitleFont:         (current as any).subtitleFont         ?? (meta as any).subtitleFont,
         sections:             (current as any).sections             ?? (meta as any).sections ?? null,
     };
 });
@@ -83,6 +86,7 @@ const hasBody = computed(() => {
                 :illustration="heroMeta.heroIllustration"
                 :illustration-fill="heroMeta.heroIllustrationFill"
                 :content-scroll="heroMeta.heroContentScroll"
+                :subtitle-font="heroMeta.subtitleFont"
             />
         </div>
 

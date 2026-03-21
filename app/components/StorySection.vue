@@ -14,6 +14,7 @@ interface SectionCta {
 interface Pillar {
     label: string;
     body: string;
+    icon?: string;
 }
 
 interface Stat {
@@ -66,8 +67,9 @@ defineProps<{
                 <div
                     v-for="pillar in section.pillars"
                     :key="pillar.label"
-                    class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6"
+                    class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6 transition-colors duration-200 hover:border-(--ui-border-accented)"
                 >
+                    <UIcon v-if="pillar.icon" :name="pillar.icon" class="mb-2 size-5 text-primary" />
                     <p class="mb-2 font-semibold text-highlighted">{{ pillar.label }}</p>
                     <p class="text-sm leading-relaxed text-muted">{{ pillar.body }}</p>
                 </div>
@@ -91,7 +93,7 @@ defineProps<{
         <template #body>
             <div v-if="section.stats?.length" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
                 <div v-for="stat in section.stats" :key="stat.value" class="text-center">
-                    <p class="font-serif text-xl font-bold text-highlighted sm:text-3xl">{{ stat.value }}</p>
+                    <p class="font-serif text-2xl font-bold text-highlighted sm:text-4xl">{{ stat.value }}</p>
                     <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
                 </div>
             </div>
@@ -105,8 +107,8 @@ defineProps<{
         :title="section.heading"
         :description="section.body"
         :links="[
-            ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'secondary' as const, variant: 'solid' as const, size: 'lg' as const, class: 'rounded-full' }] : []),
-            ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'warning' as const, variant: 'solid' as const, size: 'lg' as const, class: 'rounded-full' }] : []),
+            ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'secondary' as const, variant: 'solid' as const, size: 'lg' as const }] : []),
+            ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'warning' as const, variant: 'solid' as const, size: 'lg' as const }] : []),
         ]"
         :aria-label="section.eyebrow || 'Call to action'"
         :ui="{

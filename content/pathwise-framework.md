@@ -43,6 +43,7 @@ sections:
       label: Complimentary 30-min call
       href: /contact?type=30
 subtitle: A proprietary methodology for leaders navigating pivotal transitions. Not a template — a journey.
+subtitleFont: script
 tags:
   - Activate
   - Align

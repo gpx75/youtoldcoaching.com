@@ -1,16 +1,24 @@
 <script setup lang="ts">
+const { data: siteData } = await useAsyncData('site-meta', () => {
+    return queryCollection('site').first()
+})
+
+const brandName = computed(() => siteData.value?.brand?.name ?? '')
+const titleSuffix = computed(() => siteData.value?.metaDefaults?.titleSuffix ?? brandName.value)
+const siteDescription = computed(() => siteData.value?.metaDefaults?.description ?? '')
+
 useHead(() => ({
-  title: 'Moya James Leadership',
+  title: titleSuffix.value,
   htmlAttrs: { lang: 'en' },
   link: [],
   meta: [
-    { name: 'description', content: 'Narrative coaching for leaders navigating professional transition. Youtold Coaching with Moya James.' },
+    { name: 'description', content: siteDescription.value },
   ],
 }))
 </script>
 
 <template>
-  <UApp>  
+  <UApp>
   <NuxtRouteAnnouncer />
   <NuxtLayout>
     <NuxtPage />

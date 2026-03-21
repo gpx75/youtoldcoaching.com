@@ -33,6 +33,7 @@ sections:
       label: Complimentary 30-min call
       href: /contact?type=30
 subtitle: Every engagement is bespoke. These are the frameworks, not the formulae.
+subtitleFont: script
 tags:
   - Pathway · CHF 2,000
   - Momentum · CHF 5,000

@@ -2,9 +2,10 @@
 @import '@nuxt/ui';
 
 /* ── Theme: fonts + custom color scales ────────────────────────── */
-@theme {
-    --font-sans: 'Manrope', sans-serif;
-    --font-serif: 'Fraunces', serif;
+@theme static {
+    --font-sans: 'Manrope', system-ui, sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-script: 'Dancing Script', cursive;
 
     /* Deep Teal Blue — primary brand colour (#007C91) */
     --color-teal-50:  oklch(97%  0.012 210);
@@ -25,8 +26,8 @@
     --color-rose-200: oklch(87%  0.038 33);
     --color-rose-300: oklch(79%  0.056 33);
     --color-rose-400: oklch(71%  0.072 32);
-    --color-rose-500: oklch(63%  0.082 31);
-    --color-rose-600: oklch(54%  0.075 30);
+    --color-rose-500: oklch(60%  0.085 31);
+    --color-rose-600: oklch(52%  0.078 30);
     --color-rose-700: oklch(45%  0.064 29);
     --color-rose-800: oklch(36%  0.049 28);
     --color-rose-900: oklch(27%  0.032 27);
@@ -38,8 +39,8 @@
     --color-gold-200: oklch(87%  0.058 76);
     --color-gold-300: oklch(80%  0.082 72);
     --color-gold-400: oklch(73%  0.100 70);
-    --color-gold-500: oklch(65%  0.098 68);
-    --color-gold-600: oklch(56%  0.086 66);
+    --color-gold-500: oklch(58%  0.098 68);
+    --color-gold-600: oklch(50%  0.088 66);
     --color-gold-700: oklch(47%  0.070 64);
     --color-gold-800: oklch(37%  0.052 62);
     --color-gold-900: oklch(27%  0.034 61);
@@ -53,15 +54,9 @@
     --ui-container: 80rem;       /* max-w-7xl equivalent for UContainer */
     --ui-header-height: 3.5rem;  /* sticky header height for UHeader   */
 
-    /* Brand primary: deep teal — navigation, headings, structure, active states */
-    --ui-primary:          oklch(38%  0.068 210);  /* teal-700 */
-
-    /* Brand secondary: rose gold — CTA buttons, interactive highlights, accents */
-    --ui-secondary:        oklch(63%  0.082 31);   /* rose-500 */
-
-    /* Brand tertiary / warning: antique gold — complimentary CTA, decorative accents */
-    --ui-tertiary:              oklch(65%  0.098 68);   /* gold-500 */
-    --ui-warning:               oklch(65%  0.098 68);   /* gold-500 */
+    /* Brand primary: deep teal-700 — navigation, headings, structure, active states
+       (default is shade-500; we shift to 700 for stronger brand presence) */
+    --ui-primary: var(--ui-color-primary-700);
 
     /* Backgrounds: white → soft cream */
     --ui-bg:               oklch(100% 0     0);    /* pure white */
@@ -70,11 +65,11 @@
     --ui-bg-accented:      oklch(95%  0.010 210);  /* faint teal tint */
     --ui-bg-inverted:      oklch(22%  0.040 210);  /* deep teal-navy */
 
-    /* Text */
+    /* Text — WCAG AA contrast ratios against white */
     --ui-text-highlighted: oklch(22%  0.040 210);  /* deep teal-navy — headings */
-    --ui-text:             oklch(57%  0.008 65);   /* warm grey — body */
-    --ui-text-muted:       oklch(64%  0.008 65);
-    --ui-text-dimmed:      oklch(72%  0.006 65);
+    --ui-text:             oklch(48%  0.010 65);   /* warm grey — body (~7:1) */
+    --ui-text-muted:       oklch(55%  0.008 65);   /* secondary text (~5:1) */
+    --ui-text-dimmed:      oklch(68%  0.006 65);   /* hints, placeholders */
     --ui-text-toned:       oklch(60%  0.010 210);
 
     /* Borders */
@@ -91,15 +86,15 @@
        Never use bg-white/*, text-white/*, ring-white/*, etc. directly —
        reference these tokens instead.
     ─────────────────────────────────────────────────────────────────── */
-    --ui-on-dark-text:          rgba(255, 255, 255, 1.00);
-    --ui-on-dark-text-soft:     rgba(255, 255, 255, 0.80);
-    --ui-on-dark-text-muted:    rgba(255, 255, 255, 0.70);
-    --ui-on-dark-pill-bg:       rgba(255, 255, 255, 0.10);
-    --ui-on-dark-pill-ring:     rgba(255, 255, 255, 0.25);
-    --ui-on-dark-pill-ring-sm:  rgba(255, 255, 255, 0.20);
-    --ui-on-dark-border:        rgba(255, 255, 255, 0.30);
-    --ui-on-dark-dot:           rgba(255, 255, 255, 0.60);
-    --ui-on-dark-hover:         rgba(255, 255, 255, 0.10);
+    --ui-on-dark-text:          oklch(98% 0.004 78);       /* warm cream */
+    --ui-on-dark-text-soft:     oklch(90% 0.008 78);       /* warm cream soft */
+    --ui-on-dark-text-muted:    oklch(82% 0.006 78);       /* warm cream muted */
+    --ui-on-dark-pill-bg:       oklch(100% 0 0 / 0.08);
+    --ui-on-dark-pill-ring:     oklch(100% 0 0 / 0.20);
+    --ui-on-dark-pill-ring-sm:  oklch(100% 0 0 / 0.15);
+    --ui-on-dark-border:        oklch(100% 0 0 / 0.22);
+    --ui-on-dark-dot:           oklch(95% 0.012 78);       /* warm cream dot */
+    --ui-on-dark-hover:         oklch(100% 0 0 / 0.08);
 }
 
 /* ── Warning foreground: force cream text on gold button in both modes ──
@@ -115,27 +110,20 @@ html.dark {
 /* ── Semantic tokens: dark mode ────────────────────────────────── */
 .dark {
     /* Brand primary: brighter teal on dark backgrounds */
-    --ui-primary:          oklch(62%  0.095 210);  /* teal-400 */
+    --ui-primary: var(--ui-color-primary-400);
 
-    /* Brand secondary: rose gold preserved */
-    --ui-secondary:        oklch(68%  0.076 32);   /* rose-500 dark variant */
-
-    /* Brand tertiary / warning: antique gold slightly lifted on dark backgrounds */
-    --ui-tertiary:              oklch(73%  0.100 70);   /* gold-400 */
-    --ui-warning:               oklch(73%  0.100 70);   /* gold-400 */
-
-    /* Backgrounds: deep teal-navy */
-    --ui-bg:               oklch(18%  0.030 210);
-    --ui-bg-muted:         oklch(21%  0.032 210);  /* subtle lift for muted surfaces */
-    --ui-bg-elevated:      oklch(23%  0.036 210);  /* +1% for card separation */
-    --ui-bg-accented:      oklch(27%  0.042 210);
+    /* Backgrounds: deep teal-navy — widened range for clearer surface hierarchy */
+    --ui-bg:               oklch(16%  0.028 210);
+    --ui-bg-muted:         oklch(19%  0.030 210);
+    --ui-bg-elevated:      oklch(22%  0.034 210);
+    --ui-bg-accented:      oklch(26%  0.040 210);
     --ui-bg-inverted:      oklch(97%  0.012 78);   /* warm cream */
 
     /* Text: cream-family — warm throughout, mirrors light mode warmth */
     --ui-text-highlighted: oklch(97%  0.012 78);   /* warm cream — headings */
     --ui-text:             oklch(93%  0.014 80);   /* warm cream — body */
-    --ui-text-muted:       oklch(68%  0.010 75);   /* warm neutral muted */
-    --ui-text-dimmed:      oklch(52%  0.008 75);   /* warm neutral dimmed */
+    --ui-text-muted:       oklch(72%  0.012 75);   /* warm neutral muted — lifted for readability */
+    --ui-text-dimmed:      oklch(56%  0.008 75);   /* warm neutral dimmed — lifted */
     --ui-text-toned:       oklch(64%  0.012 210);  /* teal-tinted accent text */
 
     /* Borders: lifted for perceptible separation on dark backgrounds */
@@ -156,14 +144,14 @@ html.dark {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         letter-spacing: 0.01em;
-        line-height: 1.72;
+        line-height: 1.68;
     }
 
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-serif);
         font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
-        letter-spacing: -0.03em;
-        line-height: 1.06;
+        letter-spacing: -0.025em;
+        line-height: 1.12;
         text-wrap: balance;
     }
 
@@ -177,9 +165,9 @@ html.dark {
 
     body {
         background: linear-gradient(
-            160deg,
+            168deg,
             var(--ui-bg-elevated) 0%,
-            var(--ui-bg) 55%
+            var(--ui-bg) 40%
         );
         color: var(--ui-text);
     }
@@ -203,7 +191,12 @@ html.dark {
         --tw-prose-code:          var(--ui-text-highlighted);
         --tw-prose-pre-bg:        var(--ui-bg-accented);
         --tw-prose-captions:      var(--ui-text-dimmed);
-        line-height: 1.78;
+        line-height: 1.75;
+    }
+
+    .prose a {
+        text-underline-offset: 3px;
+        transition: color 150ms;
     }
 
     .prose :is(h1, h2, h3, h4, h5, h6) {
@@ -214,6 +207,12 @@ html.dark {
     .prose strong {
         font-weight: 600;
         letter-spacing: -0.01em;
+    }
+
+    /* ── Dark background pattern ─────────────────────────────────── */
+    .bg-pattern-dark {
+        background: var(--bg-pattern-url) center / cover no-repeat;
+        opacity: 0.15;
     }
 
     /* ── Hero gradient panels ─────────────────────────────────────
@@ -279,6 +278,28 @@ html.dark {
     .slide-next-leave-to   { opacity: 0; transform: translateY(-12px); }
     .slide-prev-enter-from { opacity: 0; transform: translateY(-12px); }
     .slide-prev-leave-to   { opacity: 0; transform: translateY(12px); }
+}
+
+/* ── Hero H1 — consistent sizing across all hero variants ─────
+   Outside @layer so they beat Tailwind's preflight reset
+   (which strips h1 font-size/weight in the base layer). */
+.hero-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    line-height: 1.12;
+    font-size: 2.4rem;                                     /* mobile */
+    @media (width >= 40rem)  { font-size: 3rem;    }       /* sm — ~48px */
+    @media (width >= 64rem)  { font-size: 3.5rem;  }       /* lg — ~56px */
+}
+
+/* ── Script subtitle — handwriting accent for hero subtitles ── */
+.subtitle-script {
+    font-family: var(--font-script);
+    font-size: 1.5rem;      /* 24px — mobile */
+    @media (width >= 40rem)  { font-size: 1.875rem; }  /* 30px — sm */
+    @media (width >= 64rem)  { font-size: 2.25rem;  }  /* 36px — lg */
 }
 
 /* ── Dark mode: hero gradient overrides ──────────────────────── */

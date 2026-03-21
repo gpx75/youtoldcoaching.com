@@ -21,10 +21,13 @@ sections:
     heading: Activate. Align. Achieve.
     pillars:
       - label: Activate
+        icon: i-heroicons-rocket-launch
         body: Start the journey, gain clarity, and take first steps. You cannot move purposefully towards something you haven't yet articulated. Activate is where we excavate your values, your non-negotiables, and the narrative threads that define your leadership distinctly.
       - label: Align
+        icon: i-heroicons-puzzle-piece
         body: Build capability, connect skills, values, and purpose. Identify the gaps — skills to develop, strengths to name, and the leadership identity to inhabit with full conviction. The work here is both practical and deeply personal.
       - label: Achieve
+        icon: i-heroicons-trophy
         body: Take confident action, create transformation, and deliver results. This is where the internal work translates into external impact — in how you lead, how you communicate, and how others experience you.
   - type: credibility
     eyebrow: Proven results
@@ -48,13 +51,14 @@ sections:
       label: Complimentary 30-min call
       href: /contact?type=30
 subtitle: Navigate your next chapter with intention, impact, and the leadership you aspire to deliver.
+subtitleFont: script
 tags:
   - Leadership transition coaching
   - Executive coaching
   - Pathwise™ Methodology
 ---
 
-You ddare standing at a crossroads. The role you have outgrown no longer fits — but the next chapter hasn't come into focus yet.
+You are standing at a crossroads. The role you have outgrown no longer fits — but the next chapter hasn't come into focus yet.
 
 That space between who you were and who you are becoming is the most consequential transition of your leadership career.
 
