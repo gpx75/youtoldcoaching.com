@@ -13,12 +13,14 @@ export default defineAppConfig({
 
         // ── Button ──────────────────────────────────────────────────────────
         // Pill-shaped, semibold — premium brand vocabulary
+        // 3 visual tiers: solid (filled + shadow), outline (bordered), soft (tinted bg)
+        // Hover/active scale + shadow applied per-instance via utility classes
         button: {
             defaultVariants: {
-                size: 'lg',
+                size: 'xl',
             },
             slots: {
-                base: 'rounded-full font-semibold',
+                base: 'rounded-full font-semibold tracking-wide cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]',
             },
         },
 

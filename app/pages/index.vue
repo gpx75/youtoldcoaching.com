@@ -147,17 +147,19 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                             :to="heroMeta.cta.href"
                             color="secondary"
                             variant="solid"
-                            size="lg"
+                            size="xl"
                             trailing-icon="i-heroicons-arrow-right"
+                            class="px-7 py-3.5 shadow-lg hover:shadow-xl"
                         >
                             {{ heroMeta.cta.label }}
                         </UButton>
                         <UButton
                             v-if="heroMeta.cta2"
                             :to="heroMeta.cta2.href"
-                            color="warning"
-                            variant="solid"
-                            size="lg"
+                            color="secondary"
+                            variant="outline"
+                            size="xl"
+                            class="px-7 py-3.5 ring-2"
                         >
                             {{ heroMeta.cta2.label }}
                         </UButton>

@@ -201,17 +201,19 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                             :to="props.cta.href"
                             color="secondary"
                             variant="solid"
-                            size="lg"
+                            size="xl"
                             trailing-icon="i-heroicons-arrow-right"
+                            class="px-7 py-3.5 shadow-lg hover:shadow-xl"
                         >
                             {{ props.cta.label }}
                         </UButton>
                         <UButton
                             v-if="props.cta2"
                             :to="props.cta2.href"
-                            color="warning"
-                            variant="solid"
-                            size="lg"
+                            color="secondary"
+                            variant="outline"
+                            size="xl"
+                            class="px-7 py-3.5 ring-2"
                         >
                             {{ props.cta2.label }}
                         </UButton>

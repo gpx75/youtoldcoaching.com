@@ -146,8 +146,8 @@ defineProps<{
             :title="section.heading"
             :description="section.body"
             :links="[
-                ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'secondary' as const, variant: 'solid' as const, size: 'lg' as const }] : []),
-                ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'warning' as const, variant: 'solid' as const, size: 'lg' as const }] : []),
+                ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'secondary' as const, variant: 'solid' as const, size: 'xl' as const, class: 'px-7 py-3.5 shadow-lg hover:shadow-xl' }] : []),
+                ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'secondary' as const, variant: 'outline' as const, size: 'xl' as const, class: 'px-7 py-3.5 ring-2' }] : []),
             ]"
             :aria-label="section.eyebrow || 'Call to action'"
             :ui="{
