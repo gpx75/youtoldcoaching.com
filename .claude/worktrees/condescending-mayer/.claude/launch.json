@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Nuxt Dev Server",
+      "runtimeExecutable": "/Users/gpx/.volta/bin/npx",
+      "runtimeArgs": ["nuxt", "dev", "--cwd", "/Users/gpx/Code/youtoldcoaching.com"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

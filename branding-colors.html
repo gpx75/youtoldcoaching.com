@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moya James Leadership — Direttive Branding / Color System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #FAFAF8;
+      color: #333;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #E5E1DF;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 500;
+      color: #007C91;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .page-header .tagline {
+      font-family: 'Fraunces', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #B76E79;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #78716C;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+    .section-subtitle {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #78716C;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    /* ── Brand Colors ── */
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 640px) { .brand-grid { grid-template-columns: 1fr; } }
+
+    .brand-card { text-align: center; }
+
+    .brand-swatch {
+      width: 100%;
+      height: 130px;
+      border-radius: 1rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-swatch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .brand-swatch:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    }
+
+    .color-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.1rem;
+    }
+    .color-hex {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #78716C;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .color-role {
+      font-size: 0.72rem;
+      color: #78716C;
+      font-style: italic;
+    }
+    .color-code {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-style: normal;
+    }
+
+    .bg-teal { background: #007C91; }
+    .bg-rose { background: #B76E79; }
+    .bg-gold { background: #C4A265; }
+
+    /* ── Brand Strip ── */
+    .strip {
+      display: flex;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      height: 8px;
+      margin-bottom: 3.5rem;
+      opacity: 0.6;
+    }
+
+    /* ── Gemstone System Colors ── */
+    .gems-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 768px) { .gems-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px) { .gems-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .gem-card {
+      background: #fff;
+      border: 1px solid #EDEBE9;
+      border-radius: 1rem;
+      padding: 1.5rem 0.75rem 1.25rem;
+      text-align: center;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .gem-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    /* Gem swatch — circular like a cut stone */
+    .gem-swatch {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      box-shadow:
+        0 4px 14px rgba(0,0,0,0.15),
+        inset 0 -3px 6px rgba(0,0,0,0.12),
+        inset 0 3px 6px rgba(255,255,255,0.2);
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .gem-swatch:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 8px 24px rgba(0,0,0,0.2),
+        inset 0 -3px 6px rgba(0,0,0,0.12),
+        inset 0 3px 6px rgba(255,255,255,0.2);
+    }
+    /* Gem facet highlight */
+    .gem-swatch::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      width: 24px;
+      height: 14px;
+      background: rgba(255,255,255,0.28);
+      border-radius: 50%;
+      transform: rotate(-30deg);
+    }
+
+    .gem-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.15rem;
+    }
+    .gem-stone-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #9E9A96;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .gem-alias {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-family: monospace;
+      color: #9E9A96;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Parentela badge */
+    .gem-parent {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 0.5rem;
+    }
+    .gem-parent-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .parent-teal { background: rgba(0,124,145,0.08); color: #007C91; }
+    .parent-teal .gem-parent-dot { background: #007C91; }
+    .parent-gold { background: rgba(196,162,101,0.1); color: #a08545; }
+    .parent-gold .gem-parent-dot { background: #C4A265; }
+    .parent-rose { background: rgba(183,110,121,0.08); color: #B76E79; }
+    .parent-rose .gem-parent-dot { background: #B76E79; }
+    .parent-self { background: rgba(120,113,108,0.06); color: #78716C; }
+
+    .gem-desc {
+      font-size: 0.75rem;
+      color: #78716C;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Gem colors */
+    .bg-sapphire { background: linear-gradient(135deg, #1E3A6E, #2563EB, #1E40AF); }
+    .bg-baltic { background: linear-gradient(135deg, #B8860B, #F59E0B, #D97706); }
+    .bg-garnet { background: linear-gradient(135deg, #6B1C32, #DC2626, #991B1B); }
+    .bg-emerald-gem { background: linear-gradient(135deg, #046A38, #10B981, #059669); }
+    .bg-granite { background: linear-gradient(135deg, #57534E, #78716C, #A8A29E); }
+
+    /* ── Mapping Table ── */
+    .mapping-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 3.5rem;
+      font-size: 0.8rem;
+    }
+    .mapping-table th {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #78716C;
+      text-align: left;
+      padding: 0.75rem 0.6rem;
+      border-bottom: 2px solid #E5E1DF;
+    }
+    .mapping-table td {
+      padding: 0.65rem 0.6rem;
+      border-bottom: 1px solid #f0eeec;
+      vertical-align: middle;
+    }
+    .mapping-table tr:last-child td { border-bottom: none; }
+
+    .table-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 0.35rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .table-code {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.04);
+      font-family: monospace;
+    }
+    .table-type {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+    }
+    .type-brand { background: rgba(0,124,145,0.08); color: #007C91; }
+    .type-gem { background: rgba(196,162,101,0.08); color: #a08545; }
+
+    .row-gem { background: rgba(0,0,0,0.012); }
+    .gem-label { font-style: italic; font-size: 0.72rem; color: #9E9A96; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #E5E1DF;
+      margin: 3rem 0;
+    }
+
+    /* ── Buttons ── */
+    .buttons-section { margin-bottom: 3.5rem; }
+
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    @media (max-width: 640px) { .buttons-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+    .btn-group { text-align: center; }
+    .btn-group-label {
+      font-family: 'Fraunces', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.15rem;
+    }
+    .btn-group-desc {
+      font-size: 0.65rem;
+      color: #9E9A96;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-width: 210px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-arrow { font-size: 1rem; transition: transform 0.15s; }
+    .btn:hover .btn-arrow { transform: translateX(2px); }
+
+    .btn-variant-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9E9A96;
+      font-weight: 500;
+    }
+
+    /* Solid */
+    .btn-solid-primary { background: #007C91; color: #FAFAF8; box-shadow: 0 4px 14px rgba(0,124,145,0.25); }
+    .btn-solid-primary:hover { box-shadow: 0 6px 20px rgba(0,124,145,0.35); }
+    .btn-solid-secondary { background: #B76E79; color: #FAFAF8; box-shadow: 0 4px 14px rgba(183,110,121,0.25); }
+    .btn-solid-secondary:hover { box-shadow: 0 6px 20px rgba(183,110,121,0.35); }
+    .btn-solid-tertiary { background: #C4A265; color: #FAFAF8; box-shadow: 0 4px 14px rgba(196,162,101,0.3); }
+    .btn-solid-tertiary:hover { box-shadow: 0 6px 20px rgba(196,162,101,0.4); }
+
+    /* Outline */
+    .btn-outline-primary { background: transparent; border-color: #007C91; color: #007C91; }
+    .btn-outline-primary:hover { background: rgba(0,124,145,0.05); }
+    .btn-outline-secondary { background: transparent; border-color: #B76E79; color: #B76E79; }
+    .btn-outline-secondary:hover { background: rgba(183,110,121,0.05); }
+    .btn-outline-tertiary { background: transparent; border-color: #C4A265; color: #a08545; }
+    .btn-outline-tertiary:hover { background: rgba(196,162,101,0.05); }
+
+    /* Soft */
+    .btn-soft-primary { background: rgba(0,124,145,0.08); border-color: transparent; color: #007C91; }
+    .btn-soft-primary:hover { background: rgba(0,124,145,0.12); }
+    .btn-soft-secondary { background: rgba(183,110,121,0.08); border-color: transparent; color: #B76E79; }
+    .btn-soft-secondary:hover { background: rgba(183,110,121,0.12); }
+    .btn-soft-tertiary { background: rgba(196,162,101,0.1); border-color: transparent; color: #a08545; }
+    .btn-soft-tertiary:hover { background: rgba(196,162,101,0.15); }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #E5E1DF;
+    }
+    .footer-note {
+      font-size: 0.72rem;
+      color: #9E9A96;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 1rem;
+      font-style: italic;
+    }
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: 0.8rem;
+      color: #007C91;
+      font-weight: 500;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="page-header">
+      <h1>Moya James Leadership</h1>
+      <div class="tagline">Define Your Path. Own Your Impact.</div>
+      <p>Direttive Branding / Color System</p>
+    </header>
+
+    <!-- ═══ BRAND COLORS ═══ -->
+    <h2 class="section-title">Colori Brand</h2>
+    <p class="section-subtitle">Identità visiva primaria</p>
+
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div class="brand-swatch bg-teal"></div>
+        <div class="color-name">Primary — Teal</div>
+        <div class="color-hex">#007C91</div>
+        <div class="color-role">
+          Autorità · Struttura · Leadership
+          <br><span class="color-code" style="background:rgba(0,124,145,0.08); color:#007C91;">color="primary"</span>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-swatch bg-rose"></div>
+        <div class="color-name">Secondary — Rose Gold</div>
+        <div class="color-hex">#B76E79</div>
+        <div class="color-role">
+          Calore · Connessione · CTA principale
+          <br><span class="color-code" style="background:rgba(183,110,121,0.08); color:#B76E79;">color="secondary"</span>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-swatch bg-gold"></div>
+        <div class="color-name">Tertiary — Gold</div>
+        <div class="color-hex">#C4A265</div>
+        <div class="color-role">
+          Premium · Privilegio · CTA complementare
+          <br><span class="color-code" style="background:rgba(196,162,101,0.1); color:#a08545;">color="tertiary"</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand strip -->
+    <div class="strip">
+      <div class="bg-teal" style="flex:3;"></div>
+      <div class="bg-rose" style="flex:2;"></div>
+      <div class="bg-gold" style="flex:2;"></div>
+    </div>
+
+    <!-- ═══ GEMSTONE SYSTEM COLORS ═══ -->
+    <h2 class="section-title">Colori di Sistema — Pietre Preziose</h2>
+    <p class="section-subtitle">Complementari al brand · Ispirati alle gemme · Mai uguali, sempre in armonia</p>
+
+    <div class="gems-grid">
+
+      <!-- Sapphire / Info -->
+      <div class="gem-card">
+        <div class="gem-swatch bg-sapphire"></div>
+        <div class="gem-name">Info</div>
+        <div class="gem-stone-name">Bleu Gemme · Sapphire</div>
+        <div class="gem-alias">blue</div>
+        <div class="gem-parent parent-teal">
+          <span class="gem-parent-dot"></span> ← teal
+        </div>
+        <div class="gem-desc">Profondità blu<br>Calma autorevole</div>
+      </div>
+
+      <!-- Baltic Amber / Warning -->
+      <div class="gem-card">
+        <div class="gem-swatch bg-baltic"></div>
+        <div class="gem-name">Warning</div>
+        <div class="gem-stone-name">Baltic Amber Stone</div>
+        <div class="gem-alias">amber</div>
+        <div class="gem-parent parent-gold">
+          <span class="gem-parent-dot"></span> ← gold
+        </div>
+        <div class="gem-desc">Calore fossile<br>Attenzione dorata</div>
+      </div>
+
+      <!-- Garnet / Error -->
+      <div class="gem-card">
+        <div class="gem-swatch bg-garnet"></div>
+        <div class="gem-name">Error</div>
+        <div class="gem-stone-name">Rosso Porpora · Garnet</div>
+        <div class="gem-alias">red</div>
+        <div class="gem-parent parent-rose">
+          <span class="gem-parent-dot"></span> ← rose
+        </div>
+        <div class="gem-desc">Intensità nobile<br>Urgenza calda</div>
+      </div>
+
+      <!-- Emerald / Success -->
+      <div class="gem-card">
+        <div class="gem-swatch bg-emerald-gem"></div>
+        <div class="gem-name">Success</div>
+        <div class="gem-stone-name">Emerald Stone · 2.58ct</div>
+        <div class="gem-alias">emerald</div>
+        <div class="gem-parent parent-self">
+          ponte naturale
+        </div>
+        <div class="gem-desc">Verde profondo<br>Crescita, conferma</div>
+      </div>
+
+      <!-- Granite / Neutral -->
+      <div class="gem-card">
+        <div class="gem-swatch bg-granite"></div>
+        <div class="gem-name">Neutral</div>
+        <div class="gem-stone-name">Gray Stone · Granito</div>
+        <div class="gem-alias">stone</div>
+        <div class="gem-parent parent-self">
+          base solida
+        </div>
+        <div class="gem-desc">Fondamenta<br>Testo, struttura</div>
+      </div>
+
+    </div>
+
+    <!-- System strip -->
+    <div class="strip" style="margin-bottom: 3.5rem;">
+      <div style="flex:2; background:#2563EB;"></div>
+      <div style="flex:2; background:#F59E0B;"></div>
+      <div style="flex:2; background:#DC2626;"></div>
+      <div style="flex:1.5; background:#10B981;"></div>
+      <div style="flex:1.5; background:#78716C;"></div>
+    </div>
+
+    <!-- ═══ COMPLETE MAP ═══ -->
+    <h2 class="section-title">Mappa Completa</h2>
+    <p class="section-subtitle">8 alias · 3 brand + 5 gemme · Parentela cromatica</p>
+
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Alias</th>
+          <th>Scala</th>
+          <th>Tipo</th>
+          <th>Gemma</th>
+          <th>Parentela</th>
+          <th>Uso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="table-dot bg-teal"></span></td>
+          <td><strong>primary</strong></td>
+          <td><span class="table-code">teal</span></td>
+          <td><span class="table-type type-brand">Brand</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>Navigazione, headings</td>
+        </tr>
+        <tr>
+          <td><span class="table-dot bg-rose"></span></td>
+          <td><strong>secondary</strong></td>
+          <td><span class="table-code">rose</span></td>
+          <td><span class="table-type type-brand">Brand</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>CTA principale</td>
+        </tr>
+        <tr>
+          <td><span class="table-dot bg-gold"></span></td>
+          <td><strong>tertiary</strong></td>
+          <td><span class="table-code">gold</span></td>
+          <td><span class="table-type type-brand">Brand</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>CTA complementare</td>
+        </tr>
+        <tr class="row-gem">
+          <td><span class="table-dot" style="background:#2563EB;"></span></td>
+          <td><strong>info</strong></td>
+          <td><span class="table-code">blue</span></td>
+          <td><span class="table-type type-gem">Gemma</span></td>
+          <td><span class="gem-label">Sapphire</span></td>
+          <td style="color:#007C91; font-size:0.72rem; font-weight:600;">← teal</td>
+          <td>Notifiche informative</td>
+        </tr>
+        <tr class="row-gem">
+          <td><span class="table-dot" style="background:#F59E0B;"></span></td>
+          <td><strong>warning</strong></td>
+          <td><span class="table-code">amber</span></td>
+          <td><span class="table-type type-gem">Gemma</span></td>
+          <td><span class="gem-label">Baltic Amber</span></td>
+          <td style="color:#a08545; font-size:0.72rem; font-weight:600;">← gold</td>
+          <td>Avvertimenti</td>
+        </tr>
+        <tr class="row-gem">
+          <td><span class="table-dot" style="background:#DC2626;"></span></td>
+          <td><strong>error</strong></td>
+          <td><span class="table-code">red</span></td>
+          <td><span class="table-type type-gem">Gemma</span></td>
+          <td><span class="gem-label">Garnet</span></td>
+          <td style="color:#B76E79; font-size:0.72rem; font-weight:600;">← rose</td>
+          <td>Errori, validazione</td>
+        </tr>
+        <tr class="row-gem">
+          <td><span class="table-dot" style="background:#10B981;"></span></td>
+          <td><strong>success</strong></td>
+          <td><span class="table-code">emerald</span></td>
+          <td><span class="table-type type-gem">Gemma</span></td>
+          <td><span class="gem-label">Emerald 2.58ct</span></td>
+          <td style="color:#059669; font-size:0.72rem; font-weight:600;">ponte</td>
+          <td>Conferme</td>
+        </tr>
+        <tr class="row-gem">
+          <td><span class="table-dot" style="background:#78716C;"></span></td>
+          <td><strong>neutral</strong></td>
+          <td><span class="table-code">stone</span></td>
+          <td><span class="table-type type-gem">Gemma</span></td>
+          <td><span class="gem-label">Granito</span></td>
+          <td style="color:#78716C; font-size:0.72rem; font-weight:600;">base</td>
+          <td>Testo, bordi</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <!-- ═══ BUTTONS ═══ -->
+    <div class="buttons-section">
+      <h2 class="section-title">Bottoni — 3 Varianti × 3 Colori</h2>
+      <p class="section-subtitle">Solid · Outline · Soft</p>
+
+      <div class="buttons-grid">
+        <div class="btn-group">
+          <div class="btn-group-label">Primary</div>
+          <div class="btn-group-desc">Navigazione · Struttura</div>
+          <div class="btn-stack">
+            <button class="btn btn-solid-primary">Scopri di più <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">solid</span>
+            <button class="btn btn-outline-primary">Scopri di più <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">outline</span>
+            <button class="btn btn-soft-primary">Scopri di più</button>
+            <span class="btn-variant-label">soft</span>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <div class="btn-group-label">Secondary</div>
+          <div class="btn-group-desc">CTA principale · Azione</div>
+          <div class="btn-stack">
+            <button class="btn btn-solid-secondary">Prenota sessione <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">solid</span>
+            <button class="btn btn-outline-secondary">Prenota sessione <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">outline</span>
+            <button class="btn btn-soft-secondary">Prenota sessione</button>
+            <span class="btn-variant-label">soft</span>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <div class="btn-group-label">Tertiary</div>
+          <div class="btn-group-desc">CTA complementare · Premium</div>
+          <div class="btn-stack">
+            <button class="btn btn-solid-tertiary">Chiamata gratuita <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">solid</span>
+            <button class="btn btn-outline-tertiary">Chiamata gratuita <span class="btn-arrow">→</span></button>
+            <span class="btn-variant-label">outline</span>
+            <button class="btn btn-soft-tertiary">Chiamata gratuita</button>
+            <span class="btn-variant-label">soft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p class="footer-note">
+        3 colori brand + 5 pietre preziose di sistema. Ogni gemma è complementare al suo brand color
+        di riferimento — mai uguale, sempre in armonia. Sapphire richiama il teal, Baltic Amber il gold,
+        Garnet il rose. Emerald e Granito completano la palette come ponte e fondamenta.
+      </p>
+      <p class="footer-brand">Moya James Leadership · Define Your Path. Own Your Impact.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
