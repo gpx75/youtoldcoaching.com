@@ -8,10 +8,29 @@ const navigation = computed(() => navData.value?.items ?? []);
 const navCta = computed(() => navData.value?.cta);
 const brandName = computed(() => navData.value?.brand?.name ?? 'Moya James');
 const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
+
+// Scroll-aware header: transparent at top, frosted glass + rose accent when scrolled
+const scrolled = ref(false);
+function onScroll() {
+    scrolled.value = window.scrollY > 40;
+}
+onMounted(() => {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+});
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll);
+});
+
+const headerUi = computed(() => ({
+    root: scrolled.value
+        ? 'bg-default/80 backdrop-blur-lg border-b-2 border-(--ui-color-secondary-400) shadow-sm'
+        : 'bg-transparent backdrop-blur-none border-b border-transparent',
+}));
 </script>
 
 <template>
-    <UHeader :title="brandName">
+    <UHeader :title="brandName" :ui="headerUi">
         <!-- Primary accent bar above the header -->
         <template #top>
             <div class="h-0.5 bg-primary" />
@@ -32,7 +51,7 @@ const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
             <UButton
                 v-if="navCta"
                 :to="navCta.to"
-                color="secondary"
+                color="tertiary"
                 variant="solid"
                 size="sm"
                 class="hidden sm:flex"
@@ -48,7 +67,7 @@ const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
             <UButton
                 v-if="navCta"
                 :to="navCta.to"
-                color="secondary"
+                color="tertiary"
                 variant="solid"
                 class="mt-4 sm:hidden"
             >

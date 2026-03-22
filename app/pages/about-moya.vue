@@ -67,7 +67,7 @@ useHead(() => ({
                             :transition="{ duration: 0.5, delay: 0.1 }"
                             class="inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1 bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)"
                         >
-                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)" />
+                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-gold-accent)" />
                             {{ meta.eyebrow }}
                         </Motion>
 
@@ -119,7 +119,7 @@ useHead(() => ({
                             <UButton
                                 v-if="meta.cta"
                                 :to="meta.cta.href"
-                                color="secondary"
+                                color="tertiary"
                                 variant="solid"
                                 size="xl"
                                 trailing-icon="i-heroicons-arrow-right"

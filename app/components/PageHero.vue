@@ -92,8 +92,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         : 'bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80'"
                 >
                     <span
-                        class="h-1.5 w-1.5 shrink-0 rounded-full"
-                        :class="hasDarkBg ? 'bg-(--ui-on-dark-dot)' : 'bg-(--ui-primary)/70'"
+                        class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-gold-accent)"
                     />
                     {{ props.eyebrow }}
                 </Motion>
@@ -199,7 +198,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                         <UButton
                             v-if="props.cta"
                             :to="props.cta.href"
-                            color="secondary"
+                            color="tertiary"
                             variant="solid"
                             size="xl"
                             trailing-icon="i-heroicons-arrow-right"

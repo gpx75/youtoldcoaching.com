@@ -48,6 +48,53 @@
     --color-gold-800: oklch(37%  0.052 62);
     --color-gold-900: oklch(27%  0.034 61);
     --color-gold-950: oklch(17%  0.018 60);
+
+    /* ── Gemstone System Colors ─────────────────────────────────────── */
+
+    /* Rosso Porpora / Garnet — error states
+       Hue ~15 (red-purple shift from Tailwind's pure red ~25)
+       Lower chroma for noble, muted intensity — like cut garnet */
+    --color-red-50:  oklch(97%  0.010 15);
+    --color-red-100: oklch(93%  0.024 14);
+    --color-red-200: oklch(85%  0.048 13);
+    --color-red-300: oklch(75%  0.080 12);
+    --color-red-400: oklch(64%  0.110 12);
+    --color-red-500: oklch(55%  0.130 11);
+    --color-red-600: oklch(47%  0.120 10);
+    --color-red-700: oklch(40%  0.100 10);
+    --color-red-800: oklch(32%  0.075  9);
+    --color-red-900: oklch(24%  0.050  8);
+    --color-red-950: oklch(16%  0.030  8);
+
+    /* Baltic Amber Stone — warning states
+       Hue ~70 (warmer/browner than Tailwind's amber ~80)
+       Slightly muted chroma — fossilised, not synthetic */
+    --color-amber-50:  oklch(97%  0.016 70);
+    --color-amber-100: oklch(93%  0.036 68);
+    --color-amber-200: oklch(87%  0.068 66);
+    --color-amber-300: oklch(80%  0.098 64);
+    --color-amber-400: oklch(73%  0.115 62);
+    --color-amber-500: oklch(62%  0.110 60);
+    --color-amber-600: oklch(53%  0.098 58);
+    --color-amber-700: oklch(45%  0.078 56);
+    --color-amber-800: oklch(36%  0.058 54);
+    --color-amber-900: oklch(27%  0.038 52);
+    --color-amber-950: oklch(17%  0.020 50);
+
+    /* Bleu Gemme / Sapphire — info states
+       Hue ~255 (deeper than Tailwind's blue ~260, richer saturation)
+       Strong chroma — faceted sapphire depth */
+    --color-blue-50:  oklch(97%  0.012 255);
+    --color-blue-100: oklch(93%  0.030 254);
+    --color-blue-200: oklch(85%  0.060 253);
+    --color-blue-300: oklch(74%  0.095 252);
+    --color-blue-400: oklch(62%  0.120 250);
+    --color-blue-500: oklch(52%  0.135 248);
+    --color-blue-600: oklch(44%  0.125 246);
+    --color-blue-700: oklch(38%  0.105 244);
+    --color-blue-800: oklch(30%  0.080 242);
+    --color-blue-900: oklch(22%  0.055 240);
+    --color-blue-950: oklch(15%  0.032 238);
 }
 
 /* ── Semantic tokens: light mode ───────────────────────────────── */
@@ -61,6 +108,9 @@
        (default is shade-500; we shift to 700 for stronger brand presence) */
     --ui-primary: var(--ui-color-primary-700);
 
+    /* Gold accent — used for icons, stats, dots, logo subtitle, blockquotes */
+    --ui-gold-accent: var(--color-gold-500);
+
     /* Backgrounds: white → soft cream */
     --ui-bg:               oklch(100% 0     0);    /* pure white */
     --ui-bg-muted:         oklch(97%  0.006 78);   /* warm off-white */
@@ -69,7 +119,7 @@
     --ui-bg-inverted:      oklch(22%  0.040 210);  /* deep teal-navy */
 
     /* Text — WCAG AA contrast ratios against white */
-    --ui-text-highlighted: oklch(22%  0.040 210);  /* deep teal-navy — headings */
+    --ui-text-highlighted: var(--ui-color-primary-700);  /* teal — headings */
     --ui-text:             oklch(48%  0.010 65);   /* warm grey — body (~7:1) */
     --ui-text-muted:       oklch(55%  0.008 65);   /* secondary text (~5:1) */
     --ui-text-dimmed:      oklch(68%  0.006 65);   /* hints, placeholders */
@@ -98,16 +148,26 @@
     --ui-on-dark-border:        oklch(100% 0 0 / 0.22);
     --ui-on-dark-dot:           oklch(95% 0.012 78);       /* warm cream dot */
     --ui-on-dark-hover:         oklch(100% 0 0 / 0.08);
+
+    /* Footer: always-dark surface — stays constant in both modes */
+    --ui-footer-bg:             var(--color-teal-900);
+
+    /* Page frame: breathing rose-gold vignette around the viewport */
+    --ui-page-frame:            oklch(79% 0.056 33 / 0.25);
+    --ui-page-frame-soft:       oklch(79% 0.056 33 / 0.12);
 }
 
-/* ── Warning foreground: force cream text on gold button in both modes ──
+/* ── Gold foreground: force cream text on gold buttons in both modes ───
+   Applies to both tertiary (brand CTA) and warning (system states).
    html:root (0,1,1) beats :root (0,1,0) — wins over Nuxt UI generated CSS.
    html.dark (0,1,1) beats .dark (0,1,0) — same principle for dark mode.   */
 html:root {
-    --ui-warning-foreground: oklch(98%  0.004 78);  /* cream */
+    --ui-tertiary-foreground: oklch(98%  0.004 78);  /* cream */
+    --ui-warning-foreground:  oklch(98%  0.004 78);  /* cream */
 }
 html.dark {
-    --ui-warning-foreground: oklch(98%  0.004 78);  /* cream */
+    --ui-tertiary-foreground: oklch(98%  0.004 78);  /* cream */
+    --ui-warning-foreground:  oklch(98%  0.004 78);  /* cream */
 }
 
 /* ── Semantic tokens: dark mode ────────────────────────────────── */
@@ -115,11 +175,14 @@ html.dark {
     /* Brand primary: brighter teal on dark backgrounds */
     --ui-primary: var(--ui-color-primary-400);
 
-    /* Backgrounds: deep teal-navy — wider spread for clear surface hierarchy */
-    --ui-bg:               oklch(14%  0.022 210);  /* deepest base */
-    --ui-bg-muted:         oklch(17%  0.024 210);
-    --ui-bg-elevated:      oklch(21%  0.026 210);  /* cards & surfaces — perceptibly lighter */
-    --ui-bg-accented:      oklch(25%  0.030 210);  /* highlighted surfaces */
+    /* Gold accent: one step lighter for contrast on teal backgrounds */
+    --ui-gold-accent: var(--color-gold-400);
+
+    /* Backgrounds: deep teal — brand-recognisable, not black */
+    --ui-bg:               var(--color-teal-800);   /* teal-800: deep but teal */
+    --ui-bg-muted:         var(--color-teal-900);   /* slightly darker */
+    --ui-bg-elevated:      var(--color-teal-700);   /* cards — lighter surface */
+    --ui-bg-accented:      var(--color-teal-600);   /* highlighted surface */
     --ui-bg-inverted:      oklch(97%  0.012 78);   /* warm cream */
 
     /* Text: cream-family — warm throughout, mirrors light mode warmth */
@@ -129,11 +192,15 @@ html.dark {
     --ui-text-dimmed:      oklch(54%  0.008 75);   /* warm neutral dimmed */
     --ui-text-toned:       oklch(64%  0.012 210);  /* teal-tinted accent text */
 
-    /* Borders: stronger separation on dark backgrounds */
-    --ui-border:           oklch(30%  0.030 210);
-    --ui-border-muted:     oklch(26%  0.024 210);  /* softer separators */
-    --ui-border-accented:  oklch(40%  0.040 210);  /* active/hover borders */
+    /* Borders: stronger separation on teal backgrounds */
+    --ui-border:           oklch(34%  0.042 210);
+    --ui-border-muted:     oklch(30%  0.036 210);  /* softer separators */
+    --ui-border-accented:  oklch(42%  0.050 210);  /* active/hover borders */
     --ui-border-inverted:  oklch(93%  0.014 80);   /* warm cream */
+
+    /* Page frame: warm gold glow on dark teal */
+    --ui-page-frame:       oklch(75% 0.110 85 / 0.35);
+    --ui-page-frame-soft:  oklch(75% 0.110 85 / 0.15);
 }
 
 /* ── Base ──────────────────────────────────────────────────────── */
@@ -156,6 +223,7 @@ html.dark {
         letter-spacing: -0.025em;
         line-height: 1.12;
         text-wrap: balance;
+        color: var(--ui-primary);
     }
 
     p {
@@ -178,6 +246,21 @@ html.dark {
 
 /* ── Prose ─────────────────────────────────────────────────────── */
 @layer components {
+    /* Breathing rose-gold vignette around the entire page */
+    .page-frame {
+        background:
+            linear-gradient(to right,  var(--ui-page-frame), transparent 45px) left,
+            linear-gradient(to left,   var(--ui-page-frame), transparent 45px) right,
+            linear-gradient(to bottom, var(--ui-page-frame), transparent 45px) top;
+        background-repeat: no-repeat;
+        animation: skin-breathe 6s ease-in-out infinite;
+    }
+
+    @keyframes skin-breathe {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0.45; }
+    }
+
     .prose {
         --tw-prose-body:          var(--ui-text);
         --tw-prose-headings:      var(--ui-text-highlighted);
@@ -185,7 +268,7 @@ html.dark {
         --tw-prose-bold:          var(--ui-text-highlighted);
         --tw-prose-links:         var(--ui-primary);
         --tw-prose-quotes:        var(--ui-text-muted);
-        --tw-prose-quote-borders: var(--ui-primary);
+        --tw-prose-quote-borders: var(--ui-gold-accent);
         --tw-prose-counters:      var(--ui-text-muted);
         --tw-prose-bullets:       var(--ui-primary);
         --tw-prose-hr:            var(--ui-border);
@@ -301,6 +384,7 @@ html.dark {
 .subtitle-script {
     font-family: var(--font-script);
     font-size: 1.5rem;      /* 24px — mobile */
+    color: var(--ui-gold-accent);  /* Antique Gold — premium handwriting accent */
     @media (width >= 40rem)  { font-size: 1.875rem; }  /* 30px — sm */
     @media (width >= 64rem)  { font-size: 2.25rem;  }  /* 36px — lg */
 }
@@ -349,6 +433,15 @@ html.dark {
             transparent 100%
         );
     }
+}
+
+/* ── Dark mode: thinner page frame ────────────────────────────── */
+.dark .page-frame {
+    background:
+        linear-gradient(to right,  var(--ui-page-frame), transparent 8px) left,
+        linear-gradient(to left,   var(--ui-page-frame), transparent 8px) right,
+        linear-gradient(to bottom, var(--ui-page-frame), transparent 8px) top;
+    background-repeat: no-repeat;
 }
 
 /* ── View Transition: circular reveal for color mode toggle ─── */

@@ -84,9 +84,9 @@ defineProps<{
                         :while-in-view="{ opacity: 1, y: 0 }"
                         :transition="{ duration: 0.5, delay: 0.1 * i }"
                         :in-view-options="{ once: true }"
-                        class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6 transition-colors duration-200 hover:border-(--ui-border-accented)"
+                        class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6 transition-colors duration-200 hover:border-(--ui-gold-accent)"
                     >
-                        <UIcon v-if="pillar.icon" :name="pillar.icon" class="mb-2 size-5 text-primary" />
+                        <UIcon v-if="pillar.icon" :name="pillar.icon" class="mb-2 size-5 text-(--ui-gold-accent)" />
                         <p class="mb-2 font-semibold text-highlighted">{{ pillar.label }}</p>
                         <p class="text-sm leading-relaxed text-muted">{{ pillar.body }}</p>
                     </Motion>
@@ -125,7 +125,7 @@ defineProps<{
                         :in-view-options="{ once: true }"
                         class="text-center"
                     >
-                        <p class="font-serif text-2xl font-bold text-highlighted sm:text-4xl">{{ stat.value }}</p>
+                        <p class="font-serif text-2xl font-bold text-(--ui-gold-accent) sm:text-4xl">{{ stat.value }}</p>
                         <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
                     </Motion>
                 </div>
@@ -146,7 +146,7 @@ defineProps<{
             :title="section.heading"
             :description="section.body"
             :links="[
-                ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'secondary' as const, variant: 'solid' as const, size: 'xl' as const, class: 'px-7 py-3.5 shadow-lg hover:shadow-xl' }] : []),
+                ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'tertiary' as const, variant: 'solid' as const, size: 'xl' as const, class: 'px-7 py-3.5 shadow-lg hover:shadow-xl' }] : []),
                 ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'secondary' as const, variant: 'outline' as const, size: 'xl' as const, class: 'px-7 py-3.5 ring-2' }] : []),
             ]"
             :aria-label="section.eyebrow || 'Call to action'"

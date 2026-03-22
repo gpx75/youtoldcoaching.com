@@ -4,11 +4,12 @@ export default defineAppConfig({
         colors: {
             primary:   'teal',    // Deep Teal Blue — navigation, structure, headings
             secondary: 'rose',    // Rose Gold — CTAs, interactive highlights
-            success:   'emerald', // Success states — confirmations, positive feedback
-            info:      'sky',     // Informational — notices, help text
-            warning:   'gold',    // Antique Gold — complimentary CTA, decorative accents
-            error:     'red',     // Error states — validation, destructive actions
-            neutral:   'stone',   // Warm neutral — body text, muted states
+            tertiary:  'gold',    // Antique Gold — secondary CTAs, decorative accents
+            success:   'emerald', // Emerald Stone — conferma, crescita
+            info:      'blue',    // Bleu Gemme — sapphire, profondità
+            warning:   'amber',   // Baltic Amber — calore fossile, attenzione
+            error:     'red',     // Rosso Porpora — garnet, urgenza nobile
+            neutral:   'stone',   // Granito — base solida, struttura
         },
 
         // ── Button ──────────────────────────────────────────────────────────
@@ -77,7 +78,7 @@ export default defineAppConfig({
         // Frosted glass: translucent bg with strong blur
         header: {
             slots: {
-                root: 'bg-default/75 backdrop-blur-lg border-b border-default h-(--ui-header-height) sticky top-0 z-50',
+                root: 'h-(--ui-header-height) sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-out',
             },
         },
 

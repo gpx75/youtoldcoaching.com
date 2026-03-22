@@ -139,6 +139,11 @@ const siteSchema = z.object({
         titleSuffix: z.string().optional(),
         description: z.string().optional(),
     }).optional(),
+    social: z.array(z.object({
+        label: z.string(),
+        icon: z.string(),
+        href: z.string(),
+    })).optional(),
     footer: z.object({
         copyright: z.string(),
     }).optional(),

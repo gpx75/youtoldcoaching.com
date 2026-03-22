@@ -90,7 +90,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         :transition="{ duration: 0.5, delay: 0.1 }"
                         class="mb-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-(--ui-primary)/6 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-(--ui-primary)/80 ring-1 ring-(--ui-primary)/30 backdrop-blur-sm dark:bg-(--ui-on-dark-pill-bg) dark:text-(--ui-on-dark-text-soft) dark:ring-(--ui-on-dark-pill-ring)"
                     >
-                        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-primary)/70 dark:bg-(--ui-on-dark-dot)" />
+                        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-gold-accent)" />
                         {{ heroMeta.eyebrow }}
                     </Motion>
 
@@ -145,7 +145,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                         <UButton
                             v-if="heroMeta.cta"
                             :to="heroMeta.cta.href"
-                            color="secondary"
+                            color="tertiary"
                             variant="solid"
                             size="xl"
                             trailing-icon="i-heroicons-arrow-right"

@@ -16,7 +16,7 @@ defineProps<{
         </div>
         <span
             :class="{ 'text-[0.5rem]': size === 'sm', 'text-[0.55rem]': size === 'md', 'text-[0.65rem]': size === 'lg' }"
-            class="font-sans font-medium tracking-[0.25em] uppercase text-dimmed"
+            class="font-sans font-medium tracking-[0.25em] uppercase text-(--ui-gold-accent)"
         >{{ tagline ?? 'Moya James Leadership' }}</span>
     </div>
 </template>

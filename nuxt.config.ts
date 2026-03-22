@@ -16,6 +16,11 @@ export default defineNuxtConfig({
     'nuxt-studio',
     'motion-v/nuxt',
   ],
+  ui: {
+    theme: {
+      colors: ['primary', 'secondary', 'tertiary', 'success', 'info', 'warning', 'error'],
+    },
+  },
   nitro: {
     preset: 'vercel',
     prerender: {
