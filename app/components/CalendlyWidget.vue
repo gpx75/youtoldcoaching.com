@@ -380,7 +380,7 @@ onMounted(async () => {
                                 <UButton
                                     type="submit"
                                     color="secondary"
-                                    size="lg"
+                                    size="xl"
                                     class="w-full"
                                     icon="i-heroicons-calendar-days"
                                     :disabled="!booking.selectedSlot.value || !form.name || !form.email"
