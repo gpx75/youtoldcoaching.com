@@ -79,6 +79,7 @@ export default defineAppConfig({
         header: {
             slots: {
                 root: 'h-(--ui-header-height) sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-out',
+                right: 'flex items-center justify-end shrink-0 gap-2',
             },
         },
 
@@ -95,7 +96,8 @@ export default defineAppConfig({
         // Pill-shaped links to match button vocabulary
         navigationMenu: {
             slots: {
-                link: 'rounded-full px-3 py-1.5 text-sm font-medium',
+                link: 'rounded-full px-2.5 py-1.5 text-[13px] font-medium',
+                leadingIcon: 'hidden',
             },
         },
 

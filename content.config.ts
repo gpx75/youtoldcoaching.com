@@ -82,6 +82,7 @@ const pageSchema = z.object({
     heroContentScroll: z.boolean().optional(),
     heroSlides: z.array(z.string()).optional(),
     // Contact / booking
+    contactForm: z.boolean().optional(),
     calendlyUrl: z.string().optional(),
     // Below-fold storytelling sections
     sections: z.array(sectionSchema).optional(),
@@ -99,9 +100,15 @@ const navigationSchema = z.object({
         to: z.string(),
         icon: z.string().optional(),
     })),
+    contact: z.object({
+        label: z.string(),
+        to: z.string(),
+        icon: z.string().optional(),
+    }).optional(),
     cta: z.object({
         label: z.string(),
         to: z.string(),
+        icon: z.string().optional(),
     }).optional(),
 })
 
@@ -130,6 +137,25 @@ const calendlyLabelsSchema = z.object({
     selected: z.string().optional(),
 })
 
+const contactFormLabelsSchema = z.object({
+    heading: z.string().optional(),
+    description: z.string().optional(),
+    nameLabel: z.string().optional(),
+    namePlaceholder: z.string().optional(),
+    emailLabel: z.string().optional(),
+    emailPlaceholder: z.string().optional(),
+    subjectLabel: z.string().optional(),
+    subjectPlaceholder: z.string().optional(),
+    messageLabel: z.string().optional(),
+    messagePlaceholder: z.string().optional(),
+    submitButton: z.string().optional(),
+    sendingButton: z.string().optional(),
+    successTitle: z.string().optional(),
+    successMessage: z.string().optional(),
+    sendAnother: z.string().optional(),
+    emailFallback: z.string().optional(),
+})
+
 const siteSchema = z.object({
     brand: z.object({
         name: z.string(),
@@ -152,6 +178,9 @@ const siteSchema = z.object({
     }).optional(),
     background: z.object({
         darkPattern: z.string().optional(),
+    }).optional(),
+    contactForm: z.object({
+        labels: contactFormLabelsSchema.optional(),
     }).optional(),
     calendly: z.object({
         labels: calendlyLabelsSchema.optional(),

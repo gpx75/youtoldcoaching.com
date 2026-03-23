@@ -4,6 +4,10 @@ export default defineNuxtConfig({
     calendly: {
       apiKey: process.env.CALENDLY_API_KEY || '',
     },
+    resend: {
+      apiKey: process.env.RESEND_API_KEY || '',
+    },
+    contactEmail: process.env.CONTACT_EMAIL || 'hello@moyajames.com',
   },
   modules: [
     '@nuxt/eslint',

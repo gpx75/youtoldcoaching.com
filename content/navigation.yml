@@ -18,10 +18,13 @@ items:
   - label: Client Success Stories
     to: /client-success
     icon: i-heroicons-chat-bubble-left-right
-  - label: Contact
-    to: /contact
-    icon: i-heroicons-envelope
+
+contact:
+  label: Contact
+  to: /contact
+  icon: i-heroicons-envelope
 
 cta:
   label: Book a Session
-  to: /contact
+  to: /book
+  icon: i-heroicons-calendar-days

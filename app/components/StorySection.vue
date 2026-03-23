@@ -40,120 +40,84 @@ defineProps<{
 
 <template>
     <!-- Recognition: visitor's situation acknowledged (two-column layout) -->
-    <Motion
+    <UPageSection
         v-if="section.type === 'recognition'"
-        :initial="{ opacity: 0, y: 24 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
-        :in-view-options="{ once: true }"
-    >
-        <UPageSection
-            :headline="section.eyebrow"
-            :title="section.heading"
-            :description="section.body"
-            orientation="horizontal"
-            :aria-label="section.eyebrow || 'Recognition'"
-            :ui="{
-                root: 'border-t border-default',
-            }"
-        />
-    </Motion>
+        :headline="section.eyebrow"
+        :title="section.heading"
+        :description="section.body"
+        orientation="horizontal"
+        :aria-label="section.eyebrow || 'Recognition'"
+        :ui="{
+            root: 'border-t border-default',
+        }"
+    />
 
     <!-- Framework / Differentiators: methodology pillars -->
-    <Motion
+    <UPageSection
         v-else-if="section.type === 'framework' || section.type === 'differentiators'"
-        :initial="{ opacity: 0, y: 24 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
-        :in-view-options="{ once: true }"
+        :headline="section.eyebrow"
+        :title="section.heading"
+        :aria-label="section.eyebrow || 'Framework'"
+        :ui="{
+            root: 'border-t border-default',
+        }"
     >
-        <UPageSection
-            :headline="section.eyebrow"
-            :title="section.heading"
-            :aria-label="section.eyebrow || 'Framework'"
-            :ui="{
-                root: 'border-t border-default',
-            }"
-        >
-            <template #body>
-                <div v-if="section.pillars?.length" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    <Motion
-                        v-for="(pillar, i) in section.pillars"
-                        :key="pillar.label"
-                        :initial="{ opacity: 0, y: 16 }"
-                        :while-in-view="{ opacity: 1, y: 0 }"
-                        :transition="{ duration: 0.5, delay: 0.1 * i }"
-                        :in-view-options="{ once: true }"
-                        class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6 transition-colors duration-200 hover:border-(--ui-gold-accent)"
-                    >
-                        <UIcon v-if="pillar.icon" :name="pillar.icon" class="mb-2 size-5 text-(--ui-gold-accent)" />
-                        <p class="mb-2 font-semibold text-highlighted">{{ pillar.label }}</p>
-                        <p class="text-sm leading-relaxed text-muted">{{ pillar.body }}</p>
-                    </Motion>
+        <template #body>
+            <div v-if="section.pillars?.length" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div
+                    v-for="pillar in section.pillars"
+                    :key="pillar.label"
+                    class="rounded-xl border border-default bg-(--ui-bg-elevated)/60 p-6 transition-colors duration-200 hover:border-(--ui-gold-accent)"
+                >
+                    <UIcon v-if="pillar.icon" :name="pillar.icon" class="mb-2 size-5 text-(--ui-gold-accent)" />
+                    <p class="mb-2 font-semibold text-highlighted">{{ pillar.label }}</p>
+                    <p class="text-sm leading-relaxed text-muted">{{ pillar.body }}</p>
                 </div>
-                <p v-else-if="section.body" class="max-w-2xl text-base leading-relaxed text-muted">
-                    {{ section.body }}
-                </p>
-            </template>
-        </UPageSection>
-    </Motion>
+            </div>
+            <p v-else-if="section.body" class="max-w-2xl text-base leading-relaxed text-muted">
+                {{ section.body }}
+            </p>
+        </template>
+    </UPageSection>
 
     <!-- Credibility: proof stats -->
-    <Motion
+    <UPageSection
         v-else-if="section.type === 'credibility'"
-        :initial="{ opacity: 0, y: 24 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
-        :in-view-options="{ once: true }"
+        :headline="section.eyebrow"
+        :aria-label="section.eyebrow || 'Credibility'"
+        :ui="{
+            root: 'border-t border-default bg-(--ui-bg-elevated)/40',
+            headline: 'justify-center text-center',
+        }"
     >
-        <UPageSection
-            :headline="section.eyebrow"
-            :aria-label="section.eyebrow || 'Credibility'"
-            :ui="{
-                root: 'border-t border-default bg-(--ui-bg-elevated)/40',
-                headline: 'justify-center text-center',
-            }"
-        >
-            <template #body>
-                <div v-if="section.stats?.length" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
-                    <Motion
-                        v-for="(stat, i) in section.stats"
-                        :key="stat.value"
-                        :initial="{ opacity: 0, y: 12 }"
-                        :while-in-view="{ opacity: 1, y: 0 }"
-                        :transition="{ duration: 0.5, delay: 0.1 * i }"
-                        :in-view-options="{ once: true }"
-                        class="text-center"
-                    >
-                        <p class="font-serif text-2xl font-bold text-(--ui-gold-accent) sm:text-4xl">{{ stat.value }}</p>
-                        <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
-                    </Motion>
+        <template #body>
+            <div v-if="section.stats?.length" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+                <div
+                    v-for="stat in section.stats"
+                    :key="stat.value"
+                    class="text-center"
+                >
+                    <p class="font-serif text-2xl font-bold text-(--ui-gold-accent) sm:text-4xl">{{ stat.value }}</p>
+                    <p class="mt-1.5 text-xs uppercase tracking-wide text-muted">{{ stat.label }}</p>
                 </div>
-            </template>
-        </UPageSection>
-    </Motion>
+            </div>
+        </template>
+    </UPageSection>
 
     <!-- Action: primary CTA band -->
-    <Motion
+    <UPageSection
         v-else-if="section.type === 'action'"
-        :initial="{ opacity: 0, y: 24 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
-        :in-view-options="{ once: true }"
-    >
-        <UPageSection
-            :headline="section.eyebrow"
-            :title="section.heading"
-            :description="section.body"
-            :links="[
-                ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'tertiary' as const, variant: 'solid' as const, size: 'xl' as const, class: 'px-7 py-3.5 shadow-lg hover:shadow-xl' }] : []),
-                ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'secondary' as const, variant: 'outline' as const, size: 'xl' as const, class: 'px-7 py-3.5 ring-2' }] : []),
-            ]"
-            :aria-label="section.eyebrow || 'Call to action'"
-            :ui="{
-                root: 'border-t border-default',
-                container: 'max-w-3xl',
-            }"
-        />
-    </Motion>
+        :headline="section.eyebrow"
+        :title="section.heading"
+        :description="section.body"
+        :links="[
+            ...(section.cta ? [{ label: section.cta.label, to: section.cta.href, color: 'tertiary' as const, variant: 'solid' as const, size: 'xl' as const, class: 'px-7 py-3.5 shadow-lg hover:shadow-xl' }] : []),
+            ...(section.cta2 ? [{ label: section.cta2.label, to: section.cta2.href, color: 'secondary' as const, variant: 'outline' as const, size: 'xl' as const, class: 'px-7 py-3.5 ring-2' }] : []),
+        ]"
+        :aria-label="section.eyebrow || 'Call to action'"
+        :ui="{
+            root: 'border-t border-default',
+            container: 'max-w-3xl',
+        }"
+    />
 </template>

@@ -60,62 +60,41 @@ useHead(() => ({
                 <div class="about-hero-gradient relative z-[1] flex flex-col justify-center p-8 pt-[55dvh] md:px-8 md:py-12 lg:p-16 lg:pt-16 max-md:pb-12">
                     <div class="flex max-w-[560px] flex-col gap-6">
 
-                        <!-- Eyebrow badge — light: teal pill; dark: on-dark pill -->
-                        <Motion
-                            :initial="{ opacity: 0, filter: 'blur(10px)', y: 8 }"
-                            :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
-                            :transition="{ duration: 0.5, delay: 0.1 }"
-                            class="inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1 bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)"
+                        <!-- Eyebrow badge -->
+                        <div
+                            class="hero-enter-d1 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.3em] backdrop-blur-sm ring-1 bg-(--ui-primary)/6 ring-(--ui-primary)/30 text-(--ui-primary)/80 dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring) dark:text-(--ui-on-dark-text-soft)"
                         >
                             <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-(--ui-gold-accent)" />
                             {{ meta.eyebrow }}
-                        </Motion>
+                        </div>
 
                         <!-- H1 -->
-                        <Motion
-                            tag="h1"
-                            :initial="{ opacity: 0, filter: 'blur(12px)', y: 12 }"
-                            :animate="{ opacity: 1, filter: 'blur(0px)', y: 0 }"
-                            :transition="{ duration: 0.6, delay: 0.2 }"
-                            class="hero-title m-0 text-highlighted dark:text-(--ui-on-dark-text)"
-                        >
+                        <h1 class="hero-enter-d2 hero-title m-0 text-highlighted dark:text-(--ui-on-dark-text)">
                             {{ page.title }}
-                        </Motion>
+                        </h1>
 
                         <!-- Subheading -->
-                        <Motion
-                            tag="p"
-                            :initial="{ opacity: 0, y: 10 }"
-                            :animate="{ opacity: 1, y: 0 }"
-                            :transition="{ duration: 0.5, delay: 0.4 }"
-                            class="m-0 leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft)"
+                        <p
+                            class="hero-enter-d3 m-0 leading-relaxed text-muted dark:text-(--ui-on-dark-text-soft)"
                             :class="meta.subtitleFont === 'script' ? 'subtitle-script' : 'text-lg'"
                         >
                             {{ meta.subtitle }}
-                        </Motion>
+                        </p>
 
                         <!-- Credential badges -->
-                        <Motion
+                        <div
                             v-if="meta.tags?.length"
-                            :initial="{ opacity: 0, y: 10 }"
-                            :animate="{ opacity: 1, y: 0 }"
-                            :transition="{ duration: 0.5, delay: 0.5 }"
-                            class="flex flex-wrap gap-2"
+                            class="hero-enter-d4 flex flex-wrap gap-2"
                         >
                             <span
                                 v-for="tag in meta.tags"
                                 :key="tag"
                                 class="rounded-full px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm ring-1 bg-(--ui-bg)/80 ring-default text-muted dark:bg-(--ui-on-dark-pill-bg) dark:ring-(--ui-on-dark-pill-ring-sm) dark:text-(--ui-on-dark-text-muted)"
                             >{{ tag }}</span>
-                        </Motion>
+                        </div>
 
-                        <!-- CTAs — matches PageHero light/dark split -->
-                        <Motion
-                            :initial="{ opacity: 0, y: 10 }"
-                            :animate="{ opacity: 1, y: 0 }"
-                            :transition="{ duration: 0.5, delay: 0.6 }"
-                            class="flex flex-wrap gap-3"
-                        >
+                        <!-- CTAs -->
+                        <div class="hero-enter-d5 flex flex-wrap gap-3">
                             <UButton
                                 v-if="meta.cta"
                                 :to="meta.cta.href"
@@ -137,7 +116,7 @@ useHead(() => ({
                             >
                                 {{ meta.cta2.label }}
                             </UButton>
-                        </Motion>
+                        </div>
 
                     </div>
                 </div>
@@ -149,21 +128,14 @@ useHead(() => ({
              SECTION 2 — BIO
              Markdown body prose from content/about-moya.md
              ═══════════════════════════════════════════════════════════ -->
-        <Motion
-            :initial="{ opacity: 0, y: 24 }"
-            :while-in-view="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.6 }"
-            :in-view-options="{ once: true }"
-            tag="section"
-            class="bg-default py-20 px-8"
-        >
-            <div class="mx-auto max-w-[800px]">
+        <section class="bg-default py-20 px-8">
+            <div class="mx-auto max-w-200">
                 <ContentRenderer
                     :value="page"
                     class="prose prose-sm md:prose-base max-w-none"
                 />
             </div>
-        </Motion>
+        </section>
 
         <!-- ═══════════════════════════════════════════════════════════
              SECTIONS 3–5 — DIFFERENTIATORS / CREDIBILITY / ACTION

@@ -42,6 +42,7 @@ const heroMeta = computed(() => {
         heroSlides:           (current as any).heroSlides           ?? (meta as any).heroSlides,
         heroContentScroll:    (current as any).heroContentScroll    ?? (meta as any).heroContentScroll,
         calendlyUrl:          (current as any).calendlyUrl          ?? (meta as any).calendlyUrl,
+        contactForm:          (current as any).contactForm          ?? (meta as any).contactForm ?? false,
         subtitleFont:         (current as any).subtitleFont         ?? (meta as any).subtitleFont,
         sections:             (current as any).sections             ?? (meta as any).sections ?? null,
     };
@@ -71,7 +72,7 @@ const hasBody = computed(() => {
     <div v-if="page">
 
         <!-- ── Hero panel: fills viewport on desktop ─────────────────── -->
-        <div class="lg:flex lg:h-[calc(100dvh-3.5rem)] lg:flex-col lg:overflow-hidden">
+        <div class="lg:flex lg:min-h-[calc(100dvh-3.5rem)] lg:flex-col">
             <PageHero
                 :eyebrow="heroMeta.eyebrow"
                 :title="page.title"
@@ -87,6 +88,7 @@ const hasBody = computed(() => {
                 :illustration-fill="heroMeta.heroIllustrationFill"
                 :content-scroll="heroMeta.heroContentScroll"
                 :subtitle-font="heroMeta.subtitleFont"
+                :contact-form="heroMeta.contactForm"
             />
         </div>
 

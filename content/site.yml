@@ -23,6 +23,25 @@ contact:
 background:
   darkPattern: /images/pattern169.jpg
 
+contactForm:
+  labels:
+    heading: Send a message
+    description: Tell me a little about where you are and what you're navigating. I'll respond personally within two working days.
+    nameLabel: Name
+    namePlaceholder: Your name
+    emailLabel: Email
+    emailPlaceholder: you@example.com
+    subjectLabel: Subject (optional)
+    subjectPlaceholder: What is this about?
+    messageLabel: Message
+    messagePlaceholder: A brief note about your situation and what you'd like to explore…
+    submitButton: Send message
+    sendingButton: Sending…
+    successTitle: Message sent
+    successMessage: Thank you for reaching out. I'll be in touch within two working days.
+    sendAnother: Send another message
+    emailFallback: Or email directly at
+
 calendly:
   labels:
     chooseSession: Choose a session

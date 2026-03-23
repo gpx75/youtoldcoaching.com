@@ -5,6 +5,7 @@ const { data: navData } = await useAsyncData('navigation', () => {
 });
 
 const navigation = computed(() => navData.value?.items ?? []);
+const navContact = computed(() => navData.value?.contact);
 const navCta = computed(() => navData.value?.cta);
 const brandName = computed(() => navData.value?.brand?.name ?? 'Moya James');
 const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
@@ -46,15 +47,27 @@ const headerUi = computed(() => ({
             <UNavigationMenu :items="navigation" />
         </template>
 
-        <!-- Right side: CTA + color mode toggle -->
+        <!-- Right side: Contact + Book + color mode toggle -->
         <template #right>
+            <UButton
+                v-if="navContact"
+                :to="navContact.to"
+                color="secondary"
+                variant="outline"
+                size="sm"
+                :icon="navContact.icon"
+                class="hidden lg:flex"
+            >
+                {{ navContact.label }}
+            </UButton>
             <UButton
                 v-if="navCta"
                 :to="navCta.to"
-                color="tertiary"
+                color="secondary"
                 variant="solid"
                 size="sm"
-                class="hidden sm:flex"
+                :icon="navCta.icon"
+                class="hidden lg:flex !shrink-0 !whitespace-nowrap"
             >
                 {{ navCta.label }}
             </UButton>
@@ -63,16 +76,27 @@ const headerUi = computed(() => ({
 
         <!-- Mobile menu body -->
         <template #body>
-            <UNavigationMenu orientation="vertical" :items="navigation" />
-            <UButton
-                v-if="navCta"
-                :to="navCta.to"
-                color="tertiary"
-                variant="solid"
-                class="mt-4 sm:hidden"
-            >
-                {{ navCta.label }}
-            </UButton>
+            <UNavigationMenu orientation="vertical" :items="navigation" :ui="{ leadingIcon: '' }" />
+            <div class="mt-4 flex flex-col gap-2 sm:hidden">
+                <UButton
+                    v-if="navContact"
+                    :to="navContact.to"
+                    color="secondary"
+                    variant="outline"
+                    :icon="navContact.icon"
+                >
+                    {{ navContact.label }}
+                </UButton>
+                <UButton
+                    v-if="navCta"
+                    :to="navCta.to"
+                    color="secondary"
+                    variant="solid"
+                    :icon="navCta.icon"
+                >
+                    {{ navCta.label }}
+                </UButton>
+            </div>
         </template>
     </UHeader>
 </template>
