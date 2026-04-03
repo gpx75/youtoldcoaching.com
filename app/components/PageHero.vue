@@ -126,7 +126,7 @@ onUnmounted(() => { if (timer) clearInterval(timer); });
                 >
                     <img
                         :src="props.illustration"
-                        alt="Moya"
+                        alt="Hilda"
                         class="h-full w-full object-cover object-top"
                     />
                 </div>

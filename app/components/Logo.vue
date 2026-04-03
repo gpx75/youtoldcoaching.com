@@ -12,11 +12,11 @@ defineProps<{
             :class="{ 'text-lg': size === 'sm', 'text-xl': size === 'md', 'text-3xl': size === 'lg' }"
             class="font-serif font-semibold tracking-tight text-highlighted"
         >
-            {{ name ?? 'Moya James' }}
+            {{ name ?? 'Hilda Kilama' }}
         </div>
         <span
             :class="{ 'text-[0.5rem]': size === 'sm', 'text-[0.55rem]': size === 'md', 'text-[0.65rem]': size === 'lg' }"
             class="font-sans font-medium tracking-[0.25em] uppercase text-(--ui-gold-accent)"
-        >{{ tagline ?? 'Moya James Leadership' }}</span>
+        >{{ tagline ?? 'Hilda Kilama Leadership' }}</span>
     </div>
 </template>

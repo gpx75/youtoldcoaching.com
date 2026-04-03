@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('page-/about-moya', () => {
-    return queryCollection('content').path('/about-moya').first();
+const { data: page } = await useAsyncData('page-/about-hilda', () => {
+    return queryCollection('content').path('/about-hilda').first();
 });
 
 if (!page.value) {
@@ -10,7 +10,7 @@ if (!page.value) {
 const meta = computed(() => {
     const current = page.value ?? {};
     return {
-        eyebrow:     (current as any).eyebrow     ?? 'About Moya James',
+        eyebrow:     (current as any).eyebrow     ?? 'About Hilda Kilama',
         subtitle:    (current as any).subtitle,
         tags:        (current as any).tags        ?? [],
         cta:         (current as any).cta,
@@ -51,7 +51,7 @@ useHead(() => ({
                 <div class="absolute inset-0 z-0" aria-hidden="true">
                     <img
                         :src="meta.heroBgImage"
-                        alt="Moya James"
+                        alt="Hilda Kilama"
                         class="block h-full w-full object-cover object-[60%_top]"
                     />
                 </div>

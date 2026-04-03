@@ -7,8 +7,8 @@ cta:
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
-description: Leadership transition coaching for senior leaders and executives navigating their next chapter. Moya James guides leaders from uncertainty to empowered leadership using the Pathwise™ methodology.
-eyebrow: Moya James Leadership
+description: Leadership transition coaching for senior leaders and executives navigating their next chapter. Hilda Kilama guides leaders from uncertainty to empowered leadership using the Pathwise™ methodology.
+eyebrow: Hilda Kilama Leadership
 heroBg:
   light: /images/london_day.jpg
   dark: /images/london_night.jpg
@@ -43,7 +43,7 @@ sections:
   - type: action
     eyebrow: Define Your Path. Own Your Impact.
     heading: Your next chapter begins with one conversation.
-    body: Senior leaders and entrepreneurs across the UK, Switzerland, and globally choose Moya James to navigate pivotal career transitions with clarity, capability, and confidence.
+    body: Senior leaders and entrepreneurs across the UK, Switzerland, and globally choose Hilda Kilama to navigate pivotal career transitions with clarity, capability, and confidence.
     cta:
       label: Book Alignment Session — £120
       href: /contact?type=90
@@ -62,7 +62,7 @@ You are standing at a crossroads. The role you have outgrown no longer fits — 
 
 That space between who you were and who you are becoming is the most consequential transition of your leadership career.
 
-Moya James works with senior leaders and entrepreneurs — Director to C-suite — who are navigating precisely this moment. The uncertainty. The overwhelm. The quiet erosion of confidence that comes when the old story no longer holds.
+Hilda Kilama works with senior leaders and entrepreneurs — Director to C-suite — who are navigating precisely this moment. The uncertainty. The overwhelm. The quiet erosion of confidence that comes when the old story no longer holds.
 
 **The Pathwise™ methodology — Activate → Align → Achieve — was designed for transitions like yours.**
 

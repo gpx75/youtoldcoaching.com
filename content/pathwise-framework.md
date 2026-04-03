@@ -6,7 +6,7 @@ cta:
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
-description: The Pathwise™ Methodology — a proprietary three-phase framework guiding senior leaders from uncertainty to confident, purposeful leadership. Developed by Moya James across 400+ coaching engagements.
+description: The Pathwise™ Methodology — a proprietary three-phase framework guiding senior leaders from uncertainty to confident, purposeful leadership. Developed by Hilda Kilama across 400+ coaching engagements.
 eyebrow: Pathwise™ Framework
 heroContentScroll: false
 heroIllustrationFill: false
@@ -50,7 +50,7 @@ tags:
   - Achieve
 ---
 
-The Pathwise™ Methodology is the proprietary framework at the heart of every engagement with Moya James. It maps the three sequential phases of a meaningful leadership transition.
+The Pathwise™ Methodology is the proprietary framework at the heart of every engagement with Hilda Kilama. It maps the three sequential phases of a meaningful leadership transition.
 
 **Activate** — Start the journey, gain clarity, and take first steps.
 

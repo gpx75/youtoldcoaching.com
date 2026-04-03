@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     resend: {
       apiKey: process.env.RESEND_API_KEY || '',
     },
-    contactEmail: process.env.CONTACT_EMAIL || 'hello@moyajames.com',
+    contactEmail: process.env.CONTACT_EMAIL || 'hello@hildakilama.com',
   },
   modules: [
     '@nuxt/eslint',

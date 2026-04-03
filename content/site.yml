@@ -1,10 +1,10 @@
 brand:
-  name: Moya James
-  tagline: Moya James Leadership
+  name: Hilda Kilama
+  tagline: Hilda Kilama Leadership
 
 metaDefaults:
-  titleSuffix: Moya James Leadership
-  description: Narrative coaching for leaders navigating professional transition. Pathwise™ methodology with Moya James.
+  titleSuffix: Hilda Kilama Leadership
+  description: Narrative coaching for leaders navigating professional transition. Pathwise™ methodology with Hilda Kilama.
 
 social:
   - label: Instagram
@@ -15,10 +15,10 @@ social:
     href: https://linkedin.com/in/moyajames
 
 footer:
-  copyright: Moya James Leadership. All rights reserved.
+  copyright: Hilda Kilama Leadership. All rights reserved.
 
 contact:
-  email: hello@moyajames.com
+  email: hello@hildakilama.com
 
 background:
   darkPattern: /images/pattern169.jpg
@@ -50,7 +50,7 @@ calendly:
     noSessionTypes: No session types found
     noSessionTypesHint: Check your Calendly configuration.
     noAvailability: No availability in the next 14 days
-    noAvailabilityHint: Email hello@moyajames.com and we'll find a time.
+    noAvailabilityHint: Email hello@hildakilama.com and we'll find a time.
     yourDetails: Your details
     yourDetailsHint: I'll use these to prepare for our conversation.
     nameLabel: Name

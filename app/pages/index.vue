@@ -151,7 +151,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
                 <div class="hero-enter-d4 flex justify-end items-end overflow-hidden lg:hidden">
                     <img
                         :src="heroMeta.heroPortrait"
-                        alt="Moya James"
+                        alt="Hilda Kilama"
                         class="h-80 w-auto max-w-[75%] object-cover object-top"
                     />
                 </div>
@@ -162,7 +162,7 @@ const hasSections = computed(() => (heroMeta.value.sections?.length ?? 0) > 0);
             <div class="hero-enter-d4 pointer-events-none absolute bottom-0 -right-32 hidden lg:block">
                 <img
                     :src="heroMeta.heroPortrait"
-                    alt="Moya James"
+                    alt="Hilda Kilama"
                     aria-hidden="true"
                     class="h-[95dvh] w-auto object-contain object-bottom mask-[linear-gradient(to_right,transparent_0%,black_18%)]"
                 />

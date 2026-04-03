@@ -30,14 +30,14 @@ export default defineEventHandler(async (event) => {
     }
 
     const resend = new Resend(apiKey)
-    const toEmail = process.env.CONTACT_EMAIL || 'hello@moyajames.com'
+    const toEmail = process.env.CONTACT_EMAIL || 'hello@hildakilama.com'
 
     const subjectLine = body.subject?.trim()
         ? `[Website] ${body.subject.trim()}`
         : `[Website] New message from ${body.name.trim()}`
 
     const { error } = await resend.emails.send({
-        from: `Moya James Website <onboarding@resend.dev>`,
+        from: `Hilda Kilama Website <onboarding@resend.dev>`,
         to: [toEmail],
         replyTo: body.email.trim(),
         subject: subjectLine,

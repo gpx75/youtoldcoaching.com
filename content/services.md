@@ -6,7 +6,7 @@ cta:
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
-description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Moya James.
+description: Three bespoke leadership coaching programmes — Pathway (CHF 2,000), Momentum (CHF 5,000), and Impact (CHF 9,000) — plus Pathwise Strategy Days and a £120 Alignment Session with Hilda Kilama.
 eyebrow: Services
 heroContentScroll: false
 heroIllustrationFill: false

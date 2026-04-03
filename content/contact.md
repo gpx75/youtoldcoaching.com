@@ -1,7 +1,7 @@
 ---
 title: Get in touch.
 contactForm: true
-description: Send a message to Moya James. Leadership transition coaching for senior leaders and executives.
+description: Send a message to Hilda Kilama. Leadership transition coaching for senior leaders and executives.
 eyebrow: Contact
 heroContentScroll: false
 heroIllustration: /images/527A3888.png

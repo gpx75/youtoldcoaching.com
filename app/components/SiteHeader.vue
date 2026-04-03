@@ -7,7 +7,7 @@ const { data: navData } = await useAsyncData('navigation', () => {
 const navigation = computed(() => navData.value?.items ?? []);
 const navContact = computed(() => navData.value?.contact);
 const navCta = computed(() => navData.value?.cta);
-const brandName = computed(() => navData.value?.brand?.name ?? 'Moya James');
+const brandName = computed(() => navData.value?.brand?.name ?? 'Hilda Kilama');
 const brandTagline = computed(() => navData.value?.brand?.tagline ?? '');
 
 // Scroll-aware header: transparent at top, frosted glass + rose accent when scrolled

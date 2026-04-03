@@ -1,13 +1,13 @@
 brand:
-  name: Moya James
-  tagline: Moya James Leadership
+  name: Hilda Kilama
+  tagline: Hilda Kilama Leadership
 
 items:
   - label: Home
     to: /
     icon: i-heroicons-home
-  - label: About Moya
-    to: /about-moya
+  - label: About Hilda
+    to: /about-hilda
     icon: i-heroicons-user
   - label: Services
     to: /services

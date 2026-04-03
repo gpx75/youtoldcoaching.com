@@ -8,8 +8,8 @@ cta:
 cta2:
   label: Complimentary 30-min call
   href: /contact?type=30
-description: Moya James — ICF Level 2 certified leadership coach with 20+ years in pharmaceutical industry leadership. Creator of the Pathwise™ methodology. Based in the UK and Switzerland, coaching globally.
-eyebrow: About Moya James
+description: Hilda Kilama — ICF Level 2 certified leadership coach with 20+ years in pharmaceutical industry leadership. Creator of the Pathwise™ methodology. Based in the UK and Switzerland, coaching globally.
+eyebrow: About Hilda Kilama
 heroBgImage: /images/about-hero.jpg
 heroContentScroll: false
 heroIllustrationFill: false
@@ -42,7 +42,7 @@ sections:
       - value: 400+
         label: Leaders coached
   - type: action
-    eyebrow: Work with Moya
+    eyebrow: Work with Hilda
     heading: Ready to begin? Let's find out if this is the right fit.
     body: Start with a complimentary 30-minute conversation. No obligation, no pitch — a real discussion about where you are and what your transition requires.
     cta:

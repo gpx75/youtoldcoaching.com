@@ -7,12 +7,12 @@ const { data: navData } = await useAsyncData('footer-nav', () => {
     return queryCollection('navigation').first();
 });
 
-const brandName = computed(() => siteData.value?.brand?.name ?? 'Moya James');
-const brandTagline = computed(() => siteData.value?.brand?.tagline ?? 'Moya James Leadership');
+const brandName = computed(() => siteData.value?.brand?.name ?? 'Hilda Kilama');
+const brandTagline = computed(() => siteData.value?.brand?.tagline ?? 'Hilda Kilama Leadership');
 const copyright = computed(
-    () => siteData.value?.footer?.copyright ?? 'Moya James Leadership. All rights reserved.',
+    () => siteData.value?.footer?.copyright ?? 'Hilda Kilama Leadership. All rights reserved.',
 );
-const contactEmail = computed(() => siteData.value?.contact?.email ?? 'hello@moyajames.com');
+const contactEmail = computed(() => siteData.value?.contact?.email ?? 'hello@hildakilama.com');
 const socialLinks = computed(() => siteData.value?.social ?? []);
 const navItems = computed(() => navData.value?.items ?? []);
 const navCta = computed(() => navData.value?.cta);

@@ -6,7 +6,7 @@ cta:
 cta2:
   label: View programmes
   href: /services
-description: Client success stories from leaders who worked with Moya James through the Pathwise™ methodology — navigating pivotal career transitions across pharmaceutical, banking, and technology sectors.
+description: Client success stories from leaders who worked with Hilda Kilama through the Pathwise™ methodology — navigating pivotal career transitions across pharmaceutical, banking, and technology sectors.
 eyebrow: Client Success Stories
 heroContentScroll: false
 heroIllustrationFill: false
