@@ -1,6 +1,7 @@
 ---
 title: Guiding leaders from uncertainty to empowered leadership.
 bodyHeading: ""
+contactForm: false
 cta:
   label: View programmes
   href: /services
@@ -67,3 +68,5 @@ In 2016 I founded my coaching practice, built on a conviction I had tested in bo
 That conviction became the Pathwise™ methodology. It is narrative-centred, evidence-informed, and designed specifically for the kind of pivotal transitions that senior leaders face — not entry-level career changes, but identity-level reinventions.
 
 My industry background spans **Pharmaceutical · Banking · Technology**. My clients come from those sectors because I understand them from the inside.
+
+So today I change very little test
