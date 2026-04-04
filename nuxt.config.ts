@@ -19,7 +19,12 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-studio',
     'motion-v/nuxt',
+    'nuxt-gtag',
   ],
+  gtag: {
+    initMode: 'auto',
+    id: process.env.NUXT_PUBLIC_GTAG_ID || '',
+  },
   ui: {
     theme: {
       colors: ['primary', 'secondary', 'tertiary', 'success', 'info', 'warning', 'error'],

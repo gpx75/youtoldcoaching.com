@@ -24,6 +24,7 @@
     "better-sqlite3": "^12.6.0",
     "motion-v": "^2.1.0",
     "nuxt": "^4.2.2",
+    "nuxt-gtag": "^4.1.0",
     "nuxt-og-image": "^6.1.0",
     "nuxt-studio": "^1.4.0",
     "resend": "^6.9.4",
