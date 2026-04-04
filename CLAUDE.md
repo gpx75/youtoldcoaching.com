@@ -9,10 +9,10 @@ The site must communicate authority, calm strategic thinking, clarity, and premi
 PROJECT CONTEXT
 
 Brand:
-Moya James Leadership
+Hilda Kilama Leadership
 
 Domain:
-moyajamescom.vercel.app
+hildakilama.com
 
 Tagline:
 Define Your Path. Own Your Impact.

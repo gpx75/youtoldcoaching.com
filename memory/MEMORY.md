@@ -1,4 +1,4 @@
-# Moya James Leadership — Project Memory
+# Hilda Kilama Leadership — Project Memory
 
 ## Stack
 - Nuxt 4, Nuxt UI 4, Tailwind CSS v4, Nuxt Content 3
@@ -29,7 +29,7 @@
 - `/work-with-me` — £200 Alignment, 3/6/12-month programmes, VIP Days
 - `/transition-triad` — Clarity/Capability/Confidence framework
 - `/client-success` — 4 testimonials (placeholders)
-- `/book` — Calendly link (https://calendly.com/moyajames), email hello@moyajames.com
+- `/book` — Calendly link (https://calendly.com/hilda_k), email hello@hildakilama.com
 
 ## Completed Refactors
 - BackgroundPattern: hex → currentColor/token
