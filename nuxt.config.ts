@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     repository: {
       provider: 'github',
       owner: 'gpx75',
-      repo: 'youtoldcoaching.com',
+      repo: 'hildakilama.com',
       branch: 'main',
     },
   },
